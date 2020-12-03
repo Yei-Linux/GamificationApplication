@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { EBorderType, EHeightType, EShadowType, EWithType } from "../../../core/domain/enums";
-import { CustomButton } from "./button.styled";
+import { CustomButton, ButtonContainer, ButtonIconContainer } from "./button.styled";
 
 export interface IButton {
   /**
@@ -54,19 +54,30 @@ const Button = ({
   shadowType,
   widthType,
   heigthType,
+  iconDiv,
+  hasIcon
 }: IButton) => {
   return (
-    <CustomButton
-      backgroundColor={backgroundColor}
-      textColor={textColor}
-      borderColor={borderColor}
-      shadowType={shadowType}
-      borderType={borderType}
-      widthType={widthType}
-      heigthType={heigthType}
-    >
-      {children}
-    </CustomButton>
+    <ButtonContainer>
+      {
+        hasIcon &&
+        <ButtonIconContainer>
+          { iconDiv }
+        </ButtonIconContainer>
+      }
+
+      <CustomButton
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+        borderColor={borderColor}
+        shadowType={shadowType}
+        borderType={borderType}
+        widthType={widthType}
+        heigthType={heigthType}
+      >
+        {children}
+      </CustomButton>
+    </ButtonContainer>
   );
 };
 
@@ -74,6 +85,7 @@ Button.defaultProps = {
   backgroundColor: 'white',
   textColor : 'black',
   borderColor : 'black',
+  hasIcon: false
 }
 
 export default Button;

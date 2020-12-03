@@ -25,3 +25,16 @@ export const CustomButton = styled.button<{
   ${(props : any) => generateWidthTypeProps(props.widthType)}
   ${(props : any) => generateHeightTypeProps(props.heigthType)}
 `;
+
+export const ButtonIconContainer = styled.div<{}>`
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+`;
+
+export const ButtonContainer = tw.div`
+  relative
+  p-0
+  m-0
+`

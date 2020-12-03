@@ -20,17 +20,66 @@ export default {
   },
 } as Meta;
 
-export const RoundButton = (args) => (
+export const SmallButton = (args) => (
   <Button {...args} />
 );
 
-RoundButton.args = {
-  children: 'Primary',
+SmallButton.args = {
+  children: 'Small Button',
   borderColor: '#a7f4ff',
   backgroundColor: "#a7f4ff",
-  widthType: EWithType.MEDIUM,
+  widthType: EWithType.SMALL,
+  heigthType: EHeightType.SMALL,
   shadowType: EShadowType.XLARGE,
   borderType: EBorderType.PILLSHAPE
 };
 
-RoundButton.storyName = "Round Button";
+SmallButton.storyName = "Small Button";
+
+export const NormalButton = (args) => (
+  <Button {...args} />
+);
+
+NormalButton.args = {
+  children: 'Normal Button',
+  borderColor: '#f8f7de',
+  backgroundColor: "#f8f7de",
+  widthType: EWithType.NORMAL,
+  heigthType: EHeightType.SMALL,
+  shadowType: EShadowType.XLARGE,
+  borderType: EBorderType.PILLSHAPE
+};
+
+NormalButton.storyName = "Normal Button";
+
+export const MediumButton = (args) => (
+  <Button {...args} />
+);
+
+MediumButton.args = {
+  children: 'Medium Button',
+  borderColor: '#b088f9',
+  backgroundColor: "#b088f9",
+  widthType: EWithType.MEDIUM,
+  heigthType: EHeightType.SMALL,
+  shadowType: EShadowType.XLARGE,
+  borderType: EBorderType.PILLSHAPE
+};
+
+MediumButton.storyName = "Medium Button";
+
+export const LargeButton = (args) => (
+  <Button {...args} />
+);
+
+LargeButton.args = {
+  children: 'Large Button',
+  borderColor: '#bedcfa',
+  backgroundColor: "#bedcfa",
+  widthType: EWithType.LARGE,
+  heigthType: EHeightType.SMALL,
+  shadowType: EShadowType.XLARGE,
+  borderType: EBorderType.PILLSHAPE
+};
+
+LargeButton.storyName = "Large Button";

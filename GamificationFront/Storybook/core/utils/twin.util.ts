@@ -16,7 +16,7 @@ export const generateShadowProps = (twinProp : any) => {
 export const generateBorderTypeProps = (twinProp : any) => {
     switch (twinProp) {
         case 'CIRCLE':
-            return tw`rounded-circle h-normal w-normal flex items-center justify-center`;
+            return tw`rounded-circle h-normal w-16 flex items-center justify-center`;
         case 'PILLSHAPE':
             return tw`rounded-full`;
         case 'ROUNDED':
@@ -31,9 +31,9 @@ export const generateBorderTypeProps = (twinProp : any) => {
 export const generateWidthTypeProps = (twinProp : any) => {
     switch (twinProp) {
         case 'SMALL':
-            return tw`w-small`;
+            return tw`w-smalls`;
         case 'NORMAL':
-            return tw`w-normal`;
+            return tw`w-fit`;
         case 'MEDIUM':
             return tw`w-48`;
         case 'LARGE':

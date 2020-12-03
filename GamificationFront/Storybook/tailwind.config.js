@@ -40,11 +40,11 @@ module.exports = {
         xs: "20rem"
       },
       width: {
-        'small': "3rem",
-        'normal': "4rem",
+        'smalls': "8rem",
+        'normal': "auto",
+        "fit": "fit-content",
         80: "25rem",
-        90: "30rem",
-        "fit": "fit-content"
+        90: "30rem"
       },
       minHeight: {
         "screen-80": "80vh"

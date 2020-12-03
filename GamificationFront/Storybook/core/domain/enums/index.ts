@@ -24,3 +24,14 @@ export enum EHeightType {
     MEDIUM = 'MEDIUM',
     LARGE = 'LARGE'
 }
+
+export enum EInputType {
+    TEXTFIELD = 'TEXTFIELD',
+    SELECT = 'SELECT'
+}
+
+export enum ETextFieldType {
+    TEXT = 'text',
+    PASSWORD = 'password',
+    NUMBER = 'number',
+}
