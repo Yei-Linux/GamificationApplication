@@ -22,7 +22,7 @@ export default {
 
 export const RoundIcon= (args) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={IconLogo} alt="logo"/>
+    <img style={{height:"30px",width:"30px"}} src={IconLogo} alt="roundLogo"/>
   </Icon>
 );
 
@@ -38,7 +38,7 @@ RoundIcon.storyName = "Round Icon";
 
 export const SquareIcon= (args) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={IceCreamLogo} alt="logo"/>
+    <img style={{height:"30px",width:"30px"}} src={IceCreamLogo} alt="squareLogo"/>
   </Icon>
 );
 
@@ -55,7 +55,7 @@ SquareIcon.storyName = "Square Icon";
 
 export const TransparentIcon= (args) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={FoodLogo} alt="logo"/>
+    <img style={{height:"30px",width:"30px"}} src={FoodLogo} alt="transparentLogo"/>
   </Icon>
 );
 

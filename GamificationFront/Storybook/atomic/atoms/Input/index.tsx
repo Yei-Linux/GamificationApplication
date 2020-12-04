@@ -8,12 +8,12 @@ import {
   EWithType,
 } from "../../../core/domain/enums";
 import { ItemSelect } from "../../../core/domain/interfaces";
-import SelectField from "./components/Select";
+import SelectField from "./components/SelectField";
 import TextField from "./components/TextField";
 
 export interface IInput {
   /**
-   * Content Input to show
+   * Placeholder Input to show
    */
   placeholder?: string;
   /**
@@ -71,6 +71,9 @@ const Input = ({
   placeholder,
   iconDiv,
   borderType,
+  shadowType,
+  widthType,
+  heigthType,
   hasPadding,
   borderColor,
   textFieldType,
@@ -83,8 +86,11 @@ const Input = ({
           textFieldType={textFieldType}
           borderColor={borderColor}
           hasPadding={hasPadding}
-          borderType={borderType}
           placeholder={placeholder}
+          shadowType={shadowType}
+          borderType={borderType}
+          widthType={widthType}
+          heigthType={heigthType}
         >
           {iconDiv}
         </TextField>
@@ -94,9 +100,12 @@ const Input = ({
         <SelectField
           borderColor={borderColor}
           hasPadding={hasPadding}
-          borderType={borderType}
           placeholder={placeholder}
           items={selectItems}
+          shadowType={shadowType}
+          borderType={borderType}
+          widthType={widthType}
+          heigthType={heigthType}
         />
       )}
     </Fragment>

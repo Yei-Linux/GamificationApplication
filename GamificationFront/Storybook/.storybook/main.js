@@ -34,6 +34,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-controls",
     "@storybook/addon-docs",
-    'storybook-addon-react-docgen'
+    'storybook-addon-react-docgen',
+    '@storybook/addon-jest',
   ]
 }

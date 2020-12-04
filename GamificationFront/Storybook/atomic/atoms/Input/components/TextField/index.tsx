@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { EBorderType, ETextFieldType } from "../../../../../core/domain/enums";
+import { EBorderType, EHeightType, EShadowType, ETextFieldType, EWithType } from "../../../../../core/domain/enums";
 import { InputGroup, CustomInput, InputIconContainer } from "../../input.styled";
 
 export interface ITextField {
@@ -8,6 +8,9 @@ export interface ITextField {
   children?: React.ReactNode;
   hasPadding?: boolean;
   borderType?: EBorderType;
+  shadowType?: EShadowType;
+  heigthType?: EHeightType;
+  widthType?: EWithType;
   borderColor?: string;
   textFieldType?: ETextFieldType;
 }
@@ -18,6 +21,9 @@ const TextField = ({
   children,
   hasPadding,
   borderType,
+  shadowType,
+  heigthType,
+  widthType,
   borderColor,
   textFieldType
 }: ITextField) => {
@@ -25,12 +31,16 @@ const TextField = ({
     <InputGroup>
       {children && <InputIconContainer>{children}</InputIconContainer>}
       <CustomInput
+        role="textfield"
         borderColor={borderColor}
         borderType={borderType}
         hasPadding={hasPadding}
         type={textFieldType}
         readOnly={readonly}
         placeholder={placeholder}
+        shadowType={shadowType}
+        heigthType={heigthType}
+        widthType={widthType}
       />
     </InputGroup>
   );

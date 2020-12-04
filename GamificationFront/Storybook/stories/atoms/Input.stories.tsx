@@ -5,8 +5,6 @@ import { EBorderType, EHeightType, EInputType, EShadowType, ETextFieldType, EWit
 import { ItemSelect } from "../../core/domain/interfaces";
 import { mapEnum } from "../../core/helpers/data-managment.helper";
 
-import FoodLogo from "../assets/foodIcon.svg";
-
 export default {
   title: "Atoms/Input",
   component: Input,
@@ -25,24 +23,12 @@ export default {
   },
 };
 
-export const TransparentTestIcon = (args) => (
-  <Icon {...args}>
-    <img style={{ height: "15px", width: "15px" }} src={FoodLogo} alt="logo" />
-  </Icon>
-);
-
-TransparentTestIcon.args = {
-  backgroundColor: "transparent",
-  hasPadding: false,
-};
-
 export const TextFieldInput = (args) => (
   <Input {...args}/>
 );
 
 TextFieldInput.args = {
   placeholder: 'Escribe tus nombres',
-  iconDiv: <TransparentTestIcon />,
   inputType: EInputType.TEXTFIELD,
   borderType: EBorderType.ROUNDED,
   hasPadding: true,
@@ -50,7 +36,7 @@ TextFieldInput.args = {
   textFieldType: ETextFieldType.TEXT
 };
 
-TextFieldInput.storyName = "TextField Input";
+TextFieldInput.storyName = "Text Field Input";
 
 const items : ItemSelect[] = [
     {
@@ -77,4 +63,4 @@ export const SelectFieldInput = (args) => (
     selectItems: items
   };
 
-  TextFieldInput.storyName = "SelectField Input";
+  SelectFieldInput.storyName = "Select Field Input";

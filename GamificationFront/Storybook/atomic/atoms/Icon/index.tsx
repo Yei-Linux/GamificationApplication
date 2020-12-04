@@ -49,6 +49,7 @@ const Icon = ({
 }: IIcon) => {
     return (
         <CustomIcon
+            role={"icon"}
             backgroundColor={backgroundColor}
             borderColor={borderColor}
             shadowType={shadowType}
