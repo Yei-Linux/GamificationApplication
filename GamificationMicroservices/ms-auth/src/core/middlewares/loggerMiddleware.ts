@@ -1,6 +1,6 @@
 import express from "express";
 import { beans, Logger } from '../beans';
-import DEPENDENCY_TYPES from "../beans/dependencyTypes";
+import DEPENDENCY_TYPES from "../beans/ioc-types";
 
 const logger = beans.get<Logger>(DEPENDENCY_TYPES.Logger);
 

@@ -5,19 +5,30 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.9",
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "inversify": "^5.0.1",
     "inversify-express-utils": "^6.3.2",
+    "node-flywaydb": "^3.0.3",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
     "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.3.5",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.5",
+    "uuidv4": "^6.2.5",
     "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
