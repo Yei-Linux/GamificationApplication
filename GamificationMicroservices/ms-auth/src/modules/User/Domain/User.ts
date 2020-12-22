@@ -1,33 +1,42 @@
-import { ValueObject } from "../../../shared/domain/valueObject";
 import * as bcrypt from "bcrypt"
+import UserEmail from "./UserEmail";
+import UserId from "./UserId";
+import UserPassword from "./UserPassword";
+import UserTypeId from "./UserTypeId";
 
 export class User {
   constructor(
-    public userId: string,
-    public email: string,
-    public password: string,
-    public userTypeId: string
+    private userId: UserId,
+    private email: UserEmail,
+    private password: UserPassword,
+    private userTypeId: UserTypeId
   ) {
   }
 
-  get _userId() : string {
+  get _userId() : UserId {
     return this.userId;
   }
 
-  get _userName(): string {
+  get _userEmail(): UserEmail {
     return this.email;
   }
 
-  get _password(): string {
+  get _password(): UserPassword {
     return this.password;
   }
 
-  get _userTypeId() : string {
+  get _userTypeId() : UserTypeId {
     return this.userTypeId;
+  }
+
+  public static create(userId : UserId,email : UserEmail,password : UserPassword,userTypeId : UserTypeId) {
+    let user : User = new User(userId,email,password,userTypeId);
+    return user;
   }
 
   async hashingPassword() :Promise<void>{
     let salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password,salt);
+    let hashPassword = await bcrypt.hash(this.password._value,salt);
+    this.password = new UserPassword(hashPassword);
   }
 }

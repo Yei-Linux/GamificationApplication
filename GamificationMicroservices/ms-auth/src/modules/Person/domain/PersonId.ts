@@ -1,9 +1,9 @@
 import Identifier from "../../../shared/domain/Identifier";
 
-class UserTypeId extends Identifier {
+class PersonId extends Identifier {
     constructor(value : string) {
         super(value)
     }
 }
 
-export default UserTypeId;
+export default PersonId;

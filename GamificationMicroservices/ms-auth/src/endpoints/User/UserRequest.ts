@@ -1,6 +1,6 @@
-import { EUserPosition } from "../../../../../shared/domain/enums/UserPositionEnum";
+import { EUserPosition } from "./UserPositionEnum";
 
-export interface SignUpUserDTO{
+export interface SignUpUserRequest{
     email: string;
     password: string;
     userTypeId: string;

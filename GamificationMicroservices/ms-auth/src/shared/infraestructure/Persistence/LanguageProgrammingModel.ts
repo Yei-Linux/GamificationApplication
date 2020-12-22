@@ -4,7 +4,7 @@ import { beans, Database } from "../../../core/beans";
 import DEPENDENCY_TYPES from "../../../core/beans/ioc-types";
 import CourseModel from "../../../modules/Course/Infraestructure/Persistence/CourseModel";
 import ExternalPersonModel from "../../../modules/ExternalPerson/Infraestucture/Persistence/ExternalPersonModel";
-import StudentModel from "../../../modules/Student/Infraestructure/Persistence/StudentModel";
+import StudentModel from "../../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";
 const dbInstance = beans.get<Database>(DEPENDENCY_TYPES.Sequelize);
 const { sequelize } = dbInstance;
 

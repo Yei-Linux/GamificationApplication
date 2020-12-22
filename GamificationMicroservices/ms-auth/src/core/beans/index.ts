@@ -1,6 +1,4 @@
 import { Container } from 'inversify';
-import { SignUpUserService } from '../../modules/User/Application/useCases/SignUpUser/SignUpUserService';
-import { UserRepository } from '../../modules/User/Infraestructure/Persistence/UserRepository';
 import Database from '../util/Database';
 import { Logger } from '../util/Logger';
 import DEPENDENCY_TYPES from './ioc-types';
