@@ -19,7 +19,7 @@ export class PostgressTutorRepository implements TutorRepository {
         this.logger.info('Creating Person and Tutor');
         let personCreated : PersonModel = await PersonModel.create({fullName: tutor._fullName._value, lastName: tutor._lastName._value, surName: tutor._surName._value, age: tutor._age._value, userId:userIdCreated._value, idiomId: idiomId,specializationId: specializationId});
         this.logger.info(`Person: ${JSON.stringify(personCreated)} created`);
-        let studentCreated: TutorModel = await TutorModel.create({studentCode: tutor._tutorCode._value, personId: personCreated.personId, collegeId: collegeId});
+        let studentCreated: TutorModel = await TutorModel.create({tutorCode: tutor._tutorCode._value, personId: personCreated.personId, collegeId: collegeId});
         this.logger.info(`Tutor: ${JSON.stringify(studentCreated)} created`);
 
         return TutorMapper.convertTutorModelToTutor(personCreated,studentCreated);

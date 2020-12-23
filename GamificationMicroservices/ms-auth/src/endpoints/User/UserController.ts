@@ -9,8 +9,7 @@ import {
   response,
 } from "inversify-express-utils";
 import { beans } from "../../core/beans";
-import { SignInUserDTO } from "../../modules/User/Application/useCases/SignInUser/SignInUserDTO";
-import { SignUpUserRequest } from "./UserRequest";
+import { SignInRequest, SignUpUserRequest } from "./UserRequest";
 import { SignUpUserService } from "../../modules/User/Application/useCases/SignUpUser/SignUpUserService";
 import { SignUpStudentService } from "../../modules/Student/Application/SignUpStudent/SignUpStudentService";
 import { User } from "../../modules/User/Domain/User";
@@ -29,9 +28,13 @@ import { EUserPosition } from "./UserPositionEnum";
 import { SignUpTutorService } from "../../modules/Tutor/Application/SignUpTutor/SignUpTutorService";
 import TutorCode from "../../modules/Tutor/Domain/TutorCode";
 import { SignUpExternalPersonService } from "../../modules/ExternalPerson/Application/SignUpExternalPerson/SignUpExternalPerson";
+import { SignInStudentService } from "../../modules/Student/Application/SignInStudent/SignInStudentService";
 
 beans.bind<SignUpUserService>(SignUpUserService).toSelf();
 beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
+beans.bind<SignUpTutorService>(SignUpTutorService).toSelf();
+beans.bind<SignUpExternalPersonService>(SignUpExternalPersonService).toSelf();
+beans.bind<SignInStudentService>(SignInStudentService).toSelf();
 
 @controller("/users")
 export class UserController implements interfaces.Controller {
@@ -39,17 +42,20 @@ export class UserController implements interfaces.Controller {
   private signUpStudentService: SignUpStudentService;
   private signUpTutorService: SignUpTutorService;
   private signUpExternalPersonService : SignUpExternalPersonService;
+  private signInStudentService: SignInStudentService;
 
   constructor(
     @inject(SignUpUserService) signUpUserService: SignUpUserService,
     @inject(SignUpStudentService) signUpStudentService: SignUpStudentService,
     @inject(SignUpTutorService) signUpTutorService: SignUpTutorService,
-    @inject(SignUpExternalPersonService) signUpExternalPersonService: SignUpExternalPersonService
+    @inject(SignUpExternalPersonService) signUpExternalPersonService: SignUpExternalPersonService,
+    @inject(SignInStudentService) signInStudentService: SignInStudentService
   ) {
     this.signUpUserService = signUpUserService;
     this.signUpStudentService = signUpStudentService;
     this.signUpTutorService = signUpTutorService;
     this.signUpExternalPersonService = signUpExternalPersonService;
+    this.signInStudentService = signInStudentService;
   }
 
   @httpGet("/")
@@ -70,7 +76,20 @@ export class UserController implements interfaces.Controller {
     @response() res: express.Response
   ) {
     try {
-      let userRequest: SignInUserDTO = req.body;
+      let userSignInRequest: SignInRequest = req.body;
+
+      switch (userSignInRequest.userPosition) {
+        case "STUDENT":
+
+          break;
+        case "TUTOR":
+
+          break;
+        case "EXTERNAL":
+
+          break;
+      }
+
     } catch (error) {
       res.status(400).json(error);
     }
@@ -108,6 +127,7 @@ export class UserController implements interfaces.Controller {
             userPosition: EUserPosition.STUDENT
           };
           res.status(200).json(userResponseStudent);
+          break;
 
         case "TUTOR":
           let tutorCreated = await this.signUpTutorService.signUpTutor(
@@ -127,6 +147,7 @@ export class UserController implements interfaces.Controller {
             userPosition: EUserPosition.TUTOR
           };
           res.status(200).json(userResponseTutor);
+          break;
 
         case "EXTERNAL":
           let externalPersonCreated = await this.signUpExternalPersonService.signUpExternalPerson(
@@ -141,10 +162,11 @@ export class UserController implements interfaces.Controller {
             new PersonIdentifier(userSignUpRequest.identifier)
           );
           let externalPersonResponse: SignUpUserResponse = {
-            identifier: externalPersonCreated._exterPersonId._value,
-            userPosition: EUserPosition.TUTOR
+            userPosition: EUserPosition.EXTERNAL
           };
           res.status(200).json(externalPersonResponse);
+          break;
+
       }
     } catch (error) {
       console.log(error);

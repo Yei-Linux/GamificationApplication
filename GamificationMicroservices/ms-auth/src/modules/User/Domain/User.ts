@@ -34,9 +34,13 @@ export class User {
     return user;
   }
 
-  async hashingPassword() :Promise<void>{
+  async hashingPassword() : Promise<void>{
     let salt = await bcrypt.genSalt(10);
     let hashPassword = await bcrypt.hash(this.password._value,salt);
     this.password = new UserPassword(hashPassword);
+  }
+
+  async validatePassword( passwordPlain : string ) : Promise<boolean> {
+    return await bcrypt.compare(passwordPlain,this.password._value);
   }
 }

@@ -15,3 +15,9 @@ export interface SignUpUserRequest{
     languageProgrammingId: string;
     collegeId?: string;
 }
+
+export interface SignInRequest {
+    identifier: string;
+    password: string;
+    userPosition: EUserPosition;
+}

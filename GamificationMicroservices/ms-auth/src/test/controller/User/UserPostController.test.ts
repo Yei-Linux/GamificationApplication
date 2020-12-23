@@ -1,7 +1,7 @@
 import { agent as request } from "supertest";
 import { serverUp } from "../../..";
 import { EUserPosition } from "../../../endpoints/User/UserPositionEnum";
-import { SignUpUserResponse } from "../../../endpoints/User/UserResponse";
+import { SignInUserResponse, SignUpUserResponse } from "../../../endpoints/User/UserResponse";
 import { RequestsFaker } from "../RequestsFaker";
 
 describe("SignUp User", () => {
@@ -15,11 +15,12 @@ describe("SignUp User", () => {
   it("verify_is_student_is_created", (done: any) => {
     let studentRandomFaker = RequestsFaker.generateSignUpUserRequest(
       "STUDENT",
-      "405681e7-ed13-43bc-a07c-ecb52304c562",
-      "30ddcf32-f118-4116-b64d-ccaac44dfcd1",
-      "dd9035e8-48ec-4f02-a9c1-6fa6b926bd46",
-      "5b0927a1-04a0-4d78-a26c-dde9caba070e",
-      null
+      "8d12e6e3-e364-4231-9990-b794ebea38c6",
+      "078069b1-d276-4fe0-94d3-d111a05d9583",
+      "8dba6cd4-69d1-4a71-bce2-9c68e7579c98",
+      "e5065254-9f3c-4d89-bf8e-977dfdb16019",
+      null,
+      "12345678"
     );
 
     let studentResponsExpected : SignUpUserResponse = {
@@ -37,11 +38,12 @@ describe("SignUp User", () => {
   it("verify_is_tutor_is_created", (done: any) => {
     let tutorRandomFaker = RequestsFaker.generateSignUpUserRequest(
       "TUTOR",
-      "405681e7-ed13-43bc-a07c-ecb52304c562",
-      "30ddcf32-f118-4116-b64d-ccaac44dfcd1",
-      "dd9035e8-48ec-4f02-a9c1-6fa6b926bd46",
+      "8d12e6e3-e364-4231-9990-b794ebea38c6",
+      "078069b1-d276-4fe0-94d3-d111a05d9583",
+      "8dba6cd4-69d1-4a71-bce2-9c68e7579c98",
       null,
-      ""
+      "8be31cfa-87f7-4b76-8688-5f953a8d396e",
+      "12345678"
     );
 
     let tutorResponsExpected : SignUpUserResponse = {
@@ -59,15 +61,15 @@ describe("SignUp User", () => {
   it("verify_is_external_person_is_created", (done: any) => {
     let externalPersonRandomFaker = RequestsFaker.generateSignUpUserRequest(
       "EXTERNAL",
-      "405681e7-ed13-43bc-a07c-ecb52304c562",
-      "30ddcf32-f118-4116-b64d-ccaac44dfcd1",
-      "dd9035e8-48ec-4f02-a9c1-6fa6b926bd46",
-      "5b0927a1-04a0-4d78-a26c-dde9caba070e",
-      null
+      "8d12e6e3-e364-4231-9990-b794ebea38c6",
+      "078069b1-d276-4fe0-94d3-d111a05d9583",
+      "8dba6cd4-69d1-4a71-bce2-9c68e7579c98",
+      "e5065254-9f3c-4d89-bf8e-977dfdb16019",
+      null,
+      "12345678"
     );
 
     let tutorResponsExpected : SignUpUserResponse = {
-      identifier: externalPersonRandomFaker.identifier,
       userPosition: EUserPosition.EXTERNAL
     }
 
@@ -78,3 +80,29 @@ describe("SignUp User", () => {
       .expect(tutorResponsExpected,done);
   });
 });
+
+describe("SignIn User",()=>{
+  it("verify_is_student_is_login",(done: any)=>{
+    let studentRandomFaker = RequestsFaker.generateSignInUserRequest("7mk7shjk","12345678","STUDENT");
+
+    let studentResponseExpected  = {
+      personInformation: {
+        fullName: "Marguerite",
+        lastName: "Schultz",
+        surName: "Heidenreich"
+      }
+    }
+
+    request(serverUp)
+      .post("/auth/users/sign-in")
+      .send(studentRandomFaker)
+      .expect(200)
+      .expect(studentResponseExpected,done);
+  })
+
+  it("verify_is_tutor_is_login",(done: any)=>{
+  })
+
+  it("verify_is_external_is_login",(done: any)=>{
+  })
+})

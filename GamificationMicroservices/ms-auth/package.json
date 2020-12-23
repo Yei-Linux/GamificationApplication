@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "test": "npx mocha --require ts-node/register --require esm src/**/*.test.ts",
-    "seed": "npx sequelize db:seed:all"
+    "seed": "sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
