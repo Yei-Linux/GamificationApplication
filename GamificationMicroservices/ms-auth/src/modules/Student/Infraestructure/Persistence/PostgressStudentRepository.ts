@@ -30,8 +30,8 @@ export class PostgressStudentRepository implements StudentRepository {
                 }]
             }]
         });
-
-        return studentFound.length > 0 ? [StudentMapper.convertStudentModelToStudent(studentFound[0].person,studentFound[0]),UserMapper.convertUserModelToUser(studentFound[0].person.user)] : null;
+        this.logger.info(`Student: ${JSON.stringify(studentFound)} found`);
+        return studentFound.length > 0 ? [StudentMapper.convertStudentModelToStudent(studentFound[0]["PersonModel"],studentFound[0]),UserMapper.convertUserModelToUser(studentFound[0]["PersonModel"]["UserModel"])] : null;
     }
 
     async signUpStudent(student: Student, userIdCreated: UserId ,idiomId: string, specializationId: string,languageProgrammingId: string): Promise<Student> {

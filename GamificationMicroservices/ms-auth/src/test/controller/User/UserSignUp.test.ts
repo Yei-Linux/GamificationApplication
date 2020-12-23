@@ -1,7 +1,7 @@
 import { agent as request } from "supertest";
 import { serverUp } from "../../..";
 import { EUserPosition } from "../../../endpoints/User/UserPositionEnum";
-import { SignInUserResponse, SignUpUserResponse } from "../../../endpoints/User/UserResponse";
+import { SignUpUserResponse } from "../../../endpoints/User/UserResponse";
 import { RequestsFaker } from "../RequestsFaker";
 
 describe("SignUp User", () => {
@@ -80,29 +80,3 @@ describe("SignUp User", () => {
       .expect(tutorResponsExpected,done);
   });
 });
-
-describe("SignIn User",()=>{
-  it("verify_is_student_is_login",(done: any)=>{
-    let studentRandomFaker = RequestsFaker.generateSignInUserRequest("7mk7shjk","12345678","STUDENT");
-
-    let studentResponseExpected  = {
-      personInformation: {
-        fullName: "Marguerite",
-        lastName: "Schultz",
-        surName: "Heidenreich"
-      }
-    }
-
-    request(serverUp)
-      .post("/auth/users/sign-in")
-      .send(studentRandomFaker)
-      .expect(200)
-      .expect(studentResponseExpected,done);
-  })
-
-  it("verify_is_tutor_is_login",(done: any)=>{
-  })
-
-  it("verify_is_external_is_login",(done: any)=>{
-  })
-})

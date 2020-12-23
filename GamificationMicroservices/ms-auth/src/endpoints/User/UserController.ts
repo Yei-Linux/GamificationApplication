@@ -23,12 +23,13 @@ import PersonIdentifier from "../../modules/Person/domain/PersonIdentifier";
 import UserEmail from "../../modules/User/Domain/UserEmail";
 import UserPassword from "../../modules/User/Domain/UserPassword";
 import UserTypeId from "../../modules/User/Domain/UserTypeId";
-import { SignUpUserResponse } from "./UserResponse";
+import { SignInUserResponse, SignUpUserResponse } from "./UserResponse";
 import { EUserPosition } from "./UserPositionEnum";
 import { SignUpTutorService } from "../../modules/Tutor/Application/SignUpTutor/SignUpTutorService";
 import TutorCode from "../../modules/Tutor/Domain/TutorCode";
 import { SignUpExternalPersonService } from "../../modules/ExternalPerson/Application/SignUpExternalPerson/SignUpExternalPerson";
 import { SignInStudentService } from "../../modules/Student/Application/SignInStudent/SignInStudentService";
+import { JWToken } from "../../core/util/JWToken";
 
 beans.bind<SignUpUserService>(SignUpUserService).toSelf();
 beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
@@ -80,7 +81,24 @@ export class UserController implements interfaces.Controller {
 
       switch (userSignInRequest.userPosition) {
         case "STUDENT":
+          let [studentFound,userFound] = await this.signInStudentService.signInStudent(new StudentCode(userSignInRequest.identifier),new UserPassword(userSignInRequest.password));
+          let token = await JWToken.create({
+              userEmail: userFound._userEmail._value,
+              fullName: studentFound._fullName._value,
+              lastName: studentFound._lastName._value,
+              surName: studentFound._surName._value,
+          }).generateJWT();
 
+          let studentSignInResponse : SignInUserResponse = {
+            token: token,
+            personInformation: {
+              email: userFound._userEmail._value,
+              fullName: studentFound._fullName._value,
+              lastName: studentFound._lastName._value,
+              surName: studentFound._surName._value,
+            }
+          }
+          res.status(200).json(studentSignInResponse);
           break;
         case "TUTOR":
 
@@ -89,8 +107,8 @@ export class UserController implements interfaces.Controller {
 
           break;
       }
-
     } catch (error) {
+      console.log(error);
       res.status(400).json(error);
     }
   }

@@ -6,6 +6,7 @@ export interface SignUpUserResponse {
 }
 
 interface PersonInformation {
+    email: string;
     fullName: string;
     lastName: string;
     surName: string;
