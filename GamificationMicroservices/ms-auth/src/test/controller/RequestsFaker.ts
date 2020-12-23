@@ -4,7 +4,7 @@ import { SignUpUserRequest } from "../../endpoints/User/UserRequest";
 import faker from "faker";
 
 export class RequestsFaker {
-    public static generateSignUpUserRequest(userPosition : string,userTypeId : string, idiomId : string , specializationId : string, languageProgrammingId : string) :SignUpUserRequest {
+    public static generateSignUpUserRequest(userPosition : string,userTypeId : string, idiomId : string , specializationId : string, languageProgrammingId : string,collegeId: string) :SignUpUserRequest {
         return {
             email: faker.internet.email(),
             password: faker.hacker.phrase(),
@@ -18,6 +18,7 @@ export class RequestsFaker {
             idiomId: idiomId,
             specializationId: specializationId,
             languageProgrammingId: languageProgrammingId,
+            collegeId: collegeId
         }
     }
 }

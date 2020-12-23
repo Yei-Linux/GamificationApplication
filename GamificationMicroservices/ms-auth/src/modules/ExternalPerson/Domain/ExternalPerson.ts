@@ -1,7 +1,8 @@
 import { Person } from "../../Person/domain/Person";
+import ExternalPersonId from "./ExternalPersonId";
 
 export class ExternalPerson extends Person {
-  constructor(public externalPersonId: string, person: Person) {
+  constructor(private externalPersonId: ExternalPersonId, person: Person) {
     super(
         person._personId,
         person._fullName,
@@ -12,7 +13,12 @@ export class ExternalPerson extends Person {
     );
   }
 
-  get _exterPersonId() {
+  get _exterPersonId() : ExternalPersonId {
       return this.externalPersonId;
+  }
+
+  public static create(externalPersonId: ExternalPersonId, person: Person) : ExternalPerson{
+    let externalPerson = new ExternalPerson(externalPersonId,person);
+    return externalPerson;
   }
 }

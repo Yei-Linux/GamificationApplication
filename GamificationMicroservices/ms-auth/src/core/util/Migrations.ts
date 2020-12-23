@@ -3,10 +3,10 @@
 import { associateCollegeModel, initializingCollegeModel } from "../../modules/College/Infraestructure/Persistence/CollegeModel";
 import { associateCollegeType, initializingCollegeTypeModel } from "../../modules/College/Infraestructure/Persistence/CollegeTypeModel";
 import { associateCourse, initializingCourseModel } from "../../modules/Course/Infraestructure/Persistence/CourseModel";
-import { associateExternalPerson, initializingExternalPersonModel } from "../../modules/ExternalPerson/Infraestucture/Persistence/ExternalPersonModel";
+import { associateExternalPerson, initializingExternalPersonModel } from "../../modules/ExternalPerson/Infraestucture/Persistence/sequelize/ExternalPersonModel";
 import { associateSpecialization, initializingSpecializationModel } from "../../modules/Specialization/Infraestructure/Persistence/SpecializationModel";
 import { associateStudent, initializingStudentModel } from "../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";
-import { associateTutor, initializingTutorModel } from "../../modules/Tutor/Infraestructure/Persistence/TutorModel";
+import { associateTutor, initializingTutorModel } from "../../modules/Tutor/Infraestructure/Persistence/sequelize/TutorModel";
 import { associateUser, initializingUserModel } from "../../modules/User/Infraestructure/Persistence/sequelize/UserModel";
 import { associateUserType, initializingUserTypeModel, } from "../../modules/User/Infraestructure/Persistence/sequelize/UserTypeModel";
 import { associateEnvironmentStudentCourse, initializingEnvironmentStudentCourseModel } from "../../shared/infraestructure/Persistence/EnvironmentStudentCourseModel";

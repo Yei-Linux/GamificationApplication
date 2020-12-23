@@ -13,4 +13,5 @@ export interface SignUpUserRequest{
     idiomId: string;
     specializationId: string;
     languageProgrammingId: string;
+    collegeId?: string;
 }

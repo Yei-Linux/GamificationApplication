@@ -2,7 +2,7 @@ import { Person } from "../../Person/domain/Person";
 import TutorCode from "./TutorCode";
 
 export class Tutor extends Person {
-  constructor(public tutorCode: TutorCode, person: Person) {
+  constructor(private tutorCode: TutorCode, person: Person) {
     super(
         person._personId,
         person._fullName,
@@ -15,5 +15,10 @@ export class Tutor extends Person {
 
   get _tutorCode() : TutorCode{
       return this.tutorCode;
+  }
+
+  public static create(tutorCode : TutorCode, person : Person) : Tutor{
+    let tutor : Tutor = new Tutor(tutorCode, person);
+    return tutor;
   }
 }

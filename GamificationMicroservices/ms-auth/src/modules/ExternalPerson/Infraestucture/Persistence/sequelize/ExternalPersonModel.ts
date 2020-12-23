@@ -1,9 +1,9 @@
 import { Model, DataTypes, Association } from "sequelize";
 import { uuid } from "uuidv4";
-import { beans, Database } from "../../../../core/beans";
-import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
-import LanguageProgrammingModel from "../../../../shared/infraestructure/Persistence/LanguageProgrammingModel";
-import PersonModel from "../../../../shared/infraestructure/Persistence/PersonModel";
+import { beans, Database } from "../../../../../core/beans";
+import DEPENDENCY_TYPES from "../../../../../core/beans/ioc-types";
+import LanguageProgrammingModel from "../../../../../shared/infraestructure/Persistence/LanguageProgrammingModel";
+import PersonModel from "../../../../../shared/infraestructure/Persistence/PersonModel";
 const dbInstance = beans.get<Database>(DEPENDENCY_TYPES.Sequelize);
 const { sequelize } = dbInstance;
 

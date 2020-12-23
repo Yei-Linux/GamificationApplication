@@ -26,6 +26,9 @@ import UserPassword from "../../modules/User/Domain/UserPassword";
 import UserTypeId from "../../modules/User/Domain/UserTypeId";
 import { SignUpUserResponse } from "./UserResponse";
 import { EUserPosition } from "./UserPositionEnum";
+import { SignUpTutorService } from "../../modules/Tutor/Application/SignUpTutor/SignUpTutorService";
+import TutorCode from "../../modules/Tutor/Domain/TutorCode";
+import { SignUpExternalPersonService } from "../../modules/ExternalPerson/Application/SignUpExternalPerson/SignUpExternalPerson";
 
 beans.bind<SignUpUserService>(SignUpUserService).toSelf();
 beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
@@ -34,13 +37,19 @@ beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
 export class UserController implements interfaces.Controller {
   private signUpUserService: SignUpUserService;
   private signUpStudentService: SignUpStudentService;
+  private signUpTutorService: SignUpTutorService;
+  private signUpExternalPersonService : SignUpExternalPersonService;
 
   constructor(
     @inject(SignUpUserService) signUpUserService: SignUpUserService,
-    @inject(SignUpStudentService) signUpStudentService: SignUpStudentService
+    @inject(SignUpStudentService) signUpStudentService: SignUpStudentService,
+    @inject(SignUpTutorService) signUpTutorService: SignUpTutorService,
+    @inject(SignUpExternalPersonService) signUpExternalPersonService: SignUpExternalPersonService
   ) {
     this.signUpUserService = signUpUserService;
     this.signUpStudentService = signUpStudentService;
+    this.signUpTutorService = signUpTutorService;
+    this.signUpExternalPersonService = signUpExternalPersonService;
   }
 
   @httpGet("/")
@@ -94,11 +103,48 @@ export class UserController implements interfaces.Controller {
             userSignUpRequest.languageProgrammingId,
             new PersonIdentifier(userSignUpRequest.identifier)
           );
-          let userResponse: SignUpUserResponse = {
+          let userResponseStudent: SignUpUserResponse = {
             identifier: studentCreated._studentCode._value,
             userPosition: EUserPosition.STUDENT
           };
-          res.status(200).json(userResponse);
+          res.status(200).json(userResponseStudent);
+
+        case "TUTOR":
+          let tutorCreated = await this.signUpTutorService.signUpTutor(
+            new TutorCode(userSignUpRequest.identifier),
+            new PersonFullName(userSignUpRequest.fullName),
+            new PersonLastName(userSignUpRequest.lastName),
+            new PersonSurName(userSignUpRequest.surname),
+            new PersonAge(userSignUpRequest.age),
+            new UserId(userCreated._userId._value),
+            userSignUpRequest.idiomId,
+            userSignUpRequest.specializationId,
+            userSignUpRequest.collegeId,
+            new PersonIdentifier(userSignUpRequest.identifier)
+          );
+          let userResponseTutor: SignUpUserResponse = {
+            identifier: tutorCreated._tutorCode._value,
+            userPosition: EUserPosition.TUTOR
+          };
+          res.status(200).json(userResponseTutor);
+
+        case "EXTERNAL":
+          let externalPersonCreated = await this.signUpExternalPersonService.signUpExternalPerson(
+            new PersonFullName(userSignUpRequest.fullName),
+            new PersonLastName(userSignUpRequest.lastName),
+            new PersonSurName(userSignUpRequest.surname),
+            new PersonAge(userSignUpRequest.age),
+            new UserId(userCreated._userId._value),
+            userSignUpRequest.idiomId,
+            userSignUpRequest.specializationId,
+            userSignUpRequest.languageProgrammingId,
+            new PersonIdentifier(userSignUpRequest.identifier)
+          );
+          let externalPersonResponse: SignUpUserResponse = {
+            identifier: externalPersonCreated._exterPersonId._value,
+            userPosition: EUserPosition.TUTOR
+          };
+          res.status(200).json(externalPersonResponse);
       }
     } catch (error) {
       console.log(error);
