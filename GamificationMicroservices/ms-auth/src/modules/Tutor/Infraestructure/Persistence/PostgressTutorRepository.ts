@@ -2,8 +2,12 @@ import { inject, injectable } from "inversify";
 import { Logger } from "winston";
 import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
 import PersonModel from "../../../../shared/infraestructure/Persistence/PersonModel";
+import { User } from "../../../User/Domain/User";
 import UserId from "../../../User/Domain/UserId";
+import { UserMapper } from "../../../User/Infraestructure/Persistence/sequelize/mapper/UserMapper";
+import UserModel from "../../../User/Infraestructure/Persistence/sequelize/UserModel";
 import { Tutor } from "../../Domain/Tutor";
+import TutorCode from "../../Domain/TutorCode";
 import { TutorRepository } from "../../Domain/TutorRepository";
 import { TutorMapper } from "./sequelize/mapper/TutorMapper";
 import TutorModel from "./sequelize/TutorModel";
@@ -13,6 +17,21 @@ export class PostgressTutorRepository implements TutorRepository {
     protected logger : Logger;
     constructor(@inject(DEPENDENCY_TYPES.Logger) logger: Logger) {
         this.logger = logger
+    }
+
+    async getTutorByIdentifier(identifier: TutorCode): Promise<[Tutor,User]> {
+        this.logger.info('Searching tutor by identifier');
+        let tutorFound : TutorModel[] = await TutorModel.findAll({
+            where: { tutorCode: identifier._value },
+            include: [{
+                model: PersonModel,
+                include: [{
+                    model: UserModel
+                }]
+            }]
+        });
+        this.logger.info(`Tutor: ${JSON.stringify(tutorFound)} found`);
+        return tutorFound.length > 0 ? [TutorMapper.convertTutorModelToTutor(tutorFound[0]["PersonModel"],tutorFound[0]),UserMapper.convertUserModelToUser(tutorFound[0]["PersonModel"]["UserModel"])] : [null,null];
     }
 
     async signUpTutor(tutor: Tutor, userIdCreated: UserId ,idiomId: string, specializationId: string, collegeId : string): Promise<Tutor> {

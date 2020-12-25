@@ -19,7 +19,7 @@ export class PostgressStudentRepository implements StudentRepository {
     constructor(@inject(DEPENDENCY_TYPES.Logger) logger: Logger) {
         this.logger = logger
     }
-    async getStudentByIdentifier(identifier: StudentCode,): Promise<[Student,User]> {
+    async getStudentByIdentifier(identifier: StudentCode): Promise<[Student,User]> {
         this.logger.info('Searching student by identifier');
         let studentFound : StudentModel[] = await StudentModel.findAll({
             where: { studentCode: identifier._value },
@@ -31,7 +31,7 @@ export class PostgressStudentRepository implements StudentRepository {
             }]
         });
         this.logger.info(`Student: ${JSON.stringify(studentFound)} found`);
-        return studentFound.length > 0 ? [StudentMapper.convertStudentModelToStudent(studentFound[0]["PersonModel"],studentFound[0]),UserMapper.convertUserModelToUser(studentFound[0]["PersonModel"]["UserModel"])] : null;
+        return studentFound.length > 0 ? [StudentMapper.convertStudentModelToStudent(studentFound[0]["PersonModel"],studentFound[0]),UserMapper.convertUserModelToUser(studentFound[0]["PersonModel"]["UserModel"])] : [null,null];
     }
 
     async signUpStudent(student: Student, userIdCreated: UserId ,idiomId: string, specializationId: string,languageProgrammingId: string): Promise<Student> {

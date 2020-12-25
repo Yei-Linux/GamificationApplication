@@ -2,7 +2,11 @@ import { inject, injectable } from "inversify";
 import { Logger } from "winston";
 import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
 import PersonModel from "../../../../shared/infraestructure/Persistence/PersonModel";
+import { User } from "../../../User/Domain/User";
+import UserEmail from "../../../User/Domain/UserEmail";
 import UserId from "../../../User/Domain/UserId";
+import { UserMapper } from "../../../User/Infraestructure/Persistence/sequelize/mapper/UserMapper";
+import UserModel from "../../../User/Infraestructure/Persistence/sequelize/UserModel";
 import { ExternalPerson } from "../../Domain/ExternalPerson";
 import { ExternalPersonRepository } from "../../Domain/ExternalPersonRepository";
 import ExternalPersonModel from "./sequelize/ExternalPersonModel";
@@ -12,6 +16,23 @@ export class PostgressExternalPersonRepository implements ExternalPersonReposito
     protected logger : Logger;
     constructor(@inject(DEPENDENCY_TYPES.Logger) logger: Logger) {
         this.logger = logger
+    }
+
+    async getExternalPersonByIdentifier(identifier: UserEmail): Promise<[ExternalPerson,User]> {
+        this.logger.info('Searching external person by identifier');
+        let externalPersonFound : UserModel[] = await UserModel.findAll({
+            where: { email: identifier._value },
+            include: [{
+                model: PersonModel,
+                as: "person",
+                include: [{
+                    model: ExternalPersonModel,
+                    as: "externalPerson",
+                }]
+            }]
+        });
+        this.logger.info(`External Person: ${JSON.stringify(externalPersonFound)} found`);
+        return externalPersonFound.length > 0 ? [ExternalPersonMapper.convertExternalPersonModelToExternalPerson(externalPersonFound[0]["person"],externalPersonFound[0]["person"]["externalPerson"]),UserMapper.convertUserModelToUser(externalPersonFound[0])] : [null,null];
     }
 
     async signUpExternalPerson(externalPerson: ExternalPerson,userIdCreated: UserId,idiomId: string, specializationId: string,languageProgrammingId: string): Promise<ExternalPerson> {

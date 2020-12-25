@@ -4,7 +4,7 @@ import { associateCollegeModel, initializingCollegeModel } from "../../modules/C
 import { associateCollegeType, initializingCollegeTypeModel } from "../../modules/College/Infraestructure/Persistence/CollegeTypeModel";
 import { associateCourse, initializingCourseModel } from "../../modules/Course/Infraestructure/Persistence/CourseModel";
 import { associateExternalPerson, initializingExternalPersonModel } from "../../modules/ExternalPerson/Infraestucture/Persistence/sequelize/ExternalPersonModel";
-import { associateSpecialization, initializingSpecializationModel } from "../../modules/Specialization/Infraestructure/Persistence/SpecializationModel";
+import { associateSpecialization, initializingSpecializationModel } from "../../modules/Specialization/Infraestructure/Persistence/sequelize/SpecializationModel";
 import { associateStudent, initializingStudentModel } from "../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";
 import { associateTutor, initializingTutorModel } from "../../modules/Tutor/Infraestructure/Persistence/sequelize/TutorModel";
 import { associateUser, initializingUserModel } from "../../modules/User/Infraestructure/Persistence/sequelize/UserModel";

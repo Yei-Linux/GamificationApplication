@@ -3,7 +3,7 @@ import { uuid } from "uuidv4";
 import { beans, Database } from "../../../core/beans";
 import DEPENDENCY_TYPES from "../../../core/beans/ioc-types";
 import ExternalPersonModel from "../../../modules/ExternalPerson/Infraestucture/Persistence/sequelize/ExternalPersonModel";
-import SpecializationModel from "../../../modules/Specialization/Infraestructure/Persistence/SpecializationModel";
+import SpecializationModel from "../../../modules/Specialization/Infraestructure/Persistence/sequelize/SpecializationModel";
 import StudentModel from "../../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";
 import TutorModel from "../../../modules/Tutor/Infraestructure/Persistence/sequelize/TutorModel";
 import  UserModel from "../../../modules/User/Infraestructure/Persistence/sequelize/UserModel";

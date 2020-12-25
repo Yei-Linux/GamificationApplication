@@ -7,6 +7,7 @@ import { applicationSettings } from './config/application'
 
 import { InversifyExpressServer, interfaces, TYPE } from "inversify-express-utils";
 import './endpoints/User/UserController';
+import './endpoints/Specializations/SpecializationController';
 
 const logger = beans.get<Logger>(DEPENDENCY_TYPES.Logger);
 

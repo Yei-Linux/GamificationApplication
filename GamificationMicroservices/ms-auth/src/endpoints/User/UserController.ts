@@ -30,12 +30,16 @@ import TutorCode from "../../modules/Tutor/Domain/TutorCode";
 import { SignUpExternalPersonService } from "../../modules/ExternalPerson/Application/SignUpExternalPerson/SignUpExternalPerson";
 import { SignInStudentService } from "../../modules/Student/Application/SignInStudent/SignInStudentService";
 import { JWToken } from "../../core/util/JWToken";
+import { SignInTutorService } from "../../modules/Tutor/Application/SignInTutor/SignInTutorService";
+import { SignInExternalPersonService } from "../../modules/ExternalPerson/Application/SignInExternalPerson/SignInExternalPersonService";
 
 beans.bind<SignUpUserService>(SignUpUserService).toSelf();
 beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
 beans.bind<SignUpTutorService>(SignUpTutorService).toSelf();
 beans.bind<SignUpExternalPersonService>(SignUpExternalPersonService).toSelf();
 beans.bind<SignInStudentService>(SignInStudentService).toSelf();
+beans.bind<SignInTutorService>(SignInTutorService).toSelf();
+beans.bind<SignInExternalPersonService>(SignInExternalPersonService).toSelf();
 
 @controller("/users")
 export class UserController implements interfaces.Controller {
@@ -44,19 +48,25 @@ export class UserController implements interfaces.Controller {
   private signUpTutorService: SignUpTutorService;
   private signUpExternalPersonService : SignUpExternalPersonService;
   private signInStudentService: SignInStudentService;
+  private signInTutorService: SignInTutorService;
+  private signInExternalPersonService: SignInExternalPersonService;
 
   constructor(
     @inject(SignUpUserService) signUpUserService: SignUpUserService,
     @inject(SignUpStudentService) signUpStudentService: SignUpStudentService,
     @inject(SignUpTutorService) signUpTutorService: SignUpTutorService,
     @inject(SignUpExternalPersonService) signUpExternalPersonService: SignUpExternalPersonService,
-    @inject(SignInStudentService) signInStudentService: SignInStudentService
+    @inject(SignInStudentService) signInStudentService: SignInStudentService,
+    @inject(SignInTutorService) signInTutorService: SignInTutorService,
+    @inject(SignInExternalPersonService) signInExternalPersonService: SignInExternalPersonService,
   ) {
     this.signUpUserService = signUpUserService;
     this.signUpStudentService = signUpStudentService;
     this.signUpTutorService = signUpTutorService;
     this.signUpExternalPersonService = signUpExternalPersonService;
     this.signInStudentService = signInStudentService;
+    this.signInTutorService = signInTutorService;
+    this.signInExternalPersonService = signInExternalPersonService;
   }
 
   @httpGet("/")
@@ -101,10 +111,44 @@ export class UserController implements interfaces.Controller {
           res.status(200).json(studentSignInResponse);
           break;
         case "TUTOR":
+          let [tutorFound,userTutorFound] = await this.signInTutorService.signInTutor(new TutorCode(userSignInRequest.identifier),new UserPassword(userSignInRequest.password));
+          let tokenTutor = await JWToken.create({
+              userEmail: userTutorFound._userEmail._value,
+              fullName: tutorFound._fullName._value,
+              lastName: tutorFound._lastName._value,
+              surName: tutorFound._surName._value,
+          }).generateJWT();
 
+          let tutorSignInResponse : SignInUserResponse = {
+            token: tokenTutor,
+            personInformation: {
+              email: userTutorFound._userEmail._value,
+              fullName: tutorFound._fullName._value,
+              lastName: tutorFound._lastName._value,
+              surName: tutorFound._surName._value,
+            }
+          }
+          res.status(200).json(tutorSignInResponse);
           break;
         case "EXTERNAL":
+          let [externalPersonFound,userExternalFound] = await this.signInExternalPersonService.signInExternalPerson(new UserEmail(userSignInRequest.identifier),new UserPassword(userSignInRequest.password));
+          let tokenExternal = await JWToken.create({
+              userEmail: userExternalFound._userEmail._value,
+              fullName: externalPersonFound._fullName._value,
+              lastName: externalPersonFound._lastName._value,
+              surName: externalPersonFound._surName._value,
+          }).generateJWT();
 
+          let externalSignInResponse : SignInUserResponse = {
+            token: tokenExternal,
+            personInformation: {
+              email: userExternalFound._userEmail._value,
+              fullName: externalPersonFound._fullName._value,
+              lastName: externalPersonFound._lastName._value,
+              surName: externalPersonFound._surName._value,
+            }
+          }
+          res.status(200).json(externalSignInResponse);
           break;
       }
     } catch (error) {
