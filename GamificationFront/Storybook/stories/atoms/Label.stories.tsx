@@ -1,54 +1,55 @@
-import React from "react";
+import React from 'react';
 
-import Label from "../../atomic/atoms/Label";
-import { EBorderType, EHeightType, EShadowType, EWithType } from "../../core/domain/enums";
+import Label from '../../atomic/atoms/Label';
+import {
+  EBorderType,
+  EHeightType,
+  EShadowType,
+  EWithType,
+} from '../../core/domain/enums';
 
-import { mapEnum } from "../../core/helpers/data-managment.helper";
+import { mapEnum } from '../../core/helpers/data-managment.helper';
 
 export default {
-  title: "Atoms/Label",
+  title: 'Atoms/Label',
   component: Label,
   argTypes: {
-    isLink: {control: 'boolean'},
-    hasPadding: {control: 'boolean'},
-    link: {control: 'text'},
+    isLink: { control: 'boolean' },
+    hasPadding: { control: 'boolean' },
+    link: { control: 'text' },
     children: { control: 'text' },
     borderColor: { control: 'color' },
-    backgroundColor: { control: 'color'},
-    textColor: {control: 'color'},
-    widthType: { control: { type: 'select', options: mapEnum(EWithType) }},
-    shadowType: { control: { type: 'select', options: mapEnum(EShadowType)}},
-    borderType: { control: { type: 'select', options: mapEnum(EBorderType) }},
-    heigthType: { control: { type: 'select', options: mapEnum(EHeightType) }},
-  }
+    backgroundColor: { control: 'color' },
+    textColor: { control: 'color' },
+    widthType: { control: { type: 'select', options: mapEnum(EWithType) } },
+    shadowType: { control: { type: 'select', options: mapEnum(EShadowType) } },
+    borderType: { control: { type: 'select', options: mapEnum(EBorderType) } },
+    heigthType: { control: { type: 'select', options: mapEnum(EHeightType) } },
+  },
 };
 
-export const SimpleLabel= (args) => (
-  <Label {...args} />
-);
+export const SimpleLabel = (args) => <Label {...args} />;
 
 SimpleLabel.args = {
-  children: "Elige un lenguaje de programación",
-  borderColor: "transparet",
-  backgroundColor: "transparent",
+  children: 'Elige un lenguaje de programación',
+  borderColor: 'transparet',
+  backgroundColor: 'transparent',
   hasPadding: true,
-  isLink: false
-}
+  isLink: false,
+};
 
-SimpleLabel.storyName = "Simple Label";
+SimpleLabel.storyName = 'Simple Label';
 
-export const LinkLabel= (args) => (
-  <Label {...args} />
-);
+export const LinkLabel = (args) => <Label {...args} />;
 
 LinkLabel.args = {
-  children: "Olvidé mi contraseña",
-  borderColor: "transparet",
-  backgroundColor: "white",
+  children: 'Olvidé mi contraseña',
+  borderColor: 'transparet',
+  backgroundColor: 'white',
   hasPadding: true,
   isLink: true,
   link: '/change-password',
-  shadowType: EShadowType.MEDIUM
-}
+  shadowType: EShadowType.MEDIUM,
+};
 
-LinkLabel.storyName = "Link Label";
+LinkLabel.storyName = 'Link Label';

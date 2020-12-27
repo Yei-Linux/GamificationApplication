@@ -1,5 +1,5 @@
 module.exports = {
-    styledComponents: {
-      pure: true,
-    },
-}
+  styledComponents: {
+    pure: true,
+  },
+};

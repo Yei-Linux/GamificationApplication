@@ -1,0 +1,7 @@
+.navegacion {
+    display:flex;
+    align-items: center;
+    background-color: white;
+    height: 105px;
+    padding-left: 64px;
+}
