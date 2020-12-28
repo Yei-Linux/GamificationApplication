@@ -13,6 +13,8 @@ export class AuthMiddleware extends BaseMiddleware {
         let tokenRequest = req.header('Authorization');
         let tokenValidated = JWToken.create(null,tokenRequest).formatToken().validateJWT();
         if(tokenValidated) {
+            console.log(tokenValidated);
+            req.headers["email"] = tokenValidated["userEmail"];
             next();
         }else {
             res.status(401).json({"message": "Not authorized"});

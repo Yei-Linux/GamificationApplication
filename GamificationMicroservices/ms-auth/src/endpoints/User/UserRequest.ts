@@ -14,6 +14,7 @@ export interface SignUpUserRequest{
     specializationId: string;
     languageProgrammingId: string;
     collegeId?: string;
+    coursesId?: string[];
 }
 
 export interface SignInRequest {

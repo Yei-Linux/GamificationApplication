@@ -7,6 +7,7 @@ import PersonLastName from "../../../../../Person/domain/PersonLastName";
 import PersonSurName from "../../../../../Person/domain/PersonSurName";
 import { Tutor } from "../../../../Domain/Tutor";
 import TutorCode from "../../../../Domain/TutorCode";
+import TutorId from "../../../../Domain/TutorId";
 import TutorModel from "../TutorModel";
 
 export class TutorMapper {
@@ -22,6 +23,6 @@ export class TutorMapper {
         new PersonAge(person.age),
         null
       );
-      return new Tutor(new TutorCode(tutor.tutorCode), personDomain);
+      return new Tutor(new TutorCode(tutor.tutorCode),new TutorId(tutor.tutorId), personDomain);
     }
   }

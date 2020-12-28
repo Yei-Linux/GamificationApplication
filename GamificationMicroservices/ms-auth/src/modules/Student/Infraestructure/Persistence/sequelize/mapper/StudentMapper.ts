@@ -8,6 +8,7 @@ import PersonLastName from "../../../../../Person/domain/PersonLastName";
 import PersonSurName from "../../../../../Person/domain/PersonSurName";
 import PersonAge from "../../../../../Person/domain/PersonAge";
 import StudentCode from "../../../../Domain/StudentCode";
+import StudentId from "../../../../Domain/StudentId";
 
 export class StudentMapper {
   static convertStudentModelToStudent(
@@ -22,6 +23,6 @@ export class StudentMapper {
       new PersonAge(person.age),
       null
     );
-    return new Student(new StudentCode(student.studentCode), personDomain);
+    return new Student(new StudentCode(student.studentCode),new StudentId(student.studentId), personDomain);
   }
 }

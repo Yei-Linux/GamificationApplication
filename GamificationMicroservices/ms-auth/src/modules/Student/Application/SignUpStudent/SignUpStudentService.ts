@@ -26,7 +26,7 @@ export class SignUpStudentService implements ISignUpUserService {
 
   public async signUpStudent(studentCode : StudentCode, fullName : PersonFullName, lastName : PersonLastName, surName : PersonSurName, age : PersonAge, userIdCreated : UserId, idiomId : string, specializationId : string,languageProgrammingId : string, identifier : PersonIdentifier) : Promise<Student> {
     let person : Person = Person.createPerson(null, fullName, lastName, surName, age, identifier);
-    let student : Student = Student.create(studentCode,person);
+    let student : Student = Student.create(studentCode,null,person);
     let studentCreated : Student  = await this.studentRepository.signUpStudent(student,userIdCreated,idiomId, specializationId,languageProgrammingId);
     return studentCreated;
   }

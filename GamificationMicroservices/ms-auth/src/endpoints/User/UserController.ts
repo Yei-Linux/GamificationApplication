@@ -32,6 +32,7 @@ import { SignInStudentService } from "../../modules/Student/Application/SignInSt
 import { JWToken } from "../../core/util/JWToken";
 import { SignInTutorService } from "../../modules/Tutor/Application/SignInTutor/SignInTutorService";
 import { SignInExternalPersonService } from "../../modules/ExternalPerson/Application/SignInExternalPerson/SignInExternalPersonService";
+import { CreateStudentClassroomByCourse } from "../../modules/Classroom/Aplication/CreateStudentClassroomByCourse/CreateStudentClassroomByCourse";
 
 beans.bind<SignUpUserService>(SignUpUserService).toSelf();
 beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
@@ -40,6 +41,7 @@ beans.bind<SignUpExternalPersonService>(SignUpExternalPersonService).toSelf();
 beans.bind<SignInStudentService>(SignInStudentService).toSelf();
 beans.bind<SignInTutorService>(SignInTutorService).toSelf();
 beans.bind<SignInExternalPersonService>(SignInExternalPersonService).toSelf();
+beans.bind<CreateStudentClassroomByCourse>(CreateStudentClassroomByCourse).toSelf();
 
 @controller("/users")
 export class UserController implements interfaces.Controller {
@@ -50,6 +52,7 @@ export class UserController implements interfaces.Controller {
   private signInStudentService: SignInStudentService;
   private signInTutorService: SignInTutorService;
   private signInExternalPersonService: SignInExternalPersonService;
+  private createStudentClassroomByCourse: CreateStudentClassroomByCourse;
 
   constructor(
     @inject(SignUpUserService) signUpUserService: SignUpUserService,
@@ -59,6 +62,7 @@ export class UserController implements interfaces.Controller {
     @inject(SignInStudentService) signInStudentService: SignInStudentService,
     @inject(SignInTutorService) signInTutorService: SignInTutorService,
     @inject(SignInExternalPersonService) signInExternalPersonService: SignInExternalPersonService,
+    @inject(CreateStudentClassroomByCourse) createStudentClassroomByCourse: CreateStudentClassroomByCourse,
   ) {
     this.signUpUserService = signUpUserService;
     this.signUpStudentService = signUpStudentService;
@@ -67,6 +71,7 @@ export class UserController implements interfaces.Controller {
     this.signInStudentService = signInStudentService;
     this.signInTutorService = signInTutorService;
     this.signInExternalPersonService = signInExternalPersonService;
+    this.createStudentClassroomByCourse = createStudentClassroomByCourse;
   }
 
   @httpGet("/")
@@ -184,6 +189,7 @@ export class UserController implements interfaces.Controller {
             userSignUpRequest.languageProgrammingId,
             new PersonIdentifier(userSignUpRequest.identifier)
           );
+          this.createStudentClassroomByCourse.createStudentClassByCourse(studentCreated._studentId,userSignUpRequest.coursesId);
           let userResponseStudent: SignUpUserResponse = {
             identifier: studentCreated._studentCode._value,
             userPosition: EUserPosition.STUDENT

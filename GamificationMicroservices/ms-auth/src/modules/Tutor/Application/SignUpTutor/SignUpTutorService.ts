@@ -26,7 +26,7 @@ export class SignUpTutorService implements ISignUpTutorService {
 
   public async signUpTutor(tutorCode : TutorCode, fullName : PersonFullName, lastName : PersonLastName, surName : PersonSurName, age : PersonAge, userIdCreated : UserId, idiomId : string, specializationId : string,collegeId : string , identifier : PersonIdentifier) : Promise<Tutor> {
     let person : Person = Person.createPerson(null, fullName, lastName, surName, age, identifier);
-    let tutor : Tutor = Tutor.create(tutorCode,person);
+    let tutor : Tutor = Tutor.create(tutorCode,null,person);
     let studentCreated : Tutor  = await this.tutorRepository.signUpTutor(tutor,userIdCreated,idiomId, specializationId,collegeId);
     return studentCreated;
   }

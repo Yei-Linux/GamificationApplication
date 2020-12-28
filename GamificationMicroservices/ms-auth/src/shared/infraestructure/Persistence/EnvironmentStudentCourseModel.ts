@@ -2,7 +2,7 @@ import { Model, DataTypes, Association } from "sequelize";
 import { uuid } from "uuidv4";
 import { beans, Database } from "../../../core/beans";
 import DEPENDENCY_TYPES from "../../../core/beans/ioc-types";
-import CourseModel from "../../../modules/Course/Infraestructure/Persistence/CourseModel";
+import CourseModel from "../../../modules/Course/Infraestructure/Persistence/sequelize/CourseModel";
 import StudentModel from "../../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";
 const dbInstance = beans.get<Database>(DEPENDENCY_TYPES.Sequelize);
 const { sequelize } = dbInstance;

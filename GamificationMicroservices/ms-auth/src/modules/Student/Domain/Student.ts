@@ -1,8 +1,9 @@
 import { Person } from "../../Person/domain/Person";
 import StudentCode from "./StudentCode";
+import StudentId from "./StudentId";
 
 export class Student extends Person {
-  constructor(private studentCode: StudentCode, person: Person) {
+  constructor(private studentCode: StudentCode,private studentId : StudentId, person: Person) {
     super(
         person._personId,
         person._fullName,
@@ -17,8 +18,12 @@ export class Student extends Person {
       return this.studentCode;
   }
 
-  public static create(studentCode : StudentCode, person : Person) : Student{
-    let student : Student = new Student(studentCode, person);
+  get _studentId() : StudentId {
+    return this.studentId;
+  }
+
+  public static create(studentCode : StudentCode, studentId : StudentId, person : Person) : Student{
+    let student : Student = new Student(studentCode, studentId, person);
     return student;
   }
 }

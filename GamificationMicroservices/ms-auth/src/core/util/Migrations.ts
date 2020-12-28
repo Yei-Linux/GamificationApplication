@@ -2,7 +2,7 @@
 
 import { associateCollegeModel, initializingCollegeModel } from "../../modules/College/Infraestructure/Persistence/CollegeModel";
 import { associateCollegeType, initializingCollegeTypeModel } from "../../modules/College/Infraestructure/Persistence/CollegeTypeModel";
-import { associateCourse, initializingCourseModel } from "../../modules/Course/Infraestructure/Persistence/CourseModel";
+import { associateCourse, initializingCourseModel } from "../../modules/Course/Infraestructure/Persistence/sequelize/CourseModel";
 import { associateExternalPerson, initializingExternalPersonModel } from "../../modules/ExternalPerson/Infraestucture/Persistence/sequelize/ExternalPersonModel";
 import { associateSpecialization, initializingSpecializationModel } from "../../modules/Specialization/Infraestructure/Persistence/sequelize/SpecializationModel";
 import { associateStudent, initializingStudentModel } from "../../modules/Student/Infraestructure/Persistence/sequelize/StudentModel";

@@ -20,7 +20,8 @@ describe("SignUp User", () => {
       "8dba6cd4-69d1-4a71-bce2-9c68e7579c98",
       "e5065254-9f3c-4d89-bf8e-977dfdb16019",
       null,
-      "12345678"
+      "12345678",
+      ["901a2cf7-c4df-4d02-bc80-8a5a38a1970b","511a2cf7-c4df-4d02-bc80-8a5a38a1970b"]
     );
 
     let studentResponsExpected : SignUpUserResponse = {

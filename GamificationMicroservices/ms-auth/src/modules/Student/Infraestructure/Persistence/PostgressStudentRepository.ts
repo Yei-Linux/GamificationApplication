@@ -3,6 +3,7 @@ import { Logger } from "winston";
 import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
 import PersonModel from "../../../../shared/infraestructure/Persistence/PersonModel";
 import { User } from "../../../User/Domain/User";
+import UserEmail from "../../../User/Domain/UserEmail";
 import UserId from "../../../User/Domain/UserId";
 import UserPassword from "../../../User/Domain/UserPassword";
 import { UserMapper } from "../../../User/Infraestructure/Persistence/sequelize/mapper/UserMapper";
@@ -19,6 +20,23 @@ export class PostgressStudentRepository implements StudentRepository {
     constructor(@inject(DEPENDENCY_TYPES.Logger) logger: Logger) {
         this.logger = logger
     }
+    async getStudentByEmail(email: UserEmail): Promise<Student> {
+        this.logger.info('Searching student by identifier');
+        let userFound : UserModel = await UserModel.findOne({
+            where: { email: email._value },
+            include: [{
+                model: PersonModel,
+                as: "person",
+                include: [{
+                    model: StudentModel,
+                    as: "student"
+                }]
+            }]
+        });
+        this.logger.info(`Student: ${JSON.stringify(userFound)} found`);
+        return StudentMapper.convertStudentModelToStudent(userFound["person"],userFound["person"]["student"]);
+    }
+
     async getStudentByIdentifier(identifier: StudentCode): Promise<[Student,User]> {
         this.logger.info('Searching student by identifier');
         let studentFound : StudentModel[] = await StudentModel.findAll({

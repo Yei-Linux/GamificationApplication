@@ -17,7 +17,6 @@ describe("SignInUser", () => {
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        console.log(res.body);
         expect(res.body).to.have.property('token');
         expect(res.body).to.have.property('personInformation');
         done();
@@ -45,7 +44,7 @@ describe("SignInUser", () => {
 
   it("verify_is_student_is_login", (done: any) => {
     let studentRandomFaker = RequestsFaker.generateSignInUserRequest(
-      "7mk7shjk",
+      "jv8h0zkr",
       "12345678",
       "STUDENT"
     );
@@ -56,6 +55,7 @@ describe("SignInUser", () => {
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
+        console.log(res.body);
         expect(res.body).to.have.property('token');
         expect(res.body).to.have.property('personInformation');
         done();

@@ -1,10 +1,10 @@
 import { Model, DataTypes, Association } from "sequelize";
 import { uuid } from "uuidv4";
-import { beans, Database } from "../../../../core/beans";
-import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
-import EnvironmentStudentCourseModel from "../../../../shared/infraestructure/Persistence/EnvironmentStudentCourseModel";
-import LanguageProgrammingModel from "../../../../shared/infraestructure/Persistence/LanguageProgrammingModel";
-import TutorModel from "../../../Tutor/Infraestructure/Persistence/sequelize/TutorModel";
+import { beans, Database } from "../../../../../core/beans";
+import DEPENDENCY_TYPES from "../../../../../core/beans/ioc-types";
+import EnvironmentStudentCourseModel from "../../../../../shared/infraestructure/Persistence/EnvironmentStudentCourseModel";
+import LanguageProgrammingModel from "../../../../../shared/infraestructure/Persistence/LanguageProgrammingModel";
+import TutorModel from "../../../../Tutor/Infraestructure/Persistence/sequelize/TutorModel";
 const dbInstance = beans.get<Database>(DEPENDENCY_TYPES.Sequelize);
 
 const { sequelize } = dbInstance;
