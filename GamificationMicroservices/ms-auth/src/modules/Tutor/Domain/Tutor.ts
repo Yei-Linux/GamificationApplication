@@ -1,18 +1,25 @@
-import { Person } from "../../../shared/domain/Person";
+import { Person } from "../../Person/domain/Person";
+import TutorCode from "./TutorCode";
+import TutorId from "./TutorId";
 
 export class Tutor extends Person {
-  constructor(public tutorCode: string, person: Person) {
+  constructor(private tutorCode: TutorCode,private tutorId : TutorId, person: Person) {
     super(
-        person.personId,
-        person.fullName,
-        person.lastName,
-        person.surName,
-        person.age,
-        person.identifier
+        person._personId,
+        person._fullName,
+        person._lastName,
+        person._surName,
+        person._age,
+        person._identifier
     );
   }
 
-  get _tutorCode() {
+  get _tutorCode() : TutorCode{
       return this.tutorCode;
+  }
+
+  public static create(tutorCode : TutorCode,tutorId : TutorId, person : Person) : Tutor{
+    let tutor : Tutor = new Tutor(tutorCode, tutorId, person);
+    return tutor;
   }
 }
