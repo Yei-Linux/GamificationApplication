@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { applicationSettings } from 'src/config/application';
 import { database } from 'src/config/database';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/sequelize/ExamModel';
-import { ExamTypeModel } from 'src/modules/Exam/Infraestructure/sequelize/ExamTypeModel';
+import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { ExamTypeModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamTypeModel';
 import { LevelModel } from 'src/modules/Level/Infraestructure/sequelize/LevelModel';
 import { OptionModel } from 'src/modules/Option/Infraestructure/sequelize/OptionModel';
 import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';

@@ -9,7 +9,7 @@ import {
   HasMany,
   ForeignKey,
 } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/sequelize/ExamModel';
+import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
 import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';
 import { StudentAnswerModel } from 'src/modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
 

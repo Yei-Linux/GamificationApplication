@@ -10,7 +10,7 @@ import {
   BelongsTo,
   BelongsToMany,
 } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/sequelize/ExamModel';
+import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
 import { QuestionsExamModel } from 'src/shared/infraestructure/sequelize/QuestionsExamModel';
 import { QuestionTypeModel } from './QuestionTypeModel';
 

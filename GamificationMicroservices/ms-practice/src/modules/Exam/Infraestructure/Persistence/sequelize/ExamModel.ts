@@ -58,6 +58,13 @@ export class ExamModel extends Model<ExamModel> {
   })
   duration: number;
 
+  @Column({
+    field: 'order',
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  order: number;
+
   @ForeignKey(() => ExamTypeModel)
   @Column({
     field: 'exam_type_id',
