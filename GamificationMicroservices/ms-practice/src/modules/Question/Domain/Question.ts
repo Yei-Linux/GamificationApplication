@@ -1,3 +1,4 @@
+import ExamQuestionId from "../../Exam/Domain/ExamQuestionId";
 import {Option} from "../../Option/Domain/Option";
 import QuestionDescription from "./QuestionDescription";
 import QuestionDifficulty from "./QuestionDifficulty";
@@ -20,7 +21,8 @@ export class Question {
       private difficulty: QuestionDifficulty,
       private questionTypeId: QuestionTypeId,
       private questionTypeName: QuestionTypeName,
-      private options: Option[]
+      private options: Option[],
+      private questionExamId: ExamQuestionId,
     ) {}
 
     get _id(): QuestionId {
@@ -63,6 +65,10 @@ export class Question {
       return this.options;
     }
 
+    get _questionExamId() : ExamQuestionId {
+      return this.questionExamId;
+    }
+
     public static create(
       id: QuestionId,
       text: QuestionText,
@@ -73,9 +79,10 @@ export class Question {
       questionTypeName: QuestionTypeName,
       questionOrder: QuestionOrder,
       questionDifficulty: QuestionDifficulty,
-      options: Option[]
+      options: Option[],
+      questionExamId: ExamQuestionId = null
     ): Question {
-      let question = new Question(id, text, description,duration,questionOrder,points,questionDifficulty,questionTypeId,questionTypeName,options);
+      let question = new Question(id, text, description,duration,questionOrder,points,questionDifficulty,questionTypeId,questionTypeName,options,questionExamId);
       return question;
     }
   }

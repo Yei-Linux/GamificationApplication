@@ -1,10 +1,10 @@
 import validator from "validator";
 import StringValueObject from "../../../shared/domain/StringValueObject";
 
-class StudentAnswerEmail extends StringValueObject {
+class StudentExamEmail extends StringValueObject {
     constructor(value : string) {
         super(value)
     }
 }
 
-export default StudentAnswerEmail;
+export default StudentExamEmail;

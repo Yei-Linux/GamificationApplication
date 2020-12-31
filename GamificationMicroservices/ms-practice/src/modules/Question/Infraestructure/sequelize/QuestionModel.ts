@@ -10,7 +10,9 @@ import {
   BelongsTo,
   BelongsToMany,
   HasMany,
+  BeforeCreate,
 } from 'sequelize-typescript';
+import { uuid } from 'uuidv4';
 import { QuestionsExamModel } from '../../../../shared/infraestructure/sequelize/QuestionsExamModel';
 import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
 import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionModel';
@@ -114,6 +116,11 @@ export class QuestionModel extends Model<QuestionModel> {
 
   @HasMany(() => QuestionsExamModel)
   questions: QuestionsExamModel[];
+
+  @BeforeCreate
+  static addUUID(instance: QuestionModel) {
+    instance.id = uuid();
+  }
 
   @CreatedAt public createdAt: Date;
 

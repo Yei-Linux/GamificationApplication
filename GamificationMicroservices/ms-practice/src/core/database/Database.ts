@@ -7,7 +7,8 @@ import { LevelModel } from '../../modules/Level/Infraestructure/sequelize/LevelM
 import { OptionModel } from '../../modules/Option/Infraestructure/sequelize/OptionModel';
 import { QuestionModel } from '../../modules/Question/Infraestructure/sequelize/QuestionModel';
 import { QuestionTypeModel } from '../../modules/Question/Infraestructure/sequelize/QuestionTypeModel';
-import { StudentAnswerModel } from '../../modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
+import { StudentAnswerModel } from '../../modules/StudentExam/Infraestructure/sequelize/StudentAnswerModel';
+import { StudentExamModel } from '../../modules/StudentExam/Infraestructure/sequelize/StudentExamModel';
 import { ThemeModel } from '../../modules/Theme/Infraestructure/sequelize/ThemeModel';
 import { QuestionsExamModel } from '../../shared/infraestructure/sequelize/QuestionsExamModel';
 export const databaseProviders = [
@@ -27,6 +28,7 @@ export const databaseProviders = [
         OptionModel,
         QuestionModel,
         QuestionsExamModel,
+        StudentExamModel,
         StudentAnswerModel,
       ]);
 

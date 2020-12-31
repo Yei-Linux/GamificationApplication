@@ -9,9 +9,11 @@ import {
     ForeignKey,
     BelongsTo,
     HasMany,
+    BeforeCreate,
   } from 'sequelize-typescript';
+import { uuid } from 'uuidv4';
 import { QuestionModel } from '../../../Question/Infraestructure/sequelize/QuestionModel';
-import { StudentAnswerModel } from '../../../StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
+import { StudentAnswerModel } from '../../../StudentExam/Infraestructure/sequelize/StudentAnswerModel';
 
   @Table({
     tableName: 'options',
@@ -58,6 +60,11 @@ import { StudentAnswerModel } from '../../../StudentAnswer/Infraestructure/seque
 
     @HasMany(() => StudentAnswerModel)
     studentAnswers: StudentAnswerModel[];
+
+    @BeforeCreate
+    static addUUID(instance: OptionModel) {
+      instance.id = uuid();
+    }
 
     @CreatedAt public createdAt: Date;
 

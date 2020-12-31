@@ -1,26 +1,22 @@
 import ExamQuestionId from "../../Exam/Domain/ExamQuestionId";
 import OptionId from "../../Option/Domain/OptionId";
 import StudentAnswerDuration from "./StudentAnswerDuration";
-import StudentAnswerEmail from "./StudentAnswerEmail";
 import StudentAnswerId from "./StudentAnswerId";
 import StudentAnswerText from "./StudentAnswerText";
+import StudentExamId from "./StudentExamId";
 
 export class StudentAnswer {
     constructor(
       private id: StudentAnswerId,
-      private email: StudentAnswerEmail,
       private answerText: StudentAnswerText,
       private duration: StudentAnswerDuration,
       private questionExamId: ExamQuestionId,
       private optionId: OptionId,
+      private studentExamId: StudentExamId
     ) {}
 
     get _id(): StudentAnswerId {
       return this.id;
-    }
-
-    get _email(): StudentAnswerEmail {
-      return this.email;
     }
 
     get _answerText(): StudentAnswerText {
@@ -39,15 +35,23 @@ export class StudentAnswer {
         return this.optionId;
     }
 
+    get _studentExamId() : StudentExamId {
+      return this.studentExamId;
+    }
+
+    set _studentExamIdSetter(studentExamId : StudentExamId) {
+      this.studentExamId = studentExamId;
+    }
+
     public static create(
         id: StudentAnswerId,
-        email: StudentAnswerEmail,
         answerText: StudentAnswerText,
         duration: StudentAnswerDuration,
         questionExamId: ExamQuestionId,
         optionId: OptionId,
+        studentExamId: StudentExamId
     ): StudentAnswer {
-      let studentAnswerId = new StudentAnswer(id, email, answerText,duration,questionExamId,optionId);
+      let studentAnswerId = new StudentAnswer(id, answerText,duration,questionExamId,optionId,studentExamId);
       return studentAnswerId;
     }
   }

@@ -7,7 +7,9 @@ import {
     UpdatedAt,
     DeletedAt,
     HasMany,
+    BeforeCreate,
   } from 'sequelize-typescript';
+import { uuid } from 'uuidv4';
 import { QuestionModel } from './QuestionModel';
 
   @Table({
@@ -44,6 +46,11 @@ import { QuestionModel } from './QuestionModel';
 
     @HasMany(() => QuestionModel)
     questions: QuestionModel[];
+
+    @BeforeCreate
+    static addUUID(instance: QuestionTypeModel) {
+      instance.id = uuid();
+    }
 
     @CreatedAt public createdAt: Date;
 

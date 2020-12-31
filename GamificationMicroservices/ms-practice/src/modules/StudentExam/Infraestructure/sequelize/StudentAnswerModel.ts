@@ -9,9 +9,12 @@ import {
     ForeignKey,
     BelongsTo,
     BelongsToMany,
+    BeforeCreate,
   } from 'sequelize-typescript';
+import { uuid } from 'uuidv4';
 import { QuestionsExamModel } from '../../../../shared/infraestructure/sequelize/QuestionsExamModel';
 import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionModel';
+import { StudentExamModel } from './StudentExamModel';
 
   @Table({
     tableName: 'student_answers',
@@ -24,16 +27,6 @@ import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionMod
       primaryKey: true,
     })
     public id: string;
-
-    @Column({
-      field: 'user_email',
-      type: DataType.STRING(100),
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    })
-    userEmail: string;
 
     @Column({
       field: 'student_answer_text',
@@ -71,10 +64,25 @@ import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionMod
     })
     optionId: string;
 
+    @ForeignKey(() => StudentExamModel)
+    @Column({
+      field: 'student_exam_id',
+      type: DataType.UUID,
+      allowNull: true,
+    })
+    studentExamId: string;
+
     @BelongsTo(() => QuestionsExamModel)
     questionExam: QuestionsExamModel;
     @BelongsTo(() => OptionModel)
     option: OptionModel;
+    @BelongsTo(() => StudentExamModel)
+    studentExam: StudentExamModel;
+
+    @BeforeCreate
+    static addUUID(instance: StudentAnswerModel) {
+      instance.id = uuid();
+    }
 
     @CreatedAt public createdAt: Date;
 

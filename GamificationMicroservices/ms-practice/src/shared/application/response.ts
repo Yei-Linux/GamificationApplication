@@ -27,4 +27,5 @@ export interface QuestionResponse {
     questionTypeId: string;
     questionTypeName: string;
     options: OptionResponse[];
+    examQuestionId: string;
 }

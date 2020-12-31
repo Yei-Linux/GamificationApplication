@@ -12,7 +12,7 @@ import {
 } from 'sequelize-typescript';
 import { ExamModel } from '../../../modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
 import { QuestionModel } from '../../../modules/Question/Infraestructure/sequelize/QuestionModel';
-import { StudentAnswerModel } from '../../../modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
+import { StudentAnswerModel } from '../../../modules/StudentExam/Infraestructure/sequelize/StudentAnswerModel';
 @Table({
   tableName: 'questions_exam',
 })

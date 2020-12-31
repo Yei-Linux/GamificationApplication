@@ -7,8 +7,11 @@ import {
     UpdatedAt,
     DeletedAt,
     HasMany,
+    BeforeCreate,
   } from 'sequelize-typescript';
+import { uuid } from 'uuidv4';
 import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { Level } from '../../Domain/Level';
   @Table({
     tableName: 'levels',
   })
@@ -53,6 +56,11 @@ import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/E
 
     @HasMany(() => ExamModel)
     exams: ExamModel[];
+
+    @BeforeCreate
+    static addUUID(instance: LevelModel) {
+      instance.id = uuid();
+    }
 
     @CreatedAt public createdAt: Date;
 

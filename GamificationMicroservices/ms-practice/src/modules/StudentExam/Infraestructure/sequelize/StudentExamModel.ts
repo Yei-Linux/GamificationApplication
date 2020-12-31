@@ -6,16 +6,20 @@ import {
     CreatedAt,
     UpdatedAt,
     DeletedAt,
+    ForeignKey,
+    BelongsTo,
+    BelongsToMany,
     HasMany,
     BeforeCreate,
   } from 'sequelize-typescript';
 import { uuid } from 'uuidv4';
-import { ExamModel } from './ExamModel';
+import { StudentExamModule } from '../../studentExam.module';
+import { StudentAnswerModel } from './StudentAnswerModel';
 
   @Table({
-    tableName: 'exam_types',
+    tableName: 'student_exams',
   })
-  export class ExamTypeModel extends Model<ExamTypeModel> {
+  export class StudentExamModel extends Model<StudentExamModel> {
     @Column({
       field: 'id',
       type: DataType.UUID,
@@ -25,30 +29,30 @@ import { ExamModel } from './ExamModel';
     public id: string;
 
     @Column({
-      field: 'name',
+      field: 'user_email',
       type: DataType.STRING(100),
       allowNull: false,
       validate: {
         notEmpty: true,
       },
     })
-    name: string;
+    userEmail: string;
 
     @Column({
-      field: 'description',
-      type: DataType.STRING(100),
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+        field: 'retry',
+        type: DataType.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
     })
-    description: string;
+    retry: number;
 
-    @HasMany(() => ExamModel)
-    exams: ExamModel[];
+    @HasMany(() => StudentAnswerModel)
+    studentAnswers: StudentAnswerModel[];
 
     @BeforeCreate
-    static addUUID(instance: ExamTypeModel) {
+    static addUUID(instance: StudentExamModel) {
       instance.id = uuid();
     }
 

@@ -38,6 +38,10 @@ export class PostgressExamRepository implements ExamRepository {
           include: [{
             model: QuestionTypeModel,
           },{
+            model: QuestionsExamModel,
+            as: "questions",
+          },
+          {
             model: OptionModel,
             as: "options"
           }]
