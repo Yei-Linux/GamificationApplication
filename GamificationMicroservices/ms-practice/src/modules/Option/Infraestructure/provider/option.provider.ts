@@ -2,7 +2,7 @@ import { OptionModel } from "../sequelize/OptionModel";
 
 export const OptionProvider = [
   {
-    provide: '',
+    provide: 'OptionModel',
     useValue: OptionModel,
   },
 ];

@@ -3,11 +3,11 @@ import { ExamTypeModel } from "../sequelize/ExamTypeModel";
 
 export const ExamProvider = [
   {
-    provide: '',
+    provide: 'ExamModel',
     useValue: ExamModel,
   },
   {
-    provide: '',
+    provide: 'ExamTypeModel',
     useValue: ExamTypeModel,
   },
 ];

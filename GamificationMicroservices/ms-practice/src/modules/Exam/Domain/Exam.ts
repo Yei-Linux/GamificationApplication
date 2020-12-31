@@ -1,4 +1,6 @@
-import { Level } from "src/modules/Level/Domain/Level";
+import { Level } from "../../Level/Domain/Level";
+import { Question } from "../../Question/Domain/Question";
+import { Theme } from "../../Theme/Domain/Theme";
 import ExamDescription from "./ExamDescription";
 import ExamDuration from "./ExamDuration";
 import ExamId from "./ExamId";
@@ -15,7 +17,8 @@ export class Exam {
     private order: ExamOrder,
     private examTypeId: ExamTypeId,
     private level: Level,
-    private theme: any,
+    private theme: Theme,
+    private questions: Question[]
   ) {}
 
   get _id(): ExamId {
@@ -46,6 +49,14 @@ export class Exam {
     return this.level;
   }
 
+  get _theme(): Theme {
+    return this.theme;
+  }
+
+  get _questions(): Question[] {
+    return this.questions;
+  }
+
   public static create(
     id: ExamId,
     name: ExamName,
@@ -54,9 +65,10 @@ export class Exam {
     order: ExamOrder,
     examType: ExamTypeId,
     level: Level,
-    theme: any,
+    theme: Theme,
+    questions: Question[],
   ): Exam {
-    let exam = new Exam(id, name, description, duration, order, examType, level, theme);
+    let exam = new Exam(id, name, description, duration, order, examType, level, theme, questions);
     return exam;
   }
 }

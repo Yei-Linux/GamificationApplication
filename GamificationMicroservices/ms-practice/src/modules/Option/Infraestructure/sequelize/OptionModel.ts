@@ -10,8 +10,8 @@ import {
     BelongsTo,
     HasMany,
   } from 'sequelize-typescript';
-import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';
-import { StudentAnswerModel } from 'src/modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
+import { QuestionModel } from '../../../Question/Infraestructure/sequelize/QuestionModel';
+import { StudentAnswerModel } from '../../../StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
 
   @Table({
     tableName: 'options',
@@ -27,7 +27,7 @@ import { StudentAnswerModel } from 'src/modules/StudentAnswer/Infraestructure/se
 
     @Column({
       field: 'text',
-      type: DataType.STRING(200),
+      type: DataType.TEXT,
       allowNull: false,
       validate: {
         notEmpty: true,

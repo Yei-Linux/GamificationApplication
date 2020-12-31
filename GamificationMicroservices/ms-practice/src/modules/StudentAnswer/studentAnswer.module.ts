@@ -4,8 +4,8 @@ import {
   MiddlewareConsumer,
   RequestMethod,
 } from '@nestjs/common';
-import { DatabaseModule } from 'src/core/database/database.module';
-import { LoggerMiddleware } from 'src/middlewares/logger.middleware';
+import { DatabaseModule } from '../../core/database/database.module';
+import { LoggerMiddleware } from '../../middlewares/logger.middleware';
 import { StudentAnswerProvider } from './Infraestructure/provider/studentAnswer.provider';
 @Module({
   imports: [DatabaseModule],

@@ -1,16 +1,15 @@
 import { Sequelize } from 'sequelize-typescript';
-import { applicationSettings } from 'src/config/application';
-import { database } from 'src/config/database';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
-import { ExamTypeModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamTypeModel';
-import { LevelModel } from 'src/modules/Level/Infraestructure/sequelize/LevelModel';
-import { OptionModel } from 'src/modules/Option/Infraestructure/sequelize/OptionModel';
-import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';
-import { QuestionTypeModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionTypeModel';
-import { StudentAnswerModel } from 'src/modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
-import { ThemeModel } from 'src/modules/Theme/Infraestructure/sequelize/ThemeEntity';
-import { QuestionsExamModel } from 'src/shared/infraestructure/sequelize/QuestionsExamModel';
-
+import { applicationSettings } from '../../config/application';
+import { database } from '../../config/database';
+import { ExamModel } from '../../modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { ExamTypeModel } from '../../modules/Exam/Infraestructure/Persistence/sequelize/ExamTypeModel';
+import { LevelModel } from '../../modules/Level/Infraestructure/sequelize/LevelModel';
+import { OptionModel } from '../../modules/Option/Infraestructure/sequelize/OptionModel';
+import { QuestionModel } from '../../modules/Question/Infraestructure/sequelize/QuestionModel';
+import { QuestionTypeModel } from '../../modules/Question/Infraestructure/sequelize/QuestionTypeModel';
+import { StudentAnswerModel } from '../../modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
+import { ThemeModel } from '../../modules/Theme/Infraestructure/sequelize/ThemeModel';
+import { QuestionsExamModel } from '../../shared/infraestructure/sequelize/QuestionsExamModel';
 export const databaseProviders = [
   {
     provide: 'sequelize',
@@ -31,7 +30,7 @@ export const databaseProviders = [
         StudentAnswerModel,
       ]);
 
-      await sequelize.sync({ force: true })
+      await sequelize.sync()
       return sequelize;
     },
   },

@@ -2,7 +2,7 @@ import { LevelModel } from "../sequelize/LevelModel";
 
 export const LevelProvider = [
   {
-    provide: '',
+    provide: 'LevelModel',
     useValue: LevelModel,
   },
 ];

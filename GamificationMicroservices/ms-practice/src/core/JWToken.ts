@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { applicationSettings } from "src/config/application";
-import { authentication } from "src/config/authentication";
+import { applicationSettings } from "../config/application";
+import { authentication } from "../config/authentication";
 interface PayloadToken {
     userEmail: string;
     fullName: string;

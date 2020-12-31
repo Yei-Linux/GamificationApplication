@@ -8,11 +8,11 @@ import {
   DeletedAt,
   HasMany,
   ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
-import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';
-import { StudentAnswerModel } from 'src/modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
-
+import { ExamModel } from '../../../modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { QuestionModel } from '../../../modules/Question/Infraestructure/sequelize/QuestionModel';
+import { StudentAnswerModel } from '../../../modules/StudentAnswer/Infraestructure/sequelize/StudentAnswerModel';
 @Table({
   tableName: 'questions_exam',
 })
@@ -40,6 +40,12 @@ export class QuestionsExamModel extends Model<QuestionsExamModel> {
     allowNull: true,
   })
   questionId: number;
+
+  @BelongsTo(() => ExamModel)
+  exam: ExamModel;
+
+  @BelongsTo(() => QuestionModel)
+  questions: QuestionModel;
 
   @HasMany(() => StudentAnswerModel)
   studentAnswers: StudentAnswerModel[];

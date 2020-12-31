@@ -10,8 +10,8 @@ import {
     BelongsTo,
     BelongsToMany,
   } from 'sequelize-typescript';
-import { OptionModel } from 'src/modules/Option/Infraestructure/sequelize/OptionModel';
-import { QuestionsExamModel } from 'src/shared/infraestructure/sequelize/QuestionsExamModel';
+import { QuestionsExamModel } from '../../../../shared/infraestructure/sequelize/QuestionsExamModel';
+import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionModel';
 
   @Table({
     tableName: 'student_answers',

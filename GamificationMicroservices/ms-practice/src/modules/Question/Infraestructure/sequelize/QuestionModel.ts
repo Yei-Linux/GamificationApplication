@@ -9,9 +9,11 @@ import {
   ForeignKey,
   BelongsTo,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
-import { QuestionsExamModel } from 'src/shared/infraestructure/sequelize/QuestionsExamModel';
+import { QuestionsExamModel } from '../../../../shared/infraestructure/sequelize/QuestionsExamModel';
+import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionModel';
 import { QuestionTypeModel } from './QuestionTypeModel';
 
 @Table({
@@ -27,8 +29,18 @@ export class QuestionModel extends Model<QuestionModel> {
   public id: string;
 
   @Column({
+    field: 'title',
+    type: DataType.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  })
+  title: string;
+
+  @Column({
     field: 'text',
-    type: DataType.STRING(1000),
+    type: DataType.TEXT,
     allowNull: false,
     validate: {
       notEmpty: true,
@@ -57,6 +69,16 @@ export class QuestionModel extends Model<QuestionModel> {
   duration: number;
 
   @Column({
+    field: 'order',
+    type: DataType.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  })
+  order: number;
+
+  @Column({
     field: 'points',
     type: DataType.INTEGER,
     allowNull: false,
@@ -65,6 +87,16 @@ export class QuestionModel extends Model<QuestionModel> {
     },
   })
   points: number;
+
+  @Column({
+    field: 'difficulty',
+    type: DataType.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  })
+  difficulty: number;
 
   @ForeignKey(() => QuestionTypeModel)
   @Column({
@@ -77,8 +109,11 @@ export class QuestionModel extends Model<QuestionModel> {
   @BelongsTo(() => QuestionTypeModel)
   questionType: QuestionTypeModel;
 
-  @BelongsToMany(() => ExamModel, () => QuestionsExamModel)
-  questionsExams: QuestionsExamModel[];
+  @HasMany(() => OptionModel)
+  options: OptionModel[];
+
+  @HasMany(() => QuestionsExamModel)
+  questions: QuestionsExamModel[];
 
   @CreatedAt public createdAt: Date;
 

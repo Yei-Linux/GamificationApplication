@@ -1,4 +1,4 @@
-import Identifier from "src/shared/domain/Identifier";
+import Identifier from "../../../shared/domain/Identifier";
 
 class StudentAnswerId extends Identifier {
     constructor(value : string) {

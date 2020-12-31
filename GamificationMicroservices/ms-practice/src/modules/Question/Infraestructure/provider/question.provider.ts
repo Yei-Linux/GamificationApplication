@@ -3,11 +3,11 @@ import { QuestionTypeModel } from "../sequelize/QuestionTypeModel";
 
 export const QuestionProvider = [
   {
-    provide: '',
+    provide: 'QuestionTypeModel',
     useValue: QuestionTypeModel,
   },
   {
-    provide: '',
+    provide: 'QuestionModel',
     useValue: QuestionModel,
   },
 ];

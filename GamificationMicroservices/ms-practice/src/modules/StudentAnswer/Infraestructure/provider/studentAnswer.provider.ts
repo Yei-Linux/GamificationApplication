@@ -2,7 +2,7 @@ import { StudentAnswerModel } from "../sequelize/StudentAnswerModel";
 
 export const StudentAnswerProvider = [
   {
-    provide: '',
+    provide: 'StudentAnswerModel',
     useValue: StudentAnswerModel,
   },
 ];

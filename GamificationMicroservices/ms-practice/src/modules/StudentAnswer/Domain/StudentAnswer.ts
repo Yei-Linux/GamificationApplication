@@ -1,5 +1,5 @@
-import ExamQuestionId from "src/modules/Exam/Domain/ExamQuestionId";
-import OptionId from "src/modules/Option/Domain/OptionId";
+import ExamQuestionId from "../../Exam/Domain/ExamQuestionId";
+import OptionId from "../../Option/Domain/OptionId";
 import StudentAnswerDuration from "./StudentAnswerDuration";
 import StudentAnswerEmail from "./StudentAnswerEmail";
 import StudentAnswerId from "./StudentAnswerId";

@@ -8,7 +8,7 @@ import {
     DeletedAt,
     HasMany,
   } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
+import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
 
   @Table({
     tableName: 'themes',

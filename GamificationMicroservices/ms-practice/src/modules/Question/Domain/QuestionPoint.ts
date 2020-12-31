@@ -1,4 +1,4 @@
-import IntValueObject from "src/shared/domain/IntValueObject";
+import IntValueObject from "../../../shared/domain/IntValueObject";
 import validator from "validator";
 
 class QuestionPoint extends IntValueObject {

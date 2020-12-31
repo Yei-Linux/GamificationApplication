@@ -1,3 +1,4 @@
+import QuestionId from "../../Question/Domain/QuestionId";
 import OptionId from "./OptionId";
 import OptionText from "./OptionText";
 
@@ -6,7 +7,7 @@ export class Option {
       private id: OptionId,
       private text: OptionText,
       private isAnswer: boolean,
-      private question: any
+      private questionId: QuestionId
     ) {}
 
     get _id(): OptionId {
@@ -21,8 +22,8 @@ export class Option {
       return this.isAnswer;
     }
 
-    get _question() : any {
-        return this.question;
+    get _questionId() : QuestionId {
+        return this.questionId;
     }
 
     public static create(

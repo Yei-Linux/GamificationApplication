@@ -2,7 +2,7 @@ import { QuestionsExamModel } from "../sequelize/QuestionsExamModel";
 
 export const SharedProvider = [
   {
-    provide: '',
+    provide: 'QuestionsExamModel',
     useValue: QuestionsExamModel,
   },
 ];

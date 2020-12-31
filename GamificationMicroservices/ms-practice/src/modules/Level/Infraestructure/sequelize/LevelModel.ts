@@ -8,8 +8,7 @@ import {
     DeletedAt,
     HasMany,
   } from 'sequelize-typescript';
-import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequelize/ExamModel';
-
+import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
   @Table({
     tableName: 'levels',
   })
@@ -41,6 +40,16 @@ import { ExamModel } from 'src/modules/Exam/Infraestructure/Persistence/sequeliz
       },
     })
     description: string;
+
+    @Column({
+      field: 'image_url',
+      type: DataType.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    })
+    imageUrl: string;
 
     @HasMany(() => ExamModel)
     exams: ExamModel[];

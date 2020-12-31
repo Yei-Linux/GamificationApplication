@@ -1,8 +1,8 @@
-import { ThemeModel } from "../sequelize/ThemeEntity";
+import { ThemeModel } from "../sequelize/ThemeModel";
 
 export const ThemeProvider = [
   {
-    provide: '',
+    provide: 'ThemeModel',
     useValue: ThemeModel,
   },
 ];

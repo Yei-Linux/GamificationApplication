@@ -9,11 +9,12 @@ import {
   ForeignKey,
   BelongsTo,
   BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
-import { LevelModel } from 'src/modules/Level/Infraestructure/sequelize/LevelModel';
-import { QuestionModel } from 'src/modules/Question/Infraestructure/sequelize/QuestionModel';
-import { ThemeModel } from 'src/modules/Theme/Infraestructure/sequelize/ThemeEntity';
-import { QuestionsExamModel } from 'src/shared/infraestructure/sequelize/QuestionsExamModel';
+import { QuestionsExamModel } from '../../../../../shared/infraestructure/sequelize/QuestionsExamModel';
+import { LevelModel } from '../../../../Level/Infraestructure/sequelize/LevelModel';
+import { QuestionModel } from '../../../../Question/Infraestructure/sequelize/QuestionModel';
+import { ThemeModel } from '../../../../Theme/Infraestructure/sequelize/ThemeModel';
 import { ExamTypeModel } from './ExamTypeModel';
 
 @Table({
@@ -96,8 +97,8 @@ export class ExamModel extends Model<ExamModel> {
   @BelongsTo(() => ThemeModel)
   theme: ThemeModel;
 
-  @BelongsToMany(() => QuestionModel, () => QuestionsExamModel)
-  questionsExams: QuestionsExamModel[];
+  @HasMany(() => QuestionsExamModel)
+  questionsByExam: QuestionsExamModel[];
 
   @CreatedAt public createdAt: Date;
 
