@@ -1,4 +1,5 @@
 import RegisterComponent from 'components/CardRegister'
+import React from 'react'
 import NavegacionComponent from 'components/Layout/Header'
 import Head from 'next/head'
 

@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import tw from "twin.macro";
 import { EBorderType } from "../../../core/domain/enums";
-import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps } from "../../../core/utils/twin.util";
+import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps ,generateTextAlignProps , generateFontWeightProps} from "../../../core/utils/twin.util";
 
 export const CustomLabel = styled.a<{
     backgroundColor?: string;
+    textAlign?:string;
     textColor?: string;
+    fontWeight?:string;
     borderColor?: string;
     borderType?: string;
     shadowType?: string;
@@ -18,6 +20,8 @@ export const CustomLabel = styled.a<{
     background: ${(props : any) => props.backgroundColor};
     border-color: ${(props : any) => props.borderColor};
     ${(props : any) => props.hasPadding ? tw`py-3 px-3` : tw`p-0` };
+    ${(props : any) => generateTextAlignProps(props.textAlign)}
+    ${(props : any) => generateFontWeightProps(props.fontWeight)}
     ${(props : any) => generateShadowProps(props.shadowType)}
     ${(props : any) => generateBorderTypeProps(props.borderType)}
     ${(props : any) => generateWidthTypeProps(props.widthType)}

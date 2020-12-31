@@ -6,6 +6,8 @@ import {
   EHeightType,
   EShadowType,
   EWithType,
+  ETextAlign,
+  EFontWeight,
 } from '../../core/domain/enums';
 
 import { mapEnum } from '../../core/helpers/data-managment.helper';
@@ -22,6 +24,8 @@ export default {
     backgroundColor: { control: 'color' },
     textColor: { control: 'color' },
     widthType: { control: { type: 'select', options: mapEnum(EWithType) } },
+    textAlign: { control: { type: 'select', options: mapEnum(ETextAlign) } },
+    fontWeight: { control: { type: 'select', options: mapEnum(EFontWeight) } },
     shadowType: { control: { type: 'select', options: mapEnum(EShadowType) } },
     borderType: { control: { type: 'select', options: mapEnum(EBorderType) } },
     heigthType: { control: { type: 'select', options: mapEnum(EHeightType) } },

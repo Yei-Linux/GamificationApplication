@@ -12,6 +12,35 @@ export const generateShadowProps = (twinProp : any) => {
             return '';
     }
 }
+export const generateTextAlignProps = (twinProp:any)=>{
+    switch (twinProp) {
+        case 'LEFT':
+            return tw`text-left`;
+        case 'CENTER':
+            return tw`text-center`;
+        case 'RIGHT':
+            return tw`text-right`;
+        case 'JUSTIFY':
+            return tw`text-justify`;
+        default :
+            return '';
+    }
+}
+export const generateFontWeightProps = (twinProp : any) =>{
+    switch (twinProp) {
+        case 'NORMAL':
+            return tw`font-normal`;
+        case 'MEDIUM':
+            return tw`font-medium`;
+        case 'SEMIBOLD':
+            return tw`font-semibold`;
+        case 'BOLD':
+            return tw`font-bold`;
+        default :
+            return '';
+    }
+}
+
 
 export const generateBorderTypeProps = (twinProp : any) => {
     switch (twinProp) {

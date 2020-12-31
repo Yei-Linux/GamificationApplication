@@ -33,13 +33,13 @@ module.exports = {
             babelCore: '@babel/core'
           }
         }
-      ]
-      //   resolve: {
-      //     alias: {
-      //       react: path.resolve('../Storybook/node_modules/react'),
-      //       'react-dom': path.resolve('../Storybook/node_modules/react-dom')
-      //     }
-      //   }
+      ],
+      resolve: {
+        alias: {
+          react: path.resolve('./node_modules/react')
+          // 'react-dom': path.resolve('./node_modules/react')
+        }
+      }
     })
     // resolve :{
     //     alias: {
@@ -57,3 +57,16 @@ module.exports = {
     return config
   }
 }
+
+// module.exports = ({ config }) => {
+//   config.module.rules.push({
+//     test: /\.(ts|tsx)$/,
+//     loader: require.resolve('babel-loader'),
+//     options: {
+//       presets: [require.resolve('babel-preset-react-app')]
+//     }
+//   })
+
+//   config.resolve.extensions.push('.ts', '.tsx')
+//   return config
+// }

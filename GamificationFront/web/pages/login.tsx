@@ -1,4 +1,4 @@
-import Button from '../../Storybook/atomic/atoms/Button'
+import Button from '../../Storybook/atomic/atoms/Button/index'
 
 export const SmallButton = (args) => <Button {...args} />
 

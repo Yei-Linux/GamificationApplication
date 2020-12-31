@@ -10,6 +10,19 @@ export enum EShadowType {
     LARGE = 'LARGE',
     XLARGE = 'XLARGE'
 }
+export enum ETextAlign {
+    LEFT = 'LEFT',
+    CENTER = 'CENTER',
+    RIGTH = 'RIGHT',
+    JUSTIFY = 'JUSTIFY'
+}
+
+export enum EFontWeight {
+    NORMAL = 'NORMAL',
+    MEDIUM = 'MEDIUM',
+    SEMIBOLD = 'SEMIBOLD',
+    BOLD = 'BOLD'
+}   
 
 export enum EWithType {
     SMALL = 'SMALL',
