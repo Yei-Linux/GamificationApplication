@@ -10,7 +10,7 @@ import {
     ForeignKey,
     BelongsTo,
   } from 'sequelize-typescript';
-import { ThemeStudyMethodsModel } from '../../../../shared/infraestructure/sequelize/ThemeStudyMethodsModel';
+import { ThemeStudyMethodsModel } from '../../../Class/Infraestructure/Persistence/sequelize/ThemeStudyMethodsModel';
 import { CourseModel } from '../../../Course/Infraestructure/sequelize/CourseModel';
 
   @Table({

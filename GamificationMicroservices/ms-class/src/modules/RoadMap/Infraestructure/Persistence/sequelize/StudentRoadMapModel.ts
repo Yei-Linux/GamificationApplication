@@ -9,8 +9,10 @@ import {
   HasMany,
   ForeignKey,
   BelongsTo,
+  BeforeCreate,
 } from 'sequelize-typescript';
-import { ThemeStudyMethodsModel } from '../../../../../shared/infraestructure/sequelize/ThemeStudyMethodsModel';
+import { uuid } from 'uuidv4';
+import { ThemeStudyMethodsModel } from '../../../../Class/Infraestructure/Persistence/sequelize/ThemeStudyMethodsModel';
 @Table({
   tableName: 'students_roadmap',
 })
@@ -54,6 +56,11 @@ export class StudentRoadMapModel extends Model<StudentRoadMapModel> {
 
   @BelongsTo(() => ThemeStudyMethodsModel)
   themeStudyMethod: ThemeStudyMethodsModel;
+
+  @BeforeCreate
+  static addUUID(instance: StudentRoadMapModel) {
+    instance.id = uuid();
+  }
 
   @CreatedAt public createdAt: Date;
 

@@ -10,9 +10,9 @@ import {
   ForeignKey,
   BelongsTo,
 } from 'sequelize-typescript';
-import { StudentRoadMapModel } from '../../../modules/StudentRoadMap/Infraestructure/Persistence/sequelize/StudentRoadMapModel';
-import { StudyMethodsModel } from '../../../modules/StudyMethods/Infraestructure/Persistence/sequelize/StudyMethodsModel';
-import { ThemeModel } from '../../../modules/Theme/Infraestructure/sequelize/ThemeModel';
+import { StudentRoadMapModel } from '../../../../RoadMap/Infraestructure/Persistence/sequelize/StudentRoadMapModel';
+import { StudyMethodsModel } from '../../../../StudyMethods/Infraestructure/Persistence/sequelize/StudyMethodsModel';
+import { ThemeModel } from '../../../../Theme/Infraestructure/sequelize/ThemeModel';
 @Table({
   tableName: 'theme_study_methods_detail',
 })
