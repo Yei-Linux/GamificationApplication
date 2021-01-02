@@ -1,3 +1,4 @@
+import { AggregateRoot } from "../../../shared/domain/AggregateRoot";
 import { Level } from "../../Level/Domain/Level";
 import { Question } from "../../Question/Domain/Question";
 import { Theme } from "../../Theme/Domain/Theme";
@@ -8,7 +9,7 @@ import ExamName from "./ExamName";
 import ExamOrder from "./ExamOrder";
 import ExamTypeId from "./ExamTypeId";
 
-export class Exam {
+export class Exam extends AggregateRoot{
   constructor(
     private id: ExamId,
     private name: ExamName,
@@ -19,7 +20,9 @@ export class Exam {
     private level: Level,
     private theme: Theme,
     private questions: Question[]
-  ) {}
+  ) {
+    super();
+  }
 
   get _id(): ExamId {
     return this.id;

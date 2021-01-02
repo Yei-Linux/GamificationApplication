@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { RoadMapRequest } from '../../../../endpoints/RoadMap/RoadMapRequest';
+import { RoadMapRequest } from '../../../../backend/controllers/RoadMap/RoadMapRequest';
 import { GetClassByFiltersService } from '../../../Class/Application/GetClassByFilters';
 import ClassId from '../../../Class/Domain/ClassId';
 import CourseId from '../../../Course/Domain/CourseId';

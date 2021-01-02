@@ -31,9 +31,9 @@ export class ExamController {
   ) {
     try {
       let examResponse: GetExamResponse = await this.getExamService.handle(
-        new ThemeId(getExamRequest.themeId),
-        new ExamTypeId(getExamRequest.examTypeId),
-        new LevelId(getExamRequest.levelId),
+        getExamRequest.themeId,
+        getExamRequest.examTypeId,
+        getExamRequest.levelId,
       );
       res.status(HttpStatus.OK).json({ data: examResponse });
     } catch (error) {

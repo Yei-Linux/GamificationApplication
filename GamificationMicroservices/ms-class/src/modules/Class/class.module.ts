@@ -5,7 +5,7 @@ import {
     RequestMethod,
   } from '@nestjs/common';
   import { DatabaseModule } from '../../core/database/database.module';
-import { ClassController } from '../../endpoints/Class/ClassController';
+import { ClassController } from '../../backend/controllers/Class/ClassController';
   import { LoggerMiddleware } from '../../middlewares/logger.middleware';
 import { SharedModule } from '../../shared/shared.module';
 import { GetClassByFiltersService } from './Application/GetClassByFilters';

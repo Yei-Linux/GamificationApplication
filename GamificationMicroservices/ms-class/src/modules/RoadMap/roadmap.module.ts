@@ -5,7 +5,7 @@ import {
   RequestMethod,
 } from '@nestjs/common';
 import { DatabaseModule } from '../../core/database/database.module';
-import { RoadMapController } from '../../endpoints/RoadMap/RoadMapController';
+import { RoadMapController } from '../../backend/controllers/RoadMap/RoadMapController';
 import { LoggerMiddleware } from '../../middlewares/logger.middleware';
 import { SharedModule } from '../../shared/shared.module';
 import { ClassModule } from '../Class/class.module';

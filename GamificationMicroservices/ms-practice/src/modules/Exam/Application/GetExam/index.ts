@@ -8,15 +8,15 @@ import { ExamMapper } from '../../Infraestructure/Persistence/sequelize/mapper/E
 import { GetExamResponse } from './GetExamResponse';
 
 interface IGetExamService {
-  handle(themeId: ThemeId, examTypeId: ExamTypeId, levelId: LevelId): Promise<GetExamResponse>;
+  handle(themeId: string, examTypeId: string, levelId: string): Promise<GetExamResponse>;
 }
 
 @Injectable()
 export class GetExamService implements IGetExamService {
     constructor(private readonly examRepository: PostgressExamRepository) {}
 
-  async handle(themeId: ThemeId, examTypeId: ExamTypeId, levelId: LevelId): Promise<GetExamResponse> {
-    let examFound : Exam = await this.examRepository.getExamByTheme(themeId,examTypeId,levelId);
+  async handle(themeId: string, examTypeId: string, levelId: string): Promise<GetExamResponse> {
+    let examFound : Exam = await this.examRepository.getExamByTheme(new ThemeId(themeId),new ExamTypeId(examTypeId), new LevelId(levelId));
     return ExamMapper.convertExamToGetExamResponse(examFound);
   }
 }

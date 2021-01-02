@@ -1,6 +1,6 @@
 import { Controller, Get, HttpStatus, Logger, Param, Res } from '@nestjs/common';
-import { GetClassService } from '../../modules/Class/Application/GetClassById';
-import { GetClassByIdResponse } from '../../modules/Class/Application/GetClassById/response';
+import { GetClassService } from '../../../modules/Class/Application/GetClassById';
+import { GetClassByIdResponse } from '../../../modules/Class/Application/GetClassById/response';
 
 @Controller('class')
 export class ClassController {

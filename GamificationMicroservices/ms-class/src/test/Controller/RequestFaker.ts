@@ -1,4 +1,4 @@
-import { GetRoadMapRequest, RoadMapRequest } from "../../endpoints/RoadMap/RoadMapRequest"
+import { GetRoadMapRequest, RoadMapRequest } from "../../backend/controllers/RoadMap/RoadMapRequest"
 
 export class RequestsFaker {
     public static generatePostRoadMapStudentRequest(studentEmail : string, roadMap : RoadMapRequest[]) {

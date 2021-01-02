@@ -7,10 +7,10 @@ import {
   HttpStatus,
   Res,
 } from '@nestjs/common';
-import CourseId from '../../modules/Course/Domain/CourseId';
-import { GetRoadMapService } from '../../modules/RoadMap/Application/GetRoadMap';
-import { InsertStudentRoadMap } from '../../modules/RoadMap/Application/InsertStudentRoadMap';
-import RoadMapEmail from '../../modules/RoadMap/Domain/RoadMapEmail';
+import CourseId from '../../../modules/Course/Domain/CourseId';
+import { GetRoadMapService } from '../../../modules/RoadMap/Application/GetRoadMap';
+import { InsertStudentRoadMap } from '../../../modules/RoadMap/Application/InsertStudentRoadMap';
+import RoadMapEmail from '../../../modules/RoadMap/Domain/RoadMapEmail';
 import { GetRoadMapRequest, PostRoadMapStudentRequest } from './RoadMapRequest';
 
 @Controller('roadmap')
