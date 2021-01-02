@@ -1,3 +1,4 @@
+import { ClassStudy } from "../../Class/Domain/ClassStudy";
 import { Theme } from "../../Theme/Domain/Theme";
 import ThemeDescription from "../../Theme/Domain/ThemeDescription";
 import ThemeId from "../../Theme/Domain/ThemeId";
@@ -10,7 +11,7 @@ export class RoadMap {
     constructor(
       private id: RoadMapId,
       private userEmail: RoadMapEmail,
-      private themesStudyMethods: any[],
+      private themesStudyMethods: ClassStudy,
       private order: RoadMapOrder,
       private wasView: boolean
     ) {}
@@ -31,10 +32,14 @@ export class RoadMap {
       return this.wasView;
     }
 
+    get _classStudy(): ClassStudy {
+      return this.themesStudyMethods;
+    }
+
     public static create(
       id: RoadMapId,
       userEmail: RoadMapEmail,
-      themesStudyMethods: any[],
+      themesStudyMethods: ClassStudy,
       order: RoadMapOrder,
       wasView: boolean
     ): RoadMap {

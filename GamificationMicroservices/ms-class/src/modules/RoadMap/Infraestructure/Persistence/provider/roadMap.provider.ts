@@ -1,6 +1,6 @@
 import { StudentRoadMapModel } from "../sequelize/StudentRoadMapModel";
 
-export const StudentRoadMapProvider = [
+export const RoadMapProvider = [
   {
     provide: 'StudentRoadMapModel',
     useValue: StudentRoadMapModel,

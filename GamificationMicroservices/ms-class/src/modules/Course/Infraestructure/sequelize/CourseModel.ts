@@ -42,6 +42,26 @@ export class CourseModel extends Model<CourseModel> {
   })
   semester: number;
 
+  @Column({
+    field: 'tutor_id',
+    type: DataType.UUID,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  })
+  tutorId: string;
+
+  @Column({
+    field: 'language_programming_id',
+    type: DataType.UUID,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  })
+  languageProgrammingId: string;
+
   @HasMany(() => ThemeModel)
   themes: ThemeModel[];
 

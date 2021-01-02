@@ -4,9 +4,11 @@ import { ThemeStudyMethodsModel } from '../../../Class/Infraestructure/Persisten
 import CourseId from '../../../Course/Domain/CourseId';
 import { CourseModel } from '../../../Course/Infraestructure/sequelize/CourseModel';
 import { ThemeModel } from '../../../Theme/Infraestructure/sequelize/ThemeModel';
+import { RoadMap } from '../../Domain/RoadMap';
 import RoadMapEmail from '../../Domain/RoadMapEmail';
 import RoadMapOrder from '../../Domain/RoadMapOrder';
 import { RoadMapRepository } from '../../Domain/RoadMapRepository';
+import { RoadmapMapper } from './sequelize/mapper/RoadmapMapper';
 import { StudentRoadMapModel } from './sequelize/StudentRoadMapModel';
 
 @Injectable()
@@ -29,33 +31,37 @@ export class PostgressRoadMapRepository implements RoadMapRepository {
             wasView: false,
           });
       } catch (error) {
-        throw new Error('Error to insert roadMapStudent');
+        throw new Error('Error on insert roadMapStudent');
       }
   }
 
   async getRoadMapByStudent(
     userEmail: RoadMapEmail,
     courseId: CourseId,
-  ): Promise<any> {
-    let studentRoadMapFound: StudentRoadMapModel[] = await StudentRoadMapModel.findAll(
-      {
-        where: { userEmail: userEmail._value },
-        include: [
-          {
-            model: ThemeStudyMethodsModel,
-            as: 'themeStudyMethod',
-            include: [
-              {
-                model: ThemeModel,
-                as: 'theme',
-                where: { courseId: courseId._value },
-              },
-            ],
-          },
-        ],
-      },
-    );
-    Logger.log(`RoadMap of student with email ${userEmail._value} has: ${JSON.stringify(studentRoadMapFound)}`);
-    return studentRoadMapFound;
+  ): Promise<RoadMap[]> {
+    try {
+      let studentRoadMapFound: StudentRoadMapModel[] = await StudentRoadMapModel.findAll(
+        {
+          where: { userEmail: userEmail._value },
+          include: [
+            {
+              model: ThemeStudyMethodsModel,
+              as: 'themeStudyMethod',
+              include: [
+                {
+                  model: ThemeModel,
+                  as: 'theme',
+                  where: { courseId: courseId._value },
+                },
+              ],
+            },
+          ],
+        },
+      );
+      Logger.log(`RoadMap of student with email ${userEmail._value} has: ${JSON.stringify(studentRoadMapFound)}`);
+      return RoadmapMapper.convertArrayModelToArrayDomain(studentRoadMapFound);
+    } catch (error) {
+      throw new Error('Error on get roadMap of student');
+    }
   }
 }

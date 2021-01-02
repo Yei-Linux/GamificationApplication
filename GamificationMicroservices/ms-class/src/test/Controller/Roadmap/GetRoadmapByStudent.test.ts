@@ -16,4 +16,18 @@ describe('GetRoadmap by Student', () => {
     app = moduleFixture.createNestApplication();
     await app.init();
   });
+
+  it('get_roadmap_by_student', (done: any) => {
+    let roadMapRequestFaker = RequestsFaker.generateGetRoadMapRequest("jesus@gmail.com","511a2cf7-c4df-4d02-bc80-8a5a38a1970b");
+    request(app.getHttpServer())
+      .post('/roadmap/student')
+      .send(roadMapRequestFaker)
+      .end((err, res) => {
+        if (err) return done(err);
+        console.log(res.body);
+        expect(res.status).equal(200);
+        expect(res.body).to.have.property('data');
+        done();
+      });
+  });
 });

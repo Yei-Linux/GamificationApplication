@@ -20,15 +20,15 @@ export class RoadMapController {
     private readonly insertStudentRoadMapService: InsertStudentRoadMap,
   ) {}
 
-  @Post()
+  @Post("/student")
   async getRoadMapByStudent(
     @Body() getRoadMapRequest: GetRoadMapRequest,
     @Res() res: any,
   ) {
     try {
       let roadMapResponse = await this.getRoadMapService.handle(
-        new RoadMapEmail(getRoadMapRequest.studentEmail),
-        new CourseId(getRoadMapRequest.courseId)
+        getRoadMapRequest.studentEmail,
+        getRoadMapRequest.courseId
       );
       res.status(HttpStatus.OK).json({ data: roadMapResponse });
     } catch (error) {
@@ -43,7 +43,7 @@ export class RoadMapController {
     @Res() res: any,
   ) {
     try {
-      await this.insertStudentRoadMapService.handle(new RoadMapEmail(postRoadMapStudentRequest.studentEmail),postRoadMapStudentRequest.roadMap);
+      await this.insertStudentRoadMapService.handle(postRoadMapStudentRequest.studentEmail,postRoadMapStudentRequest.roadMap);
       res.status(HttpStatus.OK).json({ data: "Student Road Map created successfully" });
     } catch (error) {
       Logger.log(`Error found: ${error}`);
