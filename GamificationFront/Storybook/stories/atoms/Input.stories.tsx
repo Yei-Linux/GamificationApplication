@@ -23,7 +23,7 @@ export default {
   },
 };
 
-export const TextFieldInput = (args) => (
+export const TextFieldInput = (args : any) => (
   <Input {...args}/>
 );
 
@@ -49,7 +49,7 @@ const items : ItemSelect[] = [
     }
 ]
 
-export const SelectFieldInput = (args) => (
+export const SelectFieldInput = (args : any) => (
     <Input {...args} />
 );
 

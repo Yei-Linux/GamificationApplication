@@ -21,14 +21,14 @@ export default {
   //     heigthType: { control: { type: 'select', options: mapEnum(EHeightType) } },
   //   },
 };
-export const SmallForm = (args) => (
+export const SmallForm = (args : any) => (
   <div>
     <FormSmall {...args} />
   </div>
 );
 SmallForm.storyName = 'Small Form';
 
-export const MediumForm = (args) => (
+export const MediumForm = (args : any) => (
   <div>
     <FormMedium {...args} />
   </div>

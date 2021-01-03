@@ -25,7 +25,7 @@ export default {
   },
 };
 
-export const RoundIcon = (args) => (
+export const RoundIcon = (args : any) => (
   <Icon {...args}>
     <img
       style={{ height: '30px', width: '30px' }}
@@ -45,7 +45,7 @@ RoundIcon.args = {
 
 RoundIcon.storyName = 'Round Icon';
 
-export const SquareIcon = (args) => (
+export const SquareIcon = (args : any) => (
   <Icon {...args}>
     <img
       style={{ height: '30px', width: '30px' }}
@@ -66,7 +66,7 @@ SquareIcon.args = {
 
 SquareIcon.storyName = 'Square Icon';
 
-export const TransparentIcon = (args) => (
+export const TransparentIcon = (args : any) => (
   <Icon {...args}>
     <img
       style={{ height: '30px', width: '30px' }}

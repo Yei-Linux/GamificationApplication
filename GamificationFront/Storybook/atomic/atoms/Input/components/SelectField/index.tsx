@@ -11,7 +11,7 @@ export interface ISelectField {
   shadowType?: EShadowType;
   heigthType?: EHeightType;
   widthType?: EWithType;
-  items: ItemSelect[];
+  itemsOf: ItemSelect[];
 }
 
 const SelectField = ({
@@ -22,7 +22,7 @@ const SelectField = ({
   shadowType,
   heigthType,
   widthType,
-  items,
+  itemsOf,
 }: ISelectField) => {
   return (
     <InputGroup>
@@ -36,8 +36,8 @@ const SelectField = ({
         heigthType={heigthType}
         widthType={widthType}
       >
-        {items.length > 0 &&
-          items.map((item: ItemSelect, index: number) => (
+        {itemsOf.length > 0 &&
+          itemsOf.map((item: ItemSelect, index: number) => (
             <CustomOption key={item["value"]} value={item["value"]}>
               {item["value"]}
             </CustomOption>

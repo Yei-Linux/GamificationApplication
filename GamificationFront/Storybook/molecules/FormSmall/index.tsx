@@ -22,7 +22,7 @@ import {
   EWithType,
 } from '../../core/domain/enums';
 
-export const Form = (args) => (
+export const Form = (args : any) => (
   <CustomBox>
     <CustomForm>
       <FormWrapper>

@@ -20,7 +20,7 @@ export default {
   },
 } as Meta;
 
-export const SmallButton = (args) => (
+export const SmallButton = (args : any) => (
   <Button {...args} />
 );
 
@@ -36,7 +36,7 @@ SmallButton.args = {
 
 SmallButton.storyName = "Small Button";
 
-export const NormalButton = (args) => (
+export const NormalButton = (args : any) => (
   <Button {...args} />
 );
 
@@ -52,7 +52,7 @@ NormalButton.args = {
 
 NormalButton.storyName = "Normal Button";
 
-export const MediumButton = (args) => (
+export const MediumButton = (args : any) => (
   <Button {...args} />
 );
 
@@ -68,7 +68,7 @@ MediumButton.args = {
 
 MediumButton.storyName = "Medium Button";
 
-export const LargeButton = (args) => (
+export const LargeButton = (args : any) => (
   <Button {...args} />
 );
 

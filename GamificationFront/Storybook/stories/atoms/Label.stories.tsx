@@ -32,7 +32,7 @@ export default {
   },
 };
 
-export const SimpleLabel = (args) => <Label {...args} />;
+export const SimpleLabel = (args : any) => <Label {...args} />;
 
 SimpleLabel.args = {
   children: 'Elige un lenguaje de programación',
@@ -44,7 +44,7 @@ SimpleLabel.args = {
 
 SimpleLabel.storyName = 'Simple Label';
 
-export const LinkLabel = (args) => <Label {...args} />;
+export const LinkLabel = (args : any) => <Label {...args} />;
 
 LinkLabel.args = {
   children: 'Olvidé mi contraseña',

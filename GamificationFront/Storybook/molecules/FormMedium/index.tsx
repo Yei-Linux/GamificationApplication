@@ -25,7 +25,7 @@ import {
 } from '../../core/domain/enums';
 // import PropTypes from 'prop-types'
 
-export const Form = (args) => (
+export const Form = (args : any) => (
   <CustomBox>
     <CustomForm>
       <FormWrapper>

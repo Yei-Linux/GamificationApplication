@@ -1,16 +1,12 @@
 const path = require('path')
+const nodeExternals = require('webpack-node-externals')
+
 module.exports = {
   webpack: (config, options, isServer) => {
     config.node = {
       fs: 'empty'
     }
-    config.externals =  {
-      'react': "commonjs react",
-      'react-dom': "commonjs react-dom"
-    },
-    config.module.unknownContextCritical = false
-    config.module.exprContextCritical = false
-    config.module.rules.push({
+    config.module.rules({
       test: /\.tsx?$/,
       use: [
         options.defaultLoaders.babel,
@@ -21,12 +17,12 @@ module.exports = {
             babelOptions: {
               babelrc: false,
               presets: ['@babel/preset-env', '@emotion/babel-preset-css-prop'],
-              plugins: ['@emotion','macros']
+              plugins: ['@emotion', 'macros']
             },
             babelCore: '@babel/core'
           }
         }
-      ],
+      ]
     })
     config.resolve.extensions.push('.ts', '.tsx', '.jsx')
 
