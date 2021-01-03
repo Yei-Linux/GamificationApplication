@@ -10,6 +10,7 @@ import {
 import IconLogo from '../assets/hatIcon.svg';
 import FoodLogo from '../assets/foodIcon.svg';
 import IceCreamLogo from '../assets/iceCreamIcon.svg';
+import MainLogo from '../assets/logoMain.svg';
 import { mapEnum } from '../../core/helpers/data-managment.helper';
 
 export default {
@@ -44,6 +45,22 @@ RoundIcon.args = {
 };
 
 RoundIcon.storyName = 'Round Icon';
+
+export const MainIcon = (args) => (
+  <Icon {...args}>
+    <img style={{ width: '150px' }} src={MainLogo} alt="squareLogo" />
+  </Icon>
+);
+
+MainIcon.args = {
+  borderColor: '#00dfff',
+  backgroundColor: '#fafafa',
+  shadowType: EShadowType.MEDIUM,
+  borderType: EBorderType.NORMAL,
+  hasPadding: true,
+};
+
+MainIcon.storyName = 'Main Icon';
 
 export const SquareIcon = (args) => (
   <Icon {...args}>
