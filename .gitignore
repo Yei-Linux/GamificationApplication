@@ -1,2 +1,8 @@
 /GamificationFront/Storybook/node_modules
 /GamificationMicroservices/ms-auth/node_modules
+/GamificationMicroservices/ms-practice/node_modules
+/GamificationMicroservices/ms-class/node_modules
+
+/GamificationMicroservices/ms-auth/dist
+/GamificationMicroservices/ms-practice/dist
+/GamificationMicroservices/ms-class/dist
