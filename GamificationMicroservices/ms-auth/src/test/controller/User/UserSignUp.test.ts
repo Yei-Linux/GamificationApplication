@@ -5,13 +5,6 @@ import { SignUpUserResponse } from "../../../endpoints/User/UserResponse";
 import { RequestsFaker } from "../RequestsFaker";
 
 describe("SignUp User", () => {
-  it("verify_is_controller_up", (done: any) => {
-    request(serverUp)
-      .get("/auth/users")
-      .expect(200)
-      .expect({ message: "test" }, done);
-  });
-
   it("verify_is_student_is_created", (done: any) => {
     let studentRandomFaker = RequestsFaker.generateSignUpUserRequest(
       "STUDENT",

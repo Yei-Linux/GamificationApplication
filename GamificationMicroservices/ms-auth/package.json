@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "test": "npx mocha --require ts-node/register --require esm src/**/*.test.ts",
-    "test-single": "npx mocha --require ts-node/register --require esm src/**/GetCoursesByStudent.test.ts",
+    "test-single": "npx mocha --require ts-node/register --require esm src/**/GetSpecializations.test.ts",
     "seed": "sequelize db:seed:all",
     "seed-single": "sequelize db:seed --seed '20201227015916-insert_courses'"
   },

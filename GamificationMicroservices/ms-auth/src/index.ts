@@ -18,7 +18,12 @@ app.use(json());
 let server =  new InversifyExpressServer(beans, null, { rootPath: "/auth" }, app);
 
 import { runMigrations } from "./core/util/Migrations";
+import { injectServices } from "./core/beans/services";
+import { injectRepositories } from "./core/beans/repositories";
 runMigrations();
+
+injectServices();
+injectRepositories();
 
 let appConfigured = server.build();
 let serverUp = appConfigured.listen(applicationSettings.listenPort, () => {

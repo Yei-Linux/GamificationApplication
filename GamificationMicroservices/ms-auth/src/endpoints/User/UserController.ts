@@ -34,15 +34,6 @@ import { SignInTutorService } from "../../modules/Tutor/Application/SignInTutor/
 import { SignInExternalPersonService } from "../../modules/ExternalPerson/Application/SignInExternalPerson/SignInExternalPersonService";
 import { CreateStudentClassroomByCourse } from "../../modules/Classroom/Aplication/CreateStudentClassroomByCourse/CreateStudentClassroomByCourse";
 
-beans.bind<SignUpUserService>(SignUpUserService).toSelf();
-beans.bind<SignUpStudentService>(SignUpStudentService).toSelf();
-beans.bind<SignUpTutorService>(SignUpTutorService).toSelf();
-beans.bind<SignUpExternalPersonService>(SignUpExternalPersonService).toSelf();
-beans.bind<SignInStudentService>(SignInStudentService).toSelf();
-beans.bind<SignInTutorService>(SignInTutorService).toSelf();
-beans.bind<SignInExternalPersonService>(SignInExternalPersonService).toSelf();
-beans.bind<CreateStudentClassroomByCourse>(CreateStudentClassroomByCourse).toSelf();
-
 @controller("/users")
 export class UserController implements interfaces.Controller {
   private signUpUserService: SignUpUserService;
@@ -72,18 +63,6 @@ export class UserController implements interfaces.Controller {
     this.signInTutorService = signInTutorService;
     this.signInExternalPersonService = signInExternalPersonService;
     this.createStudentClassroomByCourse = createStudentClassroomByCourse;
-  }
-
-  @httpGet("/")
-  public async getUsers(
-    @request() req: express.Request,
-    @response() res: express.Response
-  ) {
-    try {
-      res.status(200).json({ message: "test" });
-    } catch (error) {
-      res.status(400).json(error);
-    }
   }
 
   @httpPost("/sign-in")

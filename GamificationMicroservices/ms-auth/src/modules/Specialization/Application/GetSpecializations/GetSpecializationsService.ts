@@ -5,8 +5,6 @@ import { PostgressSpecializationRepository } from "../../Infraestructure/Persist
 import { SpecializationMapper } from "../../Infraestructure/Persistence/sequelize/mapper/SpecializationMapper";
 import { GetSpecializationServiceResponse } from "./GetSpecializationsServiceResponse";
 
-beans.bind<PostgressSpecializationRepository>(PostgressSpecializationRepository).toSelf();
-
 interface IGetSpecializationsService {
     getSpecializations() : Promise<GetSpecializationServiceResponse[]>
 }
