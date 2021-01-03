@@ -30,7 +30,7 @@ class testHelper:
 
         # Make word2vec embeddings
         embedding_dim = 300
-        max_seq_length = 1
+        max_seq_length = 20
         test_df, embeddings = make_w2v_embeddings(test_df, embedding_dim=embedding_dim, empty_w2v=False)
 
         # Split to dicts and append zero padding.
