@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { Controlled as ControlledEditor } from 'react-codemirror2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
-let CodeMirror = null
+let CodeMirror : any= null
 if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
   CodeMirror = require('react-codemirror2')
   require('codemirror/lib/codemirror.css')
@@ -17,11 +17,11 @@ if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
   require('codemirror/mode/css/css')
 }
 
-const Editor = (props) => {
+const Editor = (props : any) => {
   const { language, displayName, value, onChange } = props
   const [open, setOpen] = useState(true)
 
-  const handleChange = (editor, data, value): void => {
+  const handleChange = (): void => {
     onChange(value)
   }
 

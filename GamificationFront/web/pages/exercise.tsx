@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import Editor from '../components/Editor/Editor'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
@@ -23,7 +23,7 @@ const Exercise = () => {
   }, [html, css, js])
 
   return (
-    <>
+    <Fragment>
       <div className="pane top-pane">
         <Editor language="xml" displayName="HTML" value={html} onChange={setHtml} />
         <Editor language="css" displayName="CSS" value={css} onChange={setCss} />
@@ -39,7 +39,7 @@ const Exercise = () => {
           height="100%"
         />
       </div>
-    </>
+    </Fragment>
   )
 }
 

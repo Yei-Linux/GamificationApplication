@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 const PREFIX = 'codepen-clone-'
 
-export const useLocalStorage = (key, initialValue) => {
+export const useLocalStorage = (key : any, initialValue : any) => {
   const prefixedKey = PREFIX + key
 
   const [value, setValue] = useState(() => {

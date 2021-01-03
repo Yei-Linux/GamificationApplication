@@ -1,6 +1,7 @@
+import React from "react";
 import Button from '../../Storybook/atomic/atoms/Button/index'
 
-export const SmallButton = (args) => <Button {...args} />
+export const SmallButton = (args : any) => <Button {...args} />
 
 SmallButton.args = {
   children: 'Small Button',
@@ -11,8 +12,8 @@ SmallButton.args = {
   shadowType: 'XLARGE',
   borderType: 'PILLSHAPE'
 }
-//
-const Login = (): JSX.Element => {
-  return <SmallButton />
+
+const Login = (): any => {
+  return <SmallButton></SmallButton>
 }
 export default Login

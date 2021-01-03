@@ -1,11 +1,11 @@
-import RegisterComponent from 'components/CardRegister'
-import React from 'react'
-import NavegacionComponent from 'components/Layout/Header'
+import React, { Fragment } from 'react'
 import Head from 'next/head'
+import RegisterComponent from '../components/CardRegister'
+import NavegacionComponent from '../components/Layout/Header'
 
 export default function Register() {
   return (
-    <>
+    <Fragment>
       <Head>
         <title>GW | Register</title>
         <link rel="icon" href="/favicon.ico" />
@@ -16,6 +16,6 @@ export default function Register() {
       >
         <RegisterComponent />
       </div>
-    </>
+    </Fragment>
   )
 }
