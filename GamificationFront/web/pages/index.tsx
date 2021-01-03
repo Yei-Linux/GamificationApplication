@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import RegisterComponent from '../components/CardRegister'
 import NavegacionComponent from '../components/Layout/Header'
+import RegisterComponent from '../components/CardRegister'
 
 export default function Register() {
   return (
