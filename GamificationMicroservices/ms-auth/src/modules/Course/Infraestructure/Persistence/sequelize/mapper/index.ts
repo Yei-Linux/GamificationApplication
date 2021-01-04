@@ -1,4 +1,5 @@
 import { TutorMapper } from "../../../../../Tutor/Infraestructure/Persistence/sequelize/mapper/TutorMapper";
+import { GetCoursesByStudentResponse } from "../../../../Application/GetCoursesByStudent/response";
 import { Course } from "../../../../Domain/Course";
 import CourseId from "../../../../Domain/CourseId";
 import CourseName from "../../../../Domain/CourseName";
@@ -17,5 +18,21 @@ export class CourseMapper {
         new LanguageProgrammingId(courseModel.languageProgrammingId)
       );
     });
+  }
+
+  static convertDomainToUseCaseGetCourse(course: Course) : GetCoursesByStudentResponse {
+    return {
+      courseId: course._courseId._value,
+      name: course._name._value,
+      semester: null,
+      tutor: TutorMapper.convertDomainToResponse(course._tutor),
+      langugageProgrammingId: course._languageProgramming._value
+    }
+  }
+
+  static convertDomainsToUseCaseGetCourses(courses: Course[]) : GetCoursesByStudentResponse[] {
+    return courses.map((course: Course) => {
+      return CourseMapper.convertDomainToUseCaseGetCourse(course);
+    })
   }
 }

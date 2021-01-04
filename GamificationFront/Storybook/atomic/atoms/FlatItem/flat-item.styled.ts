@@ -73,7 +73,7 @@ export const FlatContainer = styled.div<{}>`
 `;
 
 export const CustomFlatItem = styled.div<{
-    isActive: boolean
+    isActive: any
 }>`
   filter: ${(props : any) => !props.isActive ? `blur(1px)` : `none`};
   display: flex;

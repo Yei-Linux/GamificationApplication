@@ -1,4 +1,5 @@
 import PersonModel from "../../../../../../shared/infraestructure/Persistence/PersonModel";
+import { TutorResponse } from "../../../../../Course/Application/GetCoursesByStudent/response";
 import { Person } from "../../../../../Person/domain/Person";
 import PersonAge from "../../../../../Person/domain/PersonAge";
 import PersonFullName from "../../../../../Person/domain/PersonFullName";
@@ -24,5 +25,14 @@ export class TutorMapper {
         null
       );
       return new Tutor(new TutorCode(tutor.tutorCode),new TutorId(tutor.tutorId), personDomain);
+    }
+
+    static convertDomainToResponse( tutor : Tutor ) : TutorResponse{
+      return {
+        fullName: tutor._fullName._value,
+        lastName: tutor._lastName._value,
+        surName: tutor._surName._value,
+        identifie: tutor._identifier ? tutor._identifier._value : null,
+      }
     }
   }

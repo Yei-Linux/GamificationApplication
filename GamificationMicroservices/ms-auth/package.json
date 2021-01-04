@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "test": "npx mocha --require ts-node/register --require esm src/**/*.test.ts",
-    "test-single": "npx mocha --require ts-node/register --require esm src/**/GetSpecializations.test.ts",
+    "test-single": "npx mocha --require ts-node/register --require esm src/**/GetCoursesByStudent.test.ts",
     "seed": "sequelize db:seed:all",
     "seed-single": "sequelize db:seed --seed '20201227015916-insert_courses'"
   },
@@ -25,6 +25,7 @@
     "@types/supertest": "^2.0.10",
     "@types/validator": "^13.1.1",
     "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "faker": "^5.1.0",

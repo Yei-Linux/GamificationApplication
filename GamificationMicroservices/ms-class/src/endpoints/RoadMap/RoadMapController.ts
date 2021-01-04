@@ -6,6 +6,7 @@ import {
   Logger,
   HttpStatus,
   Res,
+  Query,
 } from '@nestjs/common';
 import CourseId from '../../modules/Course/Domain/CourseId';
 import { GetRoadMapService } from '../../modules/RoadMap/Application/GetRoadMap';
@@ -22,7 +23,7 @@ export class RoadMapController {
 
   @Get("/student")
   async getRoadMapByStudent(
-    @Body() getRoadMapRequest: GetRoadMapRequest,
+    @Query() getRoadMapRequest: GetRoadMapRequest,
     @Res() res: any,
   ) {
     try {

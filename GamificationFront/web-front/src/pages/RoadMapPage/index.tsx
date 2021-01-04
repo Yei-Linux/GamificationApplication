@@ -1,12 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import RoadMap from '../../components/RoadMap';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { ClassResponse } from '../../models/roadmap';
 export interface IRoadMapPage {
 }
 
 const RoadMapPage = ({} : IRoadMapPage) => {
     let history = useHistory();
+    let location: any = useLocation();
+
+    useEffect(() => {
+        console.log(location);
+    }, [location]);
 
     const handleCourseSelect = ( classContent : ClassResponse ) : void => {
         history.push({
@@ -17,7 +22,7 @@ const RoadMapPage = ({} : IRoadMapPage) => {
 
     return (
         <Fragment>
-            <RoadMap courseId={"511a2cf7-c4df-4d02-bc80-8a5a38a1970b"} handleCourseSelect={handleCourseSelect}/>
+            <RoadMap courseId={location.state.courseId} handleCourseSelect={handleCourseSelect}/>
         </Fragment>
     );
 }

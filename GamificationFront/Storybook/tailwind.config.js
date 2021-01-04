@@ -40,6 +40,7 @@ module.exports = {
         xs: '20rem',
       },
       width: {
+        minsmall: '3rem',
         smalls: '8rem',
         normal: 'auto',
         fit: 'fit-content',

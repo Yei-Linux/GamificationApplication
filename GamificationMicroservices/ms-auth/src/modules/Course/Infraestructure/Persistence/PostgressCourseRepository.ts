@@ -17,24 +17,28 @@ export class PostgressCourseRepository implements CourseRepository {
         this.logger = logger
     }
     async getCoursesWithTutorByStudent(studentId: StudentId): Promise<Course[]> {
-        this.logger.info(`Searching courses by studentId: ${studentId._value}`);
-        let environmentsFound : EnvironmentStudentCourseModel[] = await EnvironmentStudentCourseModel.findAll({
-            where: { studentId : studentId._value },
-            include: [{
-                model: CourseModel,
+        try {
+            this.logger.info(`Searching courses by studentId: ${studentId._value}`);
+            let environmentsFound : EnvironmentStudentCourseModel[] = await EnvironmentStudentCourseModel.findAll({
+                where: { studentId : studentId._value },
                 include: [{
-                    model: TutorModel,
+                    model: CourseModel,
                     include: [{
-                        model: PersonModel,
+                        model: TutorModel,
+                        include: [{
+                            model: PersonModel,
+                        }]
                     }]
                 }]
-            }]
-        });
-        this.logger.info(`Environments found: ${JSON.stringify(environmentsFound)}`);
-        let coursesFound : CourseModel[] = environmentsFound.map( (environment : EnvironmentStudentCourseModel) => environment["CourseModel"] )
-        this.logger.info(`Courses found: ${JSON.stringify(coursesFound)}`);
-        let data =  CourseMapper.convertCoursesModelToCourses(coursesFound);
-        this.logger.info(`Data found: ${JSON.stringify(data)}`);
-        return data;
+            });
+            this.logger.info(`Environments found: ${JSON.stringify(environmentsFound)}`);
+            let coursesFound : CourseModel[] = environmentsFound.map( (environment : EnvironmentStudentCourseModel) => environment["CourseModel"] )
+            this.logger.info(`Courses found: ${JSON.stringify(coursesFound)}`);
+            let data =  CourseMapper.convertCoursesModelToCourses(coursesFound);
+            this.logger.info(`Data found: ${JSON.stringify(data)}`);
+            return data;
+        } catch (error) {
+            throw new Error(error);
+        }
     }
 }
