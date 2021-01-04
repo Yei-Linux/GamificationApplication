@@ -3,8 +3,6 @@ import { beans } from "../../../../core/beans";
 import StudentId from "../../../Student/Domain/StudentId";
 import { PostgressClassroomRepository } from "../../Infraestructure/PostgressClassRoomRepository";
 
-beans.bind<PostgressClassroomRepository>(PostgressClassroomRepository).toSelf();
-
 interface ICreateStudentClassroomByCourse {
     createStudentClassByCourse( studentId: StudentId, coursesId: string[] ) : Promise<void>
 }

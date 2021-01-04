@@ -6,8 +6,6 @@ import UserPassword from "../../../Domain/UserPassword";
 import UserTypeId from "../../../Domain/UserTypeId";
 import { PostgressUserRepository } from "../../../Infraestructure/Persistence/PostgressUserRepository";
 
-beans.bind<PostgressUserRepository>(PostgressUserRepository).toSelf();
-
 interface ISignUpUserService {
   signUpUser(email : UserEmail ,password : UserPassword ,userTypeId : UserTypeId) : Promise<User>
 }

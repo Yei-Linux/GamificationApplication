@@ -20,7 +20,7 @@ export class RoadMapController {
     private readonly insertStudentRoadMapService: InsertStudentRoadMap,
   ) {}
 
-  @Post("/student")
+  @Get("/student")
   async getRoadMapByStudent(
     @Body() getRoadMapRequest: GetRoadMapRequest,
     @Res() res: any,
@@ -37,7 +37,7 @@ export class RoadMapController {
     }
   }
 
-  @Post()
+  @Post("/student")
   async insertRoadMapByStudent(
     @Body() postRoadMapStudentRequest: PostRoadMapStudentRequest,
     @Res() res: any,

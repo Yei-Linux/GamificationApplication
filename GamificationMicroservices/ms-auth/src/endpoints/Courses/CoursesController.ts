@@ -18,9 +18,6 @@ import { Student } from "../../modules/Student/Domain/Student";
 import StudentId from "../../modules/Student/Domain/StudentId";
 import UserEmail from "../../modules/User/Domain/UserEmail";
 
-beans.bind<GetCoursesByStudent>(GetCoursesByStudent).toSelf();
-beans.bind<GetStudentByEmail>(GetStudentByEmail).toSelf();
-
 @controller("/courses")
 export class CoursesController implements interfaces.Controller {
   private getCoursesByStudentService: GetCoursesByStudent;

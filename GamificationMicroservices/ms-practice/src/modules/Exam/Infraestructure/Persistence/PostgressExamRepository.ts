@@ -40,6 +40,8 @@ export class PostgressExamRepository implements ExamRepository {
           },{
             model: QuestionsExamModel,
             as: "questions",
+          },{
+            model: ThemeModel
           },
           {
             model: OptionModel,

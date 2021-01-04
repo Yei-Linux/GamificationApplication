@@ -23,7 +23,7 @@ describe('InsertRoadmap by Student', () => {
     let roadMapStudentFaker = RequestsFaker.generatePostRoadMapStudentRequest("jesus@gmail.com",[roadMapFakerOne,roadMapFakerTwo]);
 
     request(app.getHttpServer())
-      .post('/roadmap')
+      .post('/roadmap/student')
       .send(roadMapStudentFaker)
       .end((err, res) => {
         if (err) return done(err);
