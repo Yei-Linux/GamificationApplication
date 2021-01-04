@@ -1,71 +1,88 @@
-import React from "react";
-import Icon from "../../atomic/atoms/Icon";
-import { EBorderType, EHeightType, EShadowType, EWithType } from "../../core/domain/enums";
+import React from 'react';
+import Icon from '../../atomic/atoms/Icon';
+import {
+  EBorderType,
+  EHeightType,
+  EShadowType,
+  EWithType,
+} from '../../core/domain/enums';
 
-import IconLogo from "../assets/hatIcon.svg";
-import FoodLogo from "../assets/foodIcon.svg";
-import IceCreamLogo from "../assets/iceCreamIcon.svg";
-import { mapEnum } from "../../core/helpers/data-managment.helper";
+import IconLogo from '../assets/hatIcon.svg';
+import FoodLogo from '../assets/foodIcon.svg';
+import IceCreamLogo from '../assets/iceCreamIcon.svg';
+import { mapEnum } from '../../core/helpers/data-managment.helper';
 
 export default {
-  title: "Atoms/Icon",
+  title: 'Atoms/Icon',
   component: Icon,
   argTypes: {
     borderColor: { control: 'color' },
-    backgroundColor: { control: 'color'},
-    widthType: { control: { type: 'select', options: mapEnum(EWithType) }},
-    shadowType: { control: { type: 'select', options: mapEnum(EShadowType)}},
-    borderType: { control: { type: 'select', options: mapEnum(EBorderType) }},
-    heigthType: { control: { type: 'select', options: mapEnum(EHeightType) }},
-  }
+    backgroundColor: { control: 'color' },
+    widthType: { control: { type: 'select', options: mapEnum(EWithType) } },
+    shadowType: { control: { type: 'select', options: mapEnum(EShadowType) } },
+    borderType: { control: { type: 'select', options: mapEnum(EBorderType) } },
+    heigthType: { control: { type: 'select', options: mapEnum(EHeightType) } },
+  },
 };
 
-export const RoundIcon= (args) => (
+export const RoundIcon = (args : any) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={IconLogo} alt="roundLogo"/>
+    <img
+      style={{ height: '30px', width: '30px' }}
+      src={IconLogo}
+      alt="roundLogo"
+    />
   </Icon>
 );
 
 RoundIcon.args = {
-  borderColor: "#00dfff",
-  backgroundColor: "#00dfff",
+  borderColor: '#00dfff',
+  backgroundColor: '#00dfff',
   shadowType: EShadowType.MEDIUM,
   borderType: EBorderType.CIRCLE,
-  hasPadding: true
-}
+  hasPadding: true,
+};
 
-RoundIcon.storyName = "Round Icon";
+RoundIcon.storyName = 'Round Icon';
 
-export const SquareIcon= (args) => (
+export const SquareIcon = (args : any) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={IceCreamLogo} alt="squareLogo"/>
+    <img
+      style={{ height: '30px', width: '30px' }}
+      src={IceCreamLogo}
+      alt="squareLogo"
+    />
   </Icon>
 );
 
 SquareIcon.args = {
-  borderColor: "black",
-  backgroundColor: "#e4e978",
+  borderColor: 'black',
+  backgroundColor: '#e4e978',
   shadowType: EShadowType.MEDIUM,
   borderType: EBorderType.ROUNDED,
   widthType: EWithType.NORMAL,
-  hasPadding: true
-}
+  hasPadding: true,
+};
 
-SquareIcon.storyName = "Square Icon";
+SquareIcon.storyName = 'Square Icon';
 
-export const TransparentIcon= (args) => (
+export const TransparentIcon = (args : any) => (
   <Icon {...args}>
-    <img style={{height:"30px",width:"30px"}} src={FoodLogo} alt="transparentLogo"/>
+    <img
+      style={{ height: '30px', width: '30px' }}
+      src={FoodLogo}
+      alt="transparentLogo"
+    />
   </Icon>
 );
 
 TransparentIcon.args = {
-  borderColor: "#00dfff",
-  backgroundColor: "transparent",
+  borderColor: '#00dfff',
+  backgroundColor: 'transparent',
   shadowType: EShadowType.MEDIUM,
   borderType: EBorderType.ROUNDED,
   widthType: EWithType.NORMAL,
-  hasPadding: true
-}
+  hasPadding: true,
+};
 
-TransparentIcon.storyName = "Transparent Icon";
+TransparentIcon.storyName = 'Transparent Icon';

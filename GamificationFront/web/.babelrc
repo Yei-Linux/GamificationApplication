@@ -1,4 +1,17 @@
 {
-    "presets": ["next/babel"]
+  "presets": [
+    "next/babel",
+    "@babel/preset-env",
+    "@babel/preset-flow",
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "babel-plugin-universal-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-jsx",
+    "@emotion",
+    "preval",
+    "macros"
+  ]
 }
-  

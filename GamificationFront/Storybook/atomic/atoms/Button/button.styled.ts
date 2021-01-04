@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import tw from "twin.macro";
 import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps } from "../../../core/utils/twin.util";
 
 export const CustomButton = styled.button<{
@@ -19,7 +18,6 @@ export const CustomButton = styled.button<{
   color: ${(props : any) => props.textColor};
   background: ${(props : any) => props.backgroundColor};
   border-color: ${(props : any) => props.borderColor};
-  ${tw`py-3 px-6`}
   ${(props : any) => generateShadowProps(props.shadowType)}
   ${(props : any) => generateBorderTypeProps(props.borderType)}
   ${(props : any) => generateWidthTypeProps(props.widthType)}
@@ -33,8 +31,4 @@ export const ButtonIconContainer = styled.div<{}>`
   align-items: center;
 `;
 
-export const ButtonContainer = tw.div`
-  relative
-  p-0
-  m-0
-`
+export const ButtonContainer = styled.div``

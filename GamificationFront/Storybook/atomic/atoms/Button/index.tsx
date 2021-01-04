@@ -1,48 +1,57 @@
-import React, { Fragment } from "react";
-import { EBorderType, EHeightType, EShadowType, EWithType } from "../../../core/domain/enums";
-import { CustomButton, ButtonContainer, ButtonIconContainer } from "./button.styled";
+import React from 'react';
+import {
+  EBorderType,
+  EHeightType,
+  EShadowType,
+  EWithType,
+} from '../../../core/domain/enums';
+import {
+  CustomButton,
+  ButtonContainer,
+  ButtonIconContainer,
+} from './button.styled';
 
 export interface IButton {
   /**
    * Content Button to show
-  */
+   */
   children: string;
   /**
    * Background Color of Button
-  */
+   */
   backgroundColor?: string;
   /**
    * Text Color of Button
-  */
+   */
   textColor?: string;
   /**
    * Border Color of Button
-  */
+   */
   borderColor?: string;
   /**
    * Shadow Type of Button with options
-  */
+   */
   shadowType?: EShadowType;
   /**
    * Border Type of Button with options
-  */
+   */
   borderType?: EBorderType;
   /**
    * Width Type of Button with options
-  */
+   */
   widthType?: EWithType;
   /**
    * Height Type of Button with options
-  */
+   */
   heigthType?: EHeightType;
   /**
    * Indicate if button will has an icon or not
-  */
+   */
   hasIcon?: boolean;
   /**
    * Icon element to show in button
-  */
-  iconDiv?: React.ReactNode
+   */
+  iconDiv?: React.ReactNode;
 }
 
 const Button = ({
@@ -55,16 +64,11 @@ const Button = ({
   widthType,
   heigthType,
   iconDiv,
-  hasIcon
+  hasIcon,
 }: IButton) => {
   return (
     <ButtonContainer>
-      {
-        hasIcon &&
-        <ButtonIconContainer>
-          { iconDiv }
-        </ButtonIconContainer>
-      }
+      {hasIcon && <ButtonIconContainer>{iconDiv}</ButtonIconContainer>}
 
       <CustomButton
         backgroundColor={backgroundColor}
@@ -83,9 +87,9 @@ const Button = ({
 
 Button.defaultProps = {
   backgroundColor: 'white',
-  textColor : 'black',
-  borderColor : 'black',
-  hasIcon: false
-}
+  textColor: 'black',
+  borderColor: 'black',
+  hasIcon: false,
+};
 
 export default Button;

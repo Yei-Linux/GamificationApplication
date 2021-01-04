@@ -1,5 +1,8 @@
 module.exports = {
-    styledComponents: {
-      pure: true,
-    },
-}
+  twin: {
+    preset: 'emotion',
+  },
+  styledComponents: {
+    pure: true,
+  },
+};
