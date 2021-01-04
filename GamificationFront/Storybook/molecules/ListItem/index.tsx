@@ -34,7 +34,7 @@ export interface IListItem {
   /**
    * Handle click on arrow
   */
-  onClick?: ()=>void;
+ onClick?: (courseId: any)=>void;
 }
 
 const ListItem = ({ children, textItem, subTextItem, onClick }: IListItem) => {
