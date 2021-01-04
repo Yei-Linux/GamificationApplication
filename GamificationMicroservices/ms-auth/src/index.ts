@@ -6,7 +6,9 @@ import DEPENDENCY_TYPES from "./core/beans/ioc-types";
 import { applicationSettings } from './config/application'
 
 import { InversifyExpressServer, interfaces, TYPE } from "inversify-express-utils";
-import './modules/User/Application/UserController';
+import './endpoints/User/UserController';
+import './endpoints/Specializations/SpecializationController';
+import './endpoints/Courses/CoursesController';
 
 const logger = beans.get<Logger>(DEPENDENCY_TYPES.Logger);
 
@@ -19,6 +21,8 @@ import { runMigrations } from "./core/util/Migrations";
 runMigrations();
 
 let appConfigured = server.build();
-appConfigured.listen(applicationSettings.listenPort, () => {
+let serverUp = appConfigured.listen(applicationSettings.listenPort, () => {
     logger.info('Microservice Authentication is up');
 });
+
+export { serverUp };

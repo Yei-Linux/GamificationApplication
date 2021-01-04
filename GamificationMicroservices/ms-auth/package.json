@@ -5,30 +5,47 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "npx sequelize db:seed:all"
+    "test": "npx mocha --require ts-node/register --require esm src/**/*.test.ts",
+    "test-single": "npx mocha --require ts-node/register --require esm src/**/GetCoursesByStudent.test.ts",
+    "seed": "sequelize db:seed:all",
+    "seed-single": "sequelize db:seed --seed '20201227015916-insert_courses'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/ansi-colors": "^3.2.2",
     "@types/bcrypt": "^3.0.0",
+    "@types/chai": "^4.2.14",
+    "@types/esm": "^3.2.0",
     "@types/express": "^4.17.9",
+    "@types/faker": "^5.1.5",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mocha": "^8.2.0",
+    "@types/supertest": "^2.0.10",
+    "@types/validator": "^13.1.1",
     "bcrypt": "^5.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "inversify": "^5.0.1",
     "inversify-express-utils": "^6.3.2",
+    "jsonwebtoken": "^8.5.1",
     "node-flywaydb": "^3.0.3",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.3.5",
+    "supertest": "^6.0.1",
     "ts-node-dev": "^1.0.0",
-    "typescript": "^4.0.5",
     "uuidv4": "^6.2.5",
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0"
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   }
 }
