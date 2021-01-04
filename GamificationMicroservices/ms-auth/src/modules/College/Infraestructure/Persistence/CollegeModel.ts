@@ -1,7 +1,7 @@
 import { Model, DataTypes, Association } from "sequelize";
 import { beans, Database } from "../../../../core/beans";
 import DEPENDENCY_TYPES from "../../../../core/beans/ioc-types";
-import TutorModel from "../../../Tutor/Infraestructure/Persistence/TutorModel";
+import TutorModel from "../../../Tutor/Infraestructure/Persistence/sequelize/TutorModel";
 import CollegeTypeModel from "./CollegeTypeModel";
 import { uuid } from "uuidv4";
 

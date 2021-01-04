@@ -26,7 +26,7 @@ export const initializingCollegeTypeModel = () => {
       },
       collegeTypeName: {
         field: "college_type_name",
-        type: DataTypes.UUID,
+        type: DataTypes.STRING(100),
         allowNull: false,
         primaryKey: false,
       }
