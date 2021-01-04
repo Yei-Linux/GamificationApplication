@@ -16,14 +16,19 @@ interface IFlatItem {
    * Is active FlatItem
    */
   isActive?: boolean;
+  /**
+   * Is active FlatItem
+   */
+  onClick?: ()=>void;
 }
 
 const FlatItem = ({
   children,
-  isActive
+  isActive,
+  onClick
 }: IFlatItem) => {
   return (
-    <FlatContainer>
+    <FlatContainer onClick={onClick}>
       { isActive && <FirstPulseContainer /> }
       { isActive && <SecondPulseContainer /> }
       <CustomFlatItem isActive={isActive}>
