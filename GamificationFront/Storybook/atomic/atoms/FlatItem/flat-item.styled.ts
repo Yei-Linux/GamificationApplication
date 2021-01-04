@@ -1,11 +1,4 @@
 import styled from "@emotion/styled";
-import tw from "twin.macro";
-import {
-  generateShadowProps,
-  generateBorderTypeProps,
-  generateWidthTypeProps,
-  generateHeightTypeProps,
-} from "../../../core/utils/twin.util";
 
 import { keyframes } from "@emotion/core";
 
