@@ -5,7 +5,6 @@ export const RoadMapContainer = styled.div<{}>`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
 `;
 
 export const ImageBackground = styled.div<{}>`
@@ -15,7 +14,6 @@ export const ImageBackground = styled.div<{}>`
     flex-direction: column;
     background-image: url("https://i.redd.it/ufxpjuc55xv01.png");
     width: 100%;
-    height: 100%;
 `;
 
 export const ParagraphFirst = styled.p<{}>`

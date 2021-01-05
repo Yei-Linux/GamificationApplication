@@ -59,6 +59,8 @@ export const generateBorderTypeProps = (twinProp : any) => {
 
 export const generateWidthTypeProps = (twinProp : any) => {
     switch (twinProp) {
+        case 'FULL':
+            return tw`w-full`;
         case 'MINSMALL':
             return tw`w-minsmall`;
         case 'SMALL':

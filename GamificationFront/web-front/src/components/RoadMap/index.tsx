@@ -4,7 +4,7 @@ import { RoadMapResponse } from '../../models/roadmap';
 import { getRoadMapByStudent } from '../../services/roadmap.service';
 import { ImageBackground, ItemContainer, ParagraphFirst, ParagraphSecond, RoadMapContainer } from './roadmap.styled';
 
-import FlatItem from "storybook-gamification6/atomic/atoms/FlatItem"
+import FlatItem from "storybook-gamification8/atomic/atoms/FlatItem"
 import { isParNumber } from '../../helpers/managment-data.helper';
 
 export interface IRoadMapProps {
