@@ -1,11 +1,14 @@
+import styled from "@emotion/styled";
 import tw from "twin.macro";
 
-export const FooterContainer = tw.div`
+export const FooterContainer = styled.div`
+    ${tw`
     flex
     flex-col
     flex-grow
     bg-mainvariant
     items-center
+    `}
 `
 
 export const FooterContent = tw.footer`

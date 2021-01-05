@@ -29,7 +29,8 @@ export enum EWithType {
     SMALL = 'SMALL',
     NORMAL = 'NORMAL',
     MEDIUM = 'MEDIUM',
-    LARGE = 'LARGE'
+    LARGE = 'LARGE',
+    FULL = 'FULL'
 }
 
 export enum EHeightType {

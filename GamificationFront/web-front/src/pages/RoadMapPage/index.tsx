@@ -1,30 +1,62 @@
-import React, { Fragment, useEffect } from 'react';
-import RoadMap from '../../components/RoadMap';
+import React, { Fragment, useEffect } from "react";
+import RoadMap from "../../components/RoadMap";
 import { useHistory, useLocation } from "react-router-dom";
-import { ClassResponse } from '../../models/roadmap';
-export interface IRoadMapPage {
-}
+import { ClassResponse } from "../../models/roadmap";
+import Card from "storybook-gamification8/molecules/CardMain";
+import Label from "storybook-gamification8/atomic/atoms/Label";
+import {
+  EShadowType,
+  EWithType,
+  EBorderType,
+  EFontWeight,
+} from "storybook-gamification8/core/domain/enums";
+import { TitleContainer } from "./roadmappage.styled";
 
-const RoadMapPage = ({} : IRoadMapPage) => {
-    let history = useHistory();
-    let location: any = useLocation();
+export interface IRoadMapPage {}
 
-    useEffect(() => {
-        console.log(location);
-    }, [location]);
+const RoadMapPage = ({}: IRoadMapPage) => {
+  let history = useHistory();
+  let location: any = useLocation();
 
-    const handleCourseSelect = ( classContent : ClassResponse ) : void => {
-        history.push({
-            pathname: '/class',
-            state: { classContent }
-        });
-    }
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
 
-    return (
-        <Fragment>
-            <RoadMap courseId={location.state.courseId} handleCourseSelect={handleCourseSelect}/>
-        </Fragment>
-    );
-}
+  const handleCourseSelect = (classContent: ClassResponse): void => {
+    history.push({
+      pathname: "/class",
+      state: { classContent },
+    });
+  };
+
+  return (
+    <Fragment>
+      <TitleContainer>
+        <Card
+          isCustom={true}
+          backgroundColor={"#adeecf"}
+          shadowType={EShadowType.MEDIUM}
+          borderType={EBorderType.ROUNDED}
+          widthType={EWithType.FULL}
+        >
+          <Label
+            fontWeight={EFontWeight.BOLD}
+            textColor={"white"}
+            children={`MI ROADMAP ACTUAL`}
+            borderColor={"transparent"}
+            backgroundColor={"transparent"}
+            hasPadding={true}
+            isLink={false}
+          />
+        </Card>
+      </TitleContainer>
+
+      <RoadMap
+        courseId={location.state.courseId}
+        handleCourseSelect={handleCourseSelect}
+      />
+    </Fragment>
+  );
+};
 
 export default RoadMapPage;

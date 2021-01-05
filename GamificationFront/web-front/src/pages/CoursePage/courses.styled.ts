@@ -5,5 +5,22 @@ export const CoursesContainer = styled.div`
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    padding-top: 120px;
+`
+export const TitleContainer = styled.div`
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+`
+export const LeftContainer = styled.div`
+    display: flex;
+    max-width: 50%;
+`
+
+export const RightContainer = styled.div`
+
+`
+
+export const ParentContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `
