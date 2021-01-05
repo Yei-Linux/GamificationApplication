@@ -52,7 +52,11 @@ const SelectField = ({
       >
         {itemsOf.length > 0 &&
           itemsOf.map((item: ItemSelect, index: number) => (
-            <CustomOption key={item['value']} value={item['value']}>
+            <CustomOption
+              key={item['key']}
+              id={item['key']}
+              value={item['value']}
+            >
               {item['value']}
             </CustomOption>
           ))}

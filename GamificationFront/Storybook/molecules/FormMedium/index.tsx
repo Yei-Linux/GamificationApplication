@@ -24,20 +24,25 @@ import {
 
 interface MyProps {
   handlerGetData(data): any;
+  handlerBack: any;
 }
 
-export const Form = ({ handlerGetData }: MyProps) => {
+export const Form = ({ handlerGetData, handlerBack }: MyProps) => {
   const [user, setUser] = useState({
-    fullname: '',
-    lastname: '',
     email: '',
-    code: '',
     password: '',
-    program: '',
-    especialitation: '',
-    language: '',
+    userTypeId: '8d12e6e3-e364-4231-9990-b794ebea38c6',
+    identifier: '',
+    userPosition: 'STUDENT',
+    fullName: '',
+    lastName: '',
+    idiomId: '',
+    language_programming_id: '',
+    specializationId: '',
+    collegeId: '',
+    coursesId: [''],
   });
-  const [lenguage, setLenguage] = useState({
+  const [idiom, setIdiom] = useState({
     value: '',
   });
 
@@ -45,16 +50,21 @@ export const Form = ({ handlerGetData }: MyProps) => {
     value: '',
   });
 
-  const [program, setProgram] = useState({
+  const [language, setLanguage] = useState({
     value: '',
   });
+
+  const [course, setCourse] = useState({
+    value: '',
+  });
+
   const addUser = (e): void => {
     e.preventDefault();
-    // console.log(user);
     const object = { ...user };
-    object.especialitation = especiality.value;
-    object.program = program.value;
-    object.language = lenguage.value;
+    object.specializationId = especiality.value;
+    object.language_programming_id = language.value;
+    object.idiomId = idiom.value;
+    object.coursesId = [course.value];
     handlerGetData(object);
   };
 
@@ -65,20 +75,33 @@ export const Form = ({ handlerGetData }: MyProps) => {
     });
   };
 
-  const handlerLenguage = (e) => {
-    setLenguage({
-      value: e.target.value,
+  const handlerIdiom = (e) => {
+    const index = e.target.selectedIndex;
+    const idIdiom = e.target.options[index].id;
+    setIdiom({
+      value: idIdiom,
     });
   };
   const handlerEspeciality = (e) => {
+    const index = e.target.selectedIndex;
+    const idEspeciality = e.target.options[index].id;
     setEspeciality({
-      value: e.target.value,
+      value: idEspeciality,
     });
   };
 
   const handlerProgram = (e) => {
-    setProgram({
-      value: e.target.value,
+    const index = e.target.selectedIndex;
+    const idLanguage = e.target.options[index].id;
+    setLanguage({
+      value: idLanguage,
+    });
+  };
+  const handlerCourse = (e) => {
+    const index = e.target.selectedIndex;
+    const idCourse = e.target.options[index].id;
+    setCourse({
+      value: idCourse,
     });
   };
 
@@ -104,7 +127,7 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   borderType={EBorderType.PILLSHAPE}
                   widthType={EWithType.LARGE}
                   hasPadding={true}
-                  name="fullname"
+                  name="fullName"
                   onChange={handlerAddUser}
                 />
               </BoxInput>
@@ -120,7 +143,7 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   borderType={EBorderType.PILLSHAPE}
                   widthType={EWithType.LARGE}
                   hasPadding={true}
-                  name="lastname"
+                  name="lastName"
                   onChange={handlerAddUser}
                 />
               </BoxInput>
@@ -153,7 +176,7 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   textFieldType={ETextFieldType.NUMBER}
                   widthType={EWithType.LARGE}
                   hasPadding={true}
-                  name="code"
+                  name="identifier"
                   onChange={handlerAddUser}
                 />
               </BoxInput>
@@ -177,6 +200,31 @@ export const Form = ({ handlerGetData }: MyProps) => {
             </BoxField>
             <BoxField>
               <BoxLabel>
+                <Label children={'CURSOS'} hasPadding={false} />
+              </BoxLabel>
+              <BoxInput>
+                <Input
+                  inputType={EInputType.SELECT}
+                  borderType={EBorderType.ROUNDED}
+                  textFieldType={ETextFieldType.TEXT}
+                  widthType={EWithType.LARGE}
+                  hasPadding={true}
+                  onChange={handlerCourse}
+                  selectItems={[
+                    {
+                      key: 'aa1cb247-9642-4f78-a1e9-67ff9e4dfabd',
+                      value: 'Programacion Estructurada',
+                    },
+                    {
+                      key: 'e5065254-9f3c-4d89-bf8e-977dfdb16019',
+                      value: 'Programacion Orientada a Objetos',
+                    },
+                  ]}
+                />
+              </BoxInput>
+            </BoxField>
+            <BoxField>
+              <BoxLabel>
                 <Label
                   children={'LENGUAJE DE PROGRAMACION'}
                   hasPadding={false}
@@ -192,11 +240,11 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   onChange={handlerProgram}
                   selectItems={[
                     {
-                      key: '1',
+                      key: 'e5065254-9f3c-4d89-bf8e-977dfdb16019',
                       value: 'Javascript',
                     },
                     {
-                      key: '2',
+                      key: 'aa1cb247-9642-4f78-a1e9-67ff9e4dfabd',
                       value: 'Python',
                     },
                   ]}
@@ -217,11 +265,11 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   onChange={handlerEspeciality}
                   selectItems={[
                     {
-                      key: '1',
+                      key: '3e0b8bb1-7269-4019-83c7-d90d4a926ca2',
                       value: 'Data Science',
                     },
                     {
-                      key: '2',
+                      key: '8dba6cd4-69d1-4a71-bce2-9c68e7579c98',
                       value: 'Frontend Developer',
                     },
                   ]}
@@ -239,14 +287,14 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   textFieldType={ETextFieldType.TEXT}
                   widthType={EWithType.LARGE}
                   hasPadding={true}
-                  onChange={handlerLenguage}
+                  onChange={handlerIdiom}
                   selectItems={[
                     {
-                      key: '1',
+                      key: 'f72d6ea6-a775-4371-9907-5d32180e8061',
                       value: 'Ingles',
                     },
                     {
-                      key: '2',
+                      key: '078069b1-d276-4fe0-94d3-d111a05d9583',
                       value: 'Español',
                     },
                   ]}
@@ -263,7 +311,12 @@ export const Form = ({ handlerGetData }: MyProps) => {
               />
               {/* </a> */}
               <a href={'/signin'}>
-                <Button children={'Volver'} />
+                <Button
+                  children={'Volver'}
+                  onClick={() => {
+                    handlerBack();
+                  }}
+                />
               </a>
             </BoxButton>
           </FormBody>

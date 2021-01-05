@@ -39,7 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "install-peers",
-    "ls": "ln -s ../../Storybook ./storybook-gamification3"
+    "ls": "ln -s ../../Storybook ./storybook-gamification"
   },
   "eslintConfig": {
     "extends": [

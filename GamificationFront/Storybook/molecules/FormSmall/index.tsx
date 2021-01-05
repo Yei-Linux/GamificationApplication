@@ -23,12 +23,14 @@ import {
 } from '../../core/domain/enums';
 interface MyProps {
   handlerGetData(data): any;
+  handlerBack: any;
 }
 
-export const Form = ({ handlerGetData }: MyProps) => {
+export const Form = ({ handlerGetData, handlerBack }: MyProps) => {
   const [user, setUser] = useState({
-    code: '',
+    identifier: '',
     password: '',
+    userPosition: 'STUDENT',
   });
 
   const addUser = (e): void => {
@@ -68,7 +70,7 @@ export const Form = ({ handlerGetData }: MyProps) => {
                   widthType={EWithType.LARGE}
                   hasPadding={true}
                   onChange={handlerAddUser}
-                  name={'code'}
+                  name={'identifier'}
                 />
               </BoxInput>
             </BoxField>
@@ -100,7 +102,12 @@ export const Form = ({ handlerGetData }: MyProps) => {
               />
               {/* </a> */}
               <a href={'/signup'}>
-                <Button children={'Registrar'} />
+                <Button
+                  children={'Registrar'}
+                  onClick={() => {
+                    handlerBack();
+                  }}
+                />
               </a>
             </BoxButton>
           </FormBody>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Editor from '../../components/Editor';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-const Exercise = () => {
+const Exercise = (): JSX.Element => {
   const [html, setHtml] = useLocalStorage('html', '');
   const [css, setCss] = useLocalStorage('css', '');
   const [js, setJs] = useLocalStorage('js', '');

@@ -1,4 +1,4 @@
-import CardWelcome from 'storybook-gamification/molecules/CardMain';
+import CardWelcome from 'storybook-gamification2/molecules/CardMain';
 
 const Welcome = () => {
   return <CardWelcome />;
