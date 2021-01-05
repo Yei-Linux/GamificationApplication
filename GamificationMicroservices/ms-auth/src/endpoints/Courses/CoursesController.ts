@@ -12,14 +12,12 @@ import {
 import { beans } from "../../core/beans";
 import { AuthMiddleware } from "../../core/middlewares/authMiddleware";
 import { GetCoursesByStudent } from "../../modules/Course/Application/GetCoursesByStudent";
+import { GetCoursesByStudentResponse } from "../../modules/Course/Application/GetCoursesByStudent/response";
 import { Course } from "../../modules/Course/Domain/Course";
 import { GetStudentByEmail } from "../../modules/Student/Application/GetStudentByEmail";
 import { Student } from "../../modules/Student/Domain/Student";
 import StudentId from "../../modules/Student/Domain/StudentId";
 import UserEmail from "../../modules/User/Domain/UserEmail";
-
-beans.bind<GetCoursesByStudent>(GetCoursesByStudent).toSelf();
-beans.bind<GetStudentByEmail>(GetStudentByEmail).toSelf();
 
 @controller("/courses")
 export class CoursesController implements interfaces.Controller {
@@ -43,7 +41,7 @@ export class CoursesController implements interfaces.Controller {
   ) {
     try {
       let studentFound : Student = await this.getStudentByEmailService.handle(new UserEmail(req["headers"]["email"].toString()));
-      let coursesFound : Course[] = await this.getCoursesByStudentService.handle(new StudentId(studentFound._studentId._value));
+      let coursesFound : GetCoursesByStudentResponse[] = await this.getCoursesByStudentService.handle(new StudentId(studentFound._studentId._value));
       res.status(200).json({ data: coursesFound, msg : "Courses got successfully" });
     } catch (error) {
       res.status(500).json(error);

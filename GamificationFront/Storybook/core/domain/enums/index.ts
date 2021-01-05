@@ -22,9 +22,10 @@ export enum EFontWeight {
     MEDIUM = 'MEDIUM',
     SEMIBOLD = 'SEMIBOLD',
     BOLD = 'BOLD'
-}   
+}
 
 export enum EWithType {
+    MINSMALL = 'MINSMALL',
     SMALL = 'SMALL',
     NORMAL = 'NORMAL',
     MEDIUM = 'MEDIUM',

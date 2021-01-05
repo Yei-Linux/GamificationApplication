@@ -1,6 +1,7 @@
 import { QuestionResponse } from "../../../../../shared/application/response";
 import ExamQuestionId from "../../../../Exam/Domain/ExamQuestionId";
 import { OptionMapper } from "../../../../Option/Infraestructure/sequelize/mapper/OptionMapper";
+import { ThemeMapper } from "../../../../Theme/Infraestructure/sequelize/mapper/ThemeMapper";
 import { Question } from "../../../Domain/Question";
 import QuestionDescription from "../../../Domain/QuestionDescription";
 import QuestionDifficulty from "../../../Domain/QuestionDifficulty";
@@ -27,6 +28,7 @@ export class QuestionMapper {
         new QuestionOrder(questionModel.order),
         new QuestionDifficulty(questionModel.difficulty),
         OptionMapper.convertOptionsModelToOptions(questionModel.options),
+        ThemeMapper.convertThemeModelToTheme(questionModel.theme),
         new ExamQuestionId(questionExamId)
       );
     }
@@ -48,7 +50,8 @@ export class QuestionMapper {
             questionTypeId: question._questionTypeId._value,
             questionTypeName: question._questionTypeName._value,
             options: OptionMapper.convertOptionsToOptionsResponse(question._options),
-            examQuestionId: question._questionExamId._value
+            examQuestionId: question._questionExamId._value,
+            theme: ThemeMapper.convertThemeToThemeResponse(question._theme)
         }
     }
 

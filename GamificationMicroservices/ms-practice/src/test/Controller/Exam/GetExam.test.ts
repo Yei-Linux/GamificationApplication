@@ -5,7 +5,7 @@ import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../../../app.module';
 import { RequestsFaker } from '../RequestFaker';
 
-describe('GetExam', () => {
+describe('GetExam By filters', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -25,7 +25,7 @@ describe('GetExam', () => {
     );
 
     request(app.getHttpServer())
-      .post('/exams')
+      .get('/exams/findByFilter')
       .send(examRandomFaker)
       .end((err, res) => {
         if (err) return done(err);

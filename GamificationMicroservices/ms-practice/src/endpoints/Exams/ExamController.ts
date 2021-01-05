@@ -6,6 +6,7 @@ import {
   Logger,
   HttpStatus,
   Res,
+  Query,
 } from '@nestjs/common';
 import { GetExamService } from '../../modules/Exam/Application/GetExam';
 import { GetExamResponse } from '../../modules/Exam/Application/GetExam/GetExamResponse';
@@ -24,7 +25,7 @@ export class ExamController {
     private readonly insertStudentAnswerByExamService: InsertStudentAnswerByExam,
   ) {}
 
-  @Post()
+  @Get("/findByFilter")
   async getExamByThemeId(
     @Body() getExamRequest: GetExamRequest,
     @Res() res: any,
@@ -42,7 +43,7 @@ export class ExamController {
     }
   }
 
-  @Post('/answers')
+  @Post('/answersStudent')
   async insertStudentAnswersOfExam(
     @Body() postStudentAnswersOfExamRequest: PostStudentAnswersOfExamRequest,
     @Res() res: any,

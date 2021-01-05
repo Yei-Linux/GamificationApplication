@@ -11,8 +11,6 @@ import { Student } from "../../Domain/Student";
 import StudentCode from "../../Domain/StudentCode";
 import { PostgressStudentRepository } from "../../Infraestructure/Persistence/PostgressStudentRepository";
 
-beans.bind<PostgressStudentRepository>(PostgressStudentRepository).toSelf();
-
 interface ISignUpUserService {
   signUpStudent(studentCode : StudentCode, fullName : PersonFullName, lastName : PersonLastName, surName : PersonSurName, age : PersonAge, userIdCreated : UserId, idiomId : string, specializationId : string,languageProgrammingId : string, identifier : PersonIdentifier) : Promise<Student>
 }

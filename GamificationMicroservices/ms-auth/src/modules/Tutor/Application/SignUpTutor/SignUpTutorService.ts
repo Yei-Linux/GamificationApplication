@@ -11,8 +11,6 @@ import { Tutor } from "../../Domain/Tutor";
 import TutorCode from "../../Domain/TutorCode";
 import { PostgressTutorRepository } from "../../Infraestructure/Persistence/PostgressTutorRepository";
 
-beans.bind<PostgressTutorRepository>(PostgressTutorRepository).toSelf();
-
 interface ISignUpTutorService {
   signUpTutor(tutorCode : TutorCode, fullName : PersonFullName, lastName : PersonLastName, surName : PersonSurName, age : PersonAge, userIdCreated : UserId, idiomId : string, specializationId : string,collegeId : string , identifier : PersonIdentifier) : Promise<Tutor>
 }

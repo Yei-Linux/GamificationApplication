@@ -16,6 +16,7 @@ import { uuid } from 'uuidv4';
 import { QuestionsExamModel } from '../../../../shared/infraestructure/sequelize/QuestionsExamModel';
 import { ExamModel } from '../../../Exam/Infraestructure/Persistence/sequelize/ExamModel';
 import { OptionModel } from '../../../Option/Infraestructure/sequelize/OptionModel';
+import { ThemeModel } from '../../../Theme/Infraestructure/sequelize/ThemeModel';
 import { QuestionTypeModel } from './QuestionTypeModel';
 
 @Table({
@@ -107,6 +108,17 @@ export class QuestionModel extends Model<QuestionModel> {
     allowNull: true,
   })
   questionTypeId: string;
+
+  @ForeignKey(() => ThemeModel)
+  @Column({
+    field: 'theme_id',
+    type: DataType.UUID,
+    allowNull: true,
+  })
+  themeId: string;
+
+  @BelongsTo(() => ThemeModel)
+  theme: ThemeModel;
 
   @BelongsTo(() => QuestionTypeModel)
   questionType: QuestionTypeModel;

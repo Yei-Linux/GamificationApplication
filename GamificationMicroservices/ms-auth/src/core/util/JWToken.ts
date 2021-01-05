@@ -29,7 +29,7 @@ export class JWToken {
     }
 
     public async generateJWT() {
-        let token = await jwt.sign(this.payload,this.secretKey,{
+        let token = await jwt.sign(this.payload,this.secretKey, this.expiresIn && {
             expiresIn: this.expiresIn
         });
         return token;

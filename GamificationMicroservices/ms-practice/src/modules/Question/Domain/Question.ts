@@ -1,5 +1,6 @@
 import ExamQuestionId from "../../Exam/Domain/ExamQuestionId";
 import {Option} from "../../Option/Domain/Option";
+import { Theme } from "../../Theme/Domain/Theme";
 import QuestionDescription from "./QuestionDescription";
 import QuestionDifficulty from "./QuestionDifficulty";
 import QuestionDuration from "./QuestionDuration";
@@ -22,6 +23,7 @@ export class Question {
       private questionTypeId: QuestionTypeId,
       private questionTypeName: QuestionTypeName,
       private options: Option[],
+      private theme: Theme,
       private questionExamId: ExamQuestionId,
     ) {}
 
@@ -69,6 +71,10 @@ export class Question {
       return this.questionExamId;
     }
 
+    get _theme(): Theme {
+      return this.theme;
+    }
+
     public static create(
       id: QuestionId,
       text: QuestionText,
@@ -80,9 +86,10 @@ export class Question {
       questionOrder: QuestionOrder,
       questionDifficulty: QuestionDifficulty,
       options: Option[],
+      theme: Theme,
       questionExamId: ExamQuestionId = null
     ): Question {
-      let question = new Question(id, text, description,duration,questionOrder,points,questionDifficulty,questionTypeId,questionTypeName,options,questionExamId);
+      let question = new Question(id, text, description,duration,questionOrder,points,questionDifficulty,questionTypeId,questionTypeName,options,theme,questionExamId);
       return question;
     }
   }

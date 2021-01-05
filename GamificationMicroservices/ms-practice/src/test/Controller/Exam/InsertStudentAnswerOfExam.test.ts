@@ -23,7 +23,7 @@ describe('Insert Student Answers Of Exam', () => {
     let studentExamRandomFaker = RequestsFaker.generateInsertStudentExam("jesus@gmail.com",1,[studentAnswerOneRandomFaker,studentAnswerTwoRandomFaker]);
 
     request(app.getHttpServer())
-      .post('/exams/answers')
+      .post('/exams/answersStudent')
       .send(studentExamRandomFaker)
       .end((err, res) => {
         if (err) return done(err);

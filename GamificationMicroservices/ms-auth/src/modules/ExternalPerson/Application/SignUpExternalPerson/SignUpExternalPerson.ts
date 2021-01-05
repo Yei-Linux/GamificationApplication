@@ -1,5 +1,4 @@
 import { inject, injectable } from "inversify";
-import { beans } from "../../../../core/beans";
 import { Person } from "../../../Person/domain/Person";
 import PersonAge from "../../../Person/domain/PersonAge";
 import PersonFullName from "../../../Person/domain/PersonFullName";
@@ -9,8 +8,6 @@ import PersonSurName from "../../../Person/domain/PersonSurName";
 import UserId from "../../../User/Domain/UserId";
 import { ExternalPerson } from "../../Domain/ExternalPerson";
 import { PostgressExternalPersonRepository } from "../../Infraestucture/Persistence/PostgressExternalPersonRepository";
-
-beans.bind<PostgressExternalPersonRepository>(PostgressExternalPersonRepository).toSelf();
 
 interface ISignUpExternalPersonService {
     signUpExternalPerson(fullName : PersonFullName, lastName : PersonLastName, surName : PersonSurName, age : PersonAge, userIdCreated : UserId, idiomId : string, specializationId : string,languageProgrammingId : string, identifier : PersonIdentifier) : Promise<ExternalPerson>

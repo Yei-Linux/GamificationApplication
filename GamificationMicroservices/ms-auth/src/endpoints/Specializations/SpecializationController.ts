@@ -8,13 +8,9 @@ import {
   request,
   response
 } from "inversify-express-utils";
-import { beans } from "../../core/beans";
 import { AuthMiddleware } from "../../core/middlewares/authMiddleware";
 import { GetSpecializationsService } from "../../modules/Specialization/Application/GetSpecializations/GetSpecializationsService";
 import { GetSpecializationServiceResponse } from "../../modules/Specialization/Application/GetSpecializations/GetSpecializationsServiceResponse";
-
-beans.bind<AuthMiddleware>(AuthMiddleware).toSelf();
-beans.bind<GetSpecializationsService>(GetSpecializationsService).toSelf();
 
 @controller("/specializations")
 export class SpecializationController implements interfaces.Controller {
@@ -27,7 +23,7 @@ export class SpecializationController implements interfaces.Controller {
     this.getSpecializationsService = getSpecializationsService;
   }
 
-  @httpGet("/", AuthMiddleware)
+  @httpGet("/")
   public async getSpecializations(
     @request() req: express.Request,
     @response() res: express.Response

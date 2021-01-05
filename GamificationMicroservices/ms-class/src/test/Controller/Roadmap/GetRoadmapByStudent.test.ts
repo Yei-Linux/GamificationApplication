@@ -20,7 +20,7 @@ describe('GetRoadmap by Student', () => {
   it('get_roadmap_by_student', (done: any) => {
     let roadMapRequestFaker = RequestsFaker.generateGetRoadMapRequest("jesus@gmail.com","511a2cf7-c4df-4d02-bc80-8a5a38a1970b");
     request(app.getHttpServer())
-      .post('/roadmap/student')
+      .get('/roadmap/student')
       .send(roadMapRequestFaker)
       .end((err, res) => {
         if (err) return done(err);
