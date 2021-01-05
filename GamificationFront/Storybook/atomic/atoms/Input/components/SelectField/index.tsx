@@ -1,7 +1,12 @@
-import React from "react";
-import { EBorderType, EHeightType, EShadowType, EWithType } from "../../../../../core/domain/enums";
-import { ItemSelect } from "../../../../../core/domain/interfaces";
-import { InputGroup, CustomInput, CustomSelect, CustomOption } from "../../input.styled";
+import React from 'react';
+import {
+  EBorderType,
+  EHeightType,
+  EShadowType,
+  EWithType,
+} from '../../../../../core/domain/enums';
+import { ItemSelect } from '../../../../../core/domain/interfaces';
+import { InputGroup, CustomSelect, CustomOption } from '../../input.styled';
 
 export interface ISelectField {
   placeholder?: string;
@@ -12,6 +17,9 @@ export interface ISelectField {
   heigthType?: EHeightType;
   widthType?: EWithType;
   itemsOf: ItemSelect[];
+  value: any;
+  onChange: any;
+  name: string;
 }
 
 const SelectField = ({
@@ -23,6 +31,9 @@ const SelectField = ({
   heigthType,
   widthType,
   itemsOf,
+  value,
+  onChange,
+  name,
 }: ISelectField) => {
   return (
     <InputGroup>
@@ -35,11 +46,14 @@ const SelectField = ({
         shadowType={shadowType}
         heigthType={heigthType}
         widthType={widthType}
+        onChange={onChange}
+        value={value}
+        name={name}
       >
         {itemsOf.length > 0 &&
           itemsOf.map((item: ItemSelect, index: number) => (
-            <CustomOption key={item["value"]} value={item["value"]}>
-              {item["value"]}
+            <CustomOption key={item['value']} value={item['value']}>
+              {item['value']}
             </CustomOption>
           ))}
       </CustomSelect>
@@ -48,7 +62,7 @@ const SelectField = ({
 };
 
 SelectField.defaultProps = {
-  placeholder: "",
+  placeholder: '',
 };
 
 export default SelectField;

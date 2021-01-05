@@ -1,6 +1,16 @@
-import React, { Fragment } from "react";
-import { EBorderType, EHeightType, EShadowType, ETextFieldType, EWithType } from "../../../../../core/domain/enums";
-import { InputGroup, CustomInput, InputIconContainer } from "../../input.styled";
+import React, { Fragment } from 'react';
+import {
+  EBorderType,
+  EHeightType,
+  EShadowType,
+  ETextFieldType,
+  EWithType,
+} from '../../../../../core/domain/enums';
+import {
+  InputGroup,
+  CustomInput,
+  InputIconContainer,
+} from '../../input.styled';
 
 export interface ITextField {
   placeholder?: string;
@@ -13,6 +23,8 @@ export interface ITextField {
   widthType?: EWithType;
   borderColor?: string;
   textFieldType?: ETextFieldType;
+  onChange?: any;
+  name?: string;
 }
 
 const TextField = ({
@@ -25,7 +37,9 @@ const TextField = ({
   heigthType,
   widthType,
   borderColor,
-  textFieldType
+  textFieldType,
+  onChange,
+  name,
 }: ITextField) => {
   return (
     <InputGroup>
@@ -41,15 +55,17 @@ const TextField = ({
         shadowType={shadowType}
         heigthType={heigthType}
         widthType={widthType}
+        onChange={onChange}
+        name={name}
       />
     </InputGroup>
   );
 };
 
 TextField.defaultProps = {
-  placeholder: "",
+  placeholder: '',
   readonly: false,
-  textFieldType: "text"
+  textFieldType: 'text',
 };
 
 export default TextField;

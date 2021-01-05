@@ -1,22 +1,20 @@
-import logo from "./logo.svg";
-import "./App.css";
-
-import Button from "storybook-gamification/atomic/atoms/Button"
+import './App.css';
+import Welcome from './pages/Welcome';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Exercise from './pages/Exercise';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Button
-        borderColor={"#a7f4ff"}
-        backgroundColor={"#a7f4ff"}
-        widthType={"SMALL"}
-        heigthType={"SMALL"}
-        shadowType={"XLARGE"}
-        borderType={"PILLSHAPE"}
-      >
-        Hola Como estas!
-      </Button>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/exercise" component={Exercise} />
+      </Switch>
+    </Router>
   );
 }
 

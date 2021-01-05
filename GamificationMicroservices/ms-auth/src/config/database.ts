@@ -1,7 +1,7 @@
 const database = {
   development: {
     username: "postgres",
-    password: "123",
+    password: "root",
     database: "gamification-auth",
     host: process.env.DATABASE_HOST || "127.0.0.1",
     dialect: "postgres",

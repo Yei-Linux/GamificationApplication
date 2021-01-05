@@ -52,6 +52,10 @@ export interface IButton {
    * Icon element to show in button
    */
   iconDiv?: React.ReactNode;
+  /**
+   *
+   */
+  onClick?: any;
 }
 
 const Button = ({
@@ -65,6 +69,7 @@ const Button = ({
   heigthType,
   iconDiv,
   hasIcon,
+  onClick,
 }: IButton) => {
   return (
     <ButtonContainer>
@@ -78,6 +83,8 @@ const Button = ({
         borderType={borderType}
         widthType={widthType}
         heigthType={heigthType}
+        type="submit"
+        onClick={onClick}
       >
         {children}
       </CustomButton>

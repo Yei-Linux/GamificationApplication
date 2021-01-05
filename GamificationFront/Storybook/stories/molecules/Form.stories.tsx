@@ -21,17 +21,31 @@ export default {
   //     heigthType: { control: { type: 'select', options: mapEnum(EHeightType) } },
   //   },
 };
-export const SmallForm = (args : any) => (
+// export const handlerGetData = (data): void => {
+//   console.log(data);
+// };
+
+export const SmallForm = (args: any) => (
   <div>
     <FormSmall {...args} />
   </div>
 );
+SmallForm.args = {
+  handlerGetData: (data) => {
+    console.log(data);
+  },
+};
 SmallForm.storyName = 'Small Form';
 
-export const MediumForm = (args : any) => (
+export const MediumForm = (args: any) => (
   <div>
     <FormMedium {...args} />
   </div>
 );
+MediumForm.args = {
+  handlerGetData: (data) => {
+    console.log(data);
+  },
+};
 
 MediumForm.storyName = 'Medium Form';
