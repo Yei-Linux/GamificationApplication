@@ -27,14 +27,14 @@ export class ExamController {
 
   @Get("/findByFilter")
   async getExamByThemeId(
-    @Body() getExamRequest: GetExamRequest,
+    @Query() getExamRequest: GetExamRequest,
     @Res() res: any,
   ) {
     try {
       let examResponse: GetExamResponse = await this.getExamService.handle(
-        new ThemeId(getExamRequest.themeId),
-        new ExamTypeId(getExamRequest.examTypeId),
-        new LevelId(getExamRequest.levelId),
+        new ThemeId("73b34ecc-a367-42ef-bb66-1071da349fcb"),
+        new ExamTypeId("9f8cd945-b262-427b-a81c-881f38801cc7"),
+        new LevelId('0eea4bc2-cdd5-4617-a7c7-ab605fcd06d8'),
       );
       res.status(HttpStatus.OK).json({ data: examResponse });
     } catch (error) {

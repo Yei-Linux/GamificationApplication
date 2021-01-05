@@ -1,5 +1,5 @@
 import React from 'react';
-import FormSignIn from 'storybook-gamification8/molecules/FormSmall';
+import FormSignIn from 'storybook-gamification11/molecules/FormSmall';
 import { useHistory } from 'react-router-dom';
 
 const SignIn = () => {

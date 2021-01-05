@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Card from "storybook-gamification9/molecules/CardMain";
-import Label from "storybook-gamification9/atomic/atoms/Label";
-import Modal from "storybook-gamification9/molecules/Modal";
+import Card from "storybook-gamification11/molecules/CardMain";
+import Label from "storybook-gamification11/atomic/atoms/Label";
+import Modal from "storybook-gamification11/molecules/Modal";
 
 import {
   EShadowType,
@@ -9,14 +9,14 @@ import {
   EBorderType,
   EFontWeight,
   EHeightType,
-} from "storybook-gamification9/core/domain/enums";
+} from "storybook-gamification11/core/domain/enums";
 import {
   ButtonContainer,
   DailyTaskContainer,
   Paragrah,
 } from "./dailytask.styled";
 
-import Button from "storybook-gamification9/atomic/atoms/Button";
+import Button from "storybook-gamification11/atomic/atoms/Button";
 import TaskResponse from "../TaskResponse";
 
 export interface IDailyTaskProps {}
@@ -146,7 +146,7 @@ const DailyTask = ({}: IDailyTaskProps) => {
 
       <ButtonContainer>
         <Button
-          handleClick={handleToggle}
+          onClick={handleToggle}
           children={"Añadir Solución"}
           textColor={"white"}
           borderColor={"#7f9cf5"}

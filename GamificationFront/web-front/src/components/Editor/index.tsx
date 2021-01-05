@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Controlled as ControlledEditor } from 'react-codemirror2';
+import { UnControlled  as ControlledEditor } from 'react-codemirror2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 let CodeMirror = null;
+
 if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
   CodeMirror = require('react-codemirror2');
   require('codemirror/lib/codemirror.css');
@@ -16,8 +17,8 @@ const Editor = (props) => {
   const { language, displayName, value, onChange } = props;
   const [open, setOpen] = useState(true);
 
-  const handleChange = () => {
-    onChange(value);
+  const handleChange = (valueProp) => {
+    onChange(valueProp);
   };
 
   return (
@@ -34,15 +35,17 @@ const Editor = (props) => {
       </div>
       {CodeMirror && (
         <ControlledEditor
-          onBeforeChange={handleChange}
+          onChange={(editor, data, value)=>{handleChange(value)}}
+          editorDidMount={(editor) => {
+            editor.refresh();
+          }}
           value={value}
-          className="code-mirror-wrapper"
           options={{
             lineWrapping: true,
             lint: true,
             mode: language,
             theme: 'material',
-            lineNumbers: true,
+            lineNumbers: true
           }}
         />
       )}

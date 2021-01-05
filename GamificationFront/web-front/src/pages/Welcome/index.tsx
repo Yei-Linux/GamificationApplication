@@ -1,11 +1,11 @@
-import CardWelcome from 'storybook-gamification8/molecules/CardMain';
+import CardWelcome from 'storybook-gamification11/molecules/CardMain';
 import {
   EHeightType,
   EShadowType,
   EWithType,
   EBorderType,
-} from 'storybook-gamification8/core/domain/enums';
-import Button from 'storybook-gamification8/atomic/atoms/Button';
+} from 'storybook-gamification11/core/domain/enums';
+import Button from 'storybook-gamification11/atomic/atoms/Button';
 import { BoxGeneral, BoxUnac, CustomBox } from './welcome.styled';
 import { useHistory } from 'react-router-dom';
 

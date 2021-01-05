@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
-export const TaskResponseContainer = styled.div`
+export const ExerciseContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 80%;
+    height: 100%;
 `
