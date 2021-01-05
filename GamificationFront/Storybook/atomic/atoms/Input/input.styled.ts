@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import tw from "twin.macro";
-import { EBorderType } from "../../../core/domain/enums";
 import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps } from "../../../core/utils/twin.util";
 
 export const InputGroup = styled.div<{}>`

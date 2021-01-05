@@ -35,4 +35,4 @@ axiosClassMicroservice.interceptors.request.use((config : any)=>{
     return Promise.reject(error);
 });
 
-export { axiosPracticeMicroservice, axiosClassMicroservice, axiosAuthMicroservice }
+export { axiosPracticeMicroservice, axiosClassMicroservice, axiosAuthMicroservice}

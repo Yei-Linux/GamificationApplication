@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from '../../main';
 
-export const CustomBox = styled.div<{}>`
+export const CustomBox = styled.form<{}>`
 display:flex;
 justify-content:center;
 align-items:center;

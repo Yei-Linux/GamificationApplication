@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 import {
   EBorderType,
   EHeightType,
@@ -6,10 +6,10 @@ import {
   EShadowType,
   ETextFieldType,
   EWithType,
-} from "../../../core/domain/enums";
-import { ItemSelect } from "../../../core/domain/interfaces";
-import SelectField from "./components/SelectField";
-import TextField from "./components/TextField";
+} from '../../../core/domain/enums';
+import { ItemSelect } from '../../../core/domain/interfaces';
+import SelectField from './components/SelectField';
+import TextField from './components/TextField';
 
 export interface IInput {
   /**
@@ -64,6 +64,18 @@ export interface IInput {
    * Items of Select Input
    */
   selectItems?: ItemSelect[];
+  /**
+   * Return function
+   */
+  onChange?: any;
+  /**
+   * Name of input
+   */
+  name?: string;
+  /**
+   * Value of select
+   */
+  value?: any;
 }
 
 const Input = ({
@@ -78,6 +90,9 @@ const Input = ({
   borderColor,
   textFieldType,
   selectItems,
+  onChange,
+  name,
+  value,
 }: IInput) => {
   return (
     <Fragment>
@@ -91,6 +106,8 @@ const Input = ({
           borderType={borderType}
           widthType={widthType}
           heigthType={heigthType}
+          onChange={onChange}
+          name={name}
         >
           {iconDiv}
         </TextField>
@@ -101,11 +118,14 @@ const Input = ({
           borderColor={borderColor}
           hasPadding={hasPadding}
           placeholder={placeholder}
-          itemsOf={[]}
+          itemsOf={selectItems}
           shadowType={shadowType}
           borderType={borderType}
           widthType={widthType}
           heigthType={heigthType}
+          value={value}
+          onChange={onChange}
+          name={name}
         />
       )}
     </Fragment>
@@ -113,8 +133,8 @@ const Input = ({
 };
 
 Input.defaultProps = {
-  placeholder: "",
-  textFieldType: "text",
+  placeholder: '',
+  textFieldType: 'text',
   selectItems: [],
 };
 
