@@ -9,16 +9,16 @@ import {
   TitleContainer,
 } from "./courses.styled";
 
-import Card from "storybook-gamification8/molecules/CardMain";
-import ListItem from "storybook-gamification8/molecules/ListItem";
+import Card from "storybook-gamification9/molecules/CardMain";
+import ListItem from "storybook-gamification9/molecules/ListItem";
 import { useHistory } from "react-router-dom";
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EFontWeight,
-} from "storybook-gamification8/core/domain/enums";
-import Label from "storybook-gamification8/atomic/atoms/Label";
+} from "storybook-gamification9/core/domain/enums";
+import Label from "storybook-gamification9/atomic/atoms/Label";
 import Profile from "../../components/Profile";
 import DailyTask from "../../components/DailyTask";
 

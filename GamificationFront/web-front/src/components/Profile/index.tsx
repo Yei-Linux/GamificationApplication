@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "storybook-gamification8/molecules/CardMain";
-import Label from "storybook-gamification8/atomic/atoms/Label";
+import Card from "storybook-gamification9/molecules/CardMain";
+import Label from "storybook-gamification9/atomic/atoms/Label";
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EFontWeight,
-} from "storybook-gamification8/core/domain/enums";
+} from "storybook-gamification9/core/domain/enums";
 import { ProfileContainer } from "./profile.styled";
 
 export interface IProfileProps {}

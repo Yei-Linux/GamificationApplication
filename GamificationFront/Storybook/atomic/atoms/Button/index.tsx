@@ -52,6 +52,10 @@ export interface IButton {
    * Icon element to show in button
    */
   iconDiv?: React.ReactNode;
+    /**
+   * Handle click button
+   */
+  handleClick(): any;
 }
 
 const Button = ({
@@ -65,9 +69,10 @@ const Button = ({
   heigthType,
   iconDiv,
   hasIcon,
+  handleClick
 }: IButton) => {
   return (
-    <ButtonContainer>
+    <ButtonContainer onClick={handleClick}>
       {hasIcon && <ButtonIconContainer>{iconDiv}</ButtonIconContainer>}
 
       <CustomButton
@@ -90,6 +95,7 @@ Button.defaultProps = {
   textColor: 'black',
   borderColor: 'black',
   hasIcon: false,
+  handleClick: () =>{}
 };
 
 export default Button;
