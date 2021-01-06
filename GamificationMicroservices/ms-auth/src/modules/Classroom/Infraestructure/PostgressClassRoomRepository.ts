@@ -20,12 +20,17 @@ export class PostgressClassroomRepository implements ClassroomRepository {
     }
 
     async createStudentClassByCourse(studentId: StudentId, coursesId: string[]): Promise<void> {
-        coursesId.map( (courseId) => {
-            this.logger.info(`Insert student on classrooms by course : ${courseId}`);
-            EnvironmentStudentCourseModel.create({
-                courseId: courseId,
-                studentId: studentId._value
-            });
-        })
+        try {
+            coursesId.map( (courseId) => {
+                this.logger.info(`Insert student on classrooms by course : ${courseId}`);
+                EnvironmentStudentCourseModel.create({
+                    courseId: courseId,
+                    studentId: studentId._value
+                });
+            })
+        } catch (error) {
+            this.logger.info(`Error on insert student on classroom`);
+            throw new Error(error);
+        }
     }
 }

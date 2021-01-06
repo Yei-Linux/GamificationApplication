@@ -8,17 +8,16 @@ import {
 } from "storybook-gamification11/core/domain/enums";
 import Button from "storybook-gamification11/atomic/atoms/Button";
 import Editor from "../Editor";
-export interface ITaskResponseProps {}
 
-const TaskResponse = ({}: ITaskResponseProps) => {
+export interface ITaskResponseProps {
+  handleSendResponseTask: any;
+}
+
+const TaskResponse = ({handleSendResponseTask}: ITaskResponseProps) => {
   const [taskResponse,setTaskResponse] = useState("");
 
   const handleResponseChange = (value : string) => {
     setTaskResponse(value);
-  }
-
-  const handleSubmitResponse = () => {
-    console.log(taskResponse);
   }
 
   return (
@@ -30,7 +29,7 @@ const TaskResponse = ({}: ITaskResponseProps) => {
         onChange={handleResponseChange}
       />
       <Button
-        onClick={handleSubmitResponse}
+        onClick={handleSendResponseTask(taskResponse)}
         children={"Enviar Solución"}
         textColor={"white"}
         borderColor={"#7f9cf5"}

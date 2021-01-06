@@ -21,3 +21,14 @@ export interface ClassResponse {
     theme: ThemeResponse;
     content: any;
 }
+
+export interface InsertRoadMapRequest {
+    themeId: string;
+    studyMethodId: string;
+    order: number;
+}
+
+export interface PostRoadMapStudentRequest {
+    studentEmail: string;
+    roadMap: InsertRoadMapRequest[];
+}

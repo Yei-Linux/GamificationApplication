@@ -33,8 +33,12 @@ export class PostgressStudentRepository implements StudentRepository {
                 }]
             }]
         });
-        this.logger.info(`Student: ${JSON.stringify(userFound)} found`);
-        return StudentMapper.convertStudentModelToStudent(userFound["person"],userFound["person"]["student"]);
+        this.logger.info(`Person: ${JSON.stringify(userFound["person"])} found`);
+        this.logger.info(`Student: ${JSON.stringify(userFound["person"]["student"])} found`);
+        let data = StudentMapper.convertStudentModelToStudent(userFound["person"],userFound["person"]["student"]);
+        this.logger.info(`TEST`);
+        console.log(data);
+        return data;
     }
 
     async getStudentByIdentifier(identifier: StudentCode): Promise<[Student,User]> {

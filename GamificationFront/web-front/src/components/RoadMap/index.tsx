@@ -11,7 +11,7 @@ import {
 } from './roadmap.styled';
 
 import FlatItem from "storybook-gamification11/atomic/atoms/FlatItem"
-import { isParNumber } from '../../helpers/managment-data.helper';
+import { getLocalStorageItemValue, isParNumber } from '../../helpers/managment-data.helper';
 
 export interface IRoadMapProps {
   courseId: string;
@@ -26,7 +26,7 @@ const RoadMap = ({ courseId, handleCourseSelect }: IRoadMapProps) => {
 
   const handleGetRoadMapByStudent = async (): Promise<void> => {
     let data: RoadMapResponse[] = await getRoadMapByStudent({
-      studentEmail: 'jesus@gmail.com',
+      studentEmail: getLocalStorageItemValue("user_info")["personInformation"]["email"],
       courseId,
     });
     data && setRoadMapStudent(data);

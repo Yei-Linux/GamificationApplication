@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   HeaderContainer,
@@ -13,6 +14,8 @@ import {
 interface IHeaderProps {}
 
 const Header = ({}: IHeaderProps) => {
+  let history = useHistory();
+
   const handleScrollPageByMenuItem = (e: any) => {
     let target: string = e.target.classList[0]
     let element = document.getElementById(target)
@@ -26,6 +29,10 @@ const Header = ({}: IHeaderProps) => {
     }
   }
 
+  const redirectPage = (link : string) => {
+    history.push(link);
+  }
+
   return (
     <HeaderContainer>
       <LogoContainer>
@@ -37,7 +44,7 @@ const Header = ({}: IHeaderProps) => {
         <HeaderItem>
           <HeaderItemText
             className="courses"
-            onClick={(e: any) => handleScrollPageByMenuItem(e)}
+            onClick={(e: any) => redirectPage("/courses")}
           >
             Courses
           </HeaderItemText>
@@ -46,7 +53,7 @@ const Header = ({}: IHeaderProps) => {
           <HeaderItem>
             <HeaderItemText
               className="dailytask"
-              onClick={(e: any) => handleScrollPageByMenuItem(e)}
+              onClick={(e: any) => redirectPage("/courses")}
             >
               Tareas
             </HeaderItemText>
@@ -55,7 +62,7 @@ const Header = ({}: IHeaderProps) => {
         <HeaderItem>
           <HeaderItemText
             className="profile"
-            onClick={(e: any) => handleScrollPageByMenuItem(e)}
+            onClick={(e: any) => redirectPage("/courses")}
           >
               Perfil
           </HeaderItemText>

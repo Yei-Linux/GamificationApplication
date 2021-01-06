@@ -8,6 +8,7 @@ import {
   EFontWeight,
 } from "storybook-gamification11/core/domain/enums";
 import { ProfileContainer } from "./profile.styled";
+import { getLocalStorageItemValue } from "../../helpers/managment-data.helper";
 
 export interface IProfileProps {}
 
@@ -42,8 +43,8 @@ const Profile = ({}: IProfileProps) => {
             ></img>
         }
         isCustom={false}
-        title={"Jesus Alvan"}
-        description={"Estudiante de 10cimo ciclo"}
+        title={`${getLocalStorageItemValue("user_info")["personInformation"]["fullName"]} ${getLocalStorageItemValue("user_info")["personInformation"]["lastName"]}`}
+        description={`${getLocalStorageItemValue("user_info")["personInformation"]["email"]}`}
         backgroundColor={"white"}
         shadowType={EShadowType.MEDIUM}
         borderType={EBorderType.ROUNDED}

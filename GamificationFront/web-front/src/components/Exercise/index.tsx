@@ -1,25 +1,25 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React from "react";
 import Editor from "../../components/Editor";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { GetExamResponse } from "../../models/exams";
 import { getQuestionsExam } from "../../services/exams.service";
-import { ExerciseContainer } from "./exercise.styled";
+import { CardWrapper, EditorWrapper, ExerciseContainer } from "./exercise.styled";
 
 import Card from "storybook-gamification11/molecules/CardMain";
 
 import {
-    EShadowType,
-    EWithType,
-    EBorderType,
-    EFontWeight,
-    EHeightType,
-  } from "storybook-gamification11/core/domain/enums";
+  EShadowType,
+  EWithType,
+  EBorderType,
+  EFontWeight,
+  EHeightType,
+} from "storybook-gamification11/core/domain/enums";
 import { Paragrah } from "../DailyTask/dailytask.styled";
 
-const Exercise = ({ question }): JSX.Element => {
+const Exercise = ({ id, question , handleSetAnswerQuestion }): JSX.Element => {
   return (
-    <Fragment>
-      <ExerciseContainer>
+    <ExerciseContainer>
+      <CardWrapper>
         <Card
           isCustom={true}
           backgroundColor={"white"}
@@ -34,14 +34,18 @@ const Exercise = ({ question }): JSX.Element => {
             ></div>
           </Paragrah>
         </Card>
+      </CardWrapper>
+      <EditorWrapper>
         <Editor
-          language="javascript"
-          displayName="JS"
-          value={""}
-          onChange={()=>{console.log("d");}}
+            language="javascript"
+            displayName="JS"
+            value={""}
+            onChange={(value) => {
+                handleSetAnswerQuestion(id,value);
+            }}
         />
-      </ExerciseContainer>
-    </Fragment>
+      </EditorWrapper>
+    </ExerciseContainer>
   );
 };
 

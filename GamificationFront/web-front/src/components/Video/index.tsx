@@ -37,7 +37,8 @@ import React, {
       <Fragment>
         <ReactPlayer
           width="100%"
-          height="100%"
+          height="80vh"
+
           playing={play}
           loop={true}
           controls={false}

@@ -30,6 +30,8 @@ interface MyProps {
 export const Form = ({ handlerGetData, handlerBack }: MyProps) => {
   const [user, setUser] = useState({
     email: '',
+    surname:'-',
+    age:0,
     password: '',
     userTypeId: '8d12e6e3-e364-4231-9990-b794ebea38c6',
     identifier: '',
@@ -37,32 +39,32 @@ export const Form = ({ handlerGetData, handlerBack }: MyProps) => {
     fullName: '',
     lastName: '',
     idiomId: '',
-    language_programming_id: '',
+    languageProgrammingId: '',
     specializationId: '',
-    collegeId: '',
+    collegeId: null,
     coursesId: [''],
   });
   const [idiom, setIdiom] = useState({
-    value: '',
+    value: '078069b1-d276-4fe0-94d3-d111a05d9583',
   });
 
   const [especiality, setEspeciality] = useState({
-    value: '',
+    value: '8dba6cd4-69d1-4a71-bce2-9c68e7579c98',
   });
 
   const [language, setLanguage] = useState({
-    value: '',
+    value: 'e5065254-9f3c-4d89-bf8e-977dfdb16019',
   });
 
   const [course, setCourse] = useState({
-    value: '',
+    value: '511a2cf7-c4df-4d02-bc80-8a5a38a1970b',
   });
 
   const addUser = (e): void => {
     e.preventDefault();
     const object = { ...user };
     object.specializationId = especiality.value;
-    object.language_programming_id = language.value;
+    object.languageProgrammingId = language.value;
     object.idiomId = idiom.value;
     object.coursesId = [course.value];
     handlerGetData(object);
@@ -212,11 +214,11 @@ export const Form = ({ handlerGetData, handlerBack }: MyProps) => {
                   onChange={handlerCourse}
                   selectItems={[
                     {
-                      key: 'aa1cb247-9642-4f78-a1e9-67ff9e4dfabd',
+                      key: '511a2cf7-c4df-4d02-bc80-8a5a38a1970b',
                       value: 'Programacion Estructurada',
                     },
                     {
-                      key: 'e5065254-9f3c-4d89-bf8e-977dfdb16019',
+                      key: '901a2cf7-c4df-4d02-bc80-8a5a38a1970b',
                       value: 'Programacion Orientada a Objetos',
                     },
                   ]}

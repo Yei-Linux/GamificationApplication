@@ -148,9 +148,6 @@ export class UserController implements interfaces.Controller {
   ) {
     try {
       let userSignUpRequest: SignUpUserRequest = req.body;
-      userSignUpRequest.surname = "dasdad";
-      userSignUpRequest.age = 40;
-      userSignUpRequest.collegeId = null;
       let userCreated: User = await this.signUpUserService.signUpUser(
         new UserEmail(userSignUpRequest.email),
         new UserPassword(userSignUpRequest.password),
