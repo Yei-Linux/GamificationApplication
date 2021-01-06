@@ -41,6 +41,7 @@ export class CoursesController implements interfaces.Controller {
   ) {
     try {
       let studentFound : Student = await this.getStudentByEmailService.handle(new UserEmail(req["headers"]["email"].toString()));
+      console.log(studentFound);
       let coursesFound : GetCoursesByStudentResponse[] = await this.getCoursesByStudentService.handle(new StudentId(studentFound._studentId._value));
       res.status(200).json({ data: coursesFound, msg : "Courses got successfully" });
     } catch (error) {

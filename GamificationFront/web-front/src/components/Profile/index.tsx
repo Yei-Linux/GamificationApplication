@@ -1,13 +1,14 @@
 import React from "react";
-import Card from "storybook-gamification8/molecules/CardMain";
-import Label from "storybook-gamification8/atomic/atoms/Label";
+import Card from "storybook-gamification11/molecules/CardMain";
+import Label from "storybook-gamification11/atomic/atoms/Label";
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EFontWeight,
-} from "storybook-gamification8/core/domain/enums";
+} from "storybook-gamification11/core/domain/enums";
 import { ProfileContainer } from "./profile.styled";
+import { getLocalStorageItemValue } from "../../helpers/managment-data.helper";
 
 export interface IProfileProps {}
 
@@ -42,8 +43,8 @@ const Profile = ({}: IProfileProps) => {
             ></img>
         }
         isCustom={false}
-        title={"Jesus Alvan"}
-        description={"Estudiante de 10cimo ciclo"}
+        title={`${getLocalStorageItemValue("user_info")["personInformation"]["fullName"]} ${getLocalStorageItemValue("user_info")["personInformation"]["lastName"]}`}
+        description={`${getLocalStorageItemValue("user_info")["personInformation"]["email"]}`}
         backgroundColor={"white"}
         shadowType={EShadowType.MEDIUM}
         borderType={EBorderType.ROUNDED}

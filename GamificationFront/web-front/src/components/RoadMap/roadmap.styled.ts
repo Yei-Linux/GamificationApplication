@@ -14,6 +14,7 @@ export const ImageBackground = styled.div<{}>`
     flex-direction: column;
     background-image: url("https://i.redd.it/ufxpjuc55xv01.png");
     width: 100%;
+    min-height: 500px;
 `;
 
 export const ParagraphFirst = styled.p<{}>`

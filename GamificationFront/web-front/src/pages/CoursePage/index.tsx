@@ -9,18 +9,18 @@ import {
   TitleContainer,
 } from './courses.styled';
 
-import Card from 'storybook-gamification8/molecules/CardMain';
-import ListItem from 'storybook-gamification8/molecules/ListItem';
-import { useHistory } from 'react-router-dom';
+import Card from "storybook-gamification11/molecules/CardMain";
+import ListItem from "storybook-gamification11/molecules/ListItem";
+import { useHistory } from "react-router-dom";
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EFontWeight,
-} from 'storybook-gamification8/core/domain/enums';
-import Label from 'storybook-gamification8/atomic/atoms/Label';
-import Profile from '../../components/Profile';
-import DailyTask from '../../components/DailyTask';
+} from "storybook-gamification11/core/domain/enums";
+import Label from "storybook-gamification11/atomic/atoms/Label";
+import Profile from "../../components/Profile";
+import DailyTask from "../../components/DailyTask";
 
 export interface ICourseProps {}
 

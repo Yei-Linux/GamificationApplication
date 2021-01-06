@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getLocalStorageItemValue } from '../helpers/managment-data.helper';
 
 const TOKEN_TEST = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRW1haWwiOiJLYWlsZXkxNEBnbWFpbC5jb20iLCJmdWxsTmFtZSI6IkphZG9uIiwibGFzdE5hbWUiOiJIb2VnZXIiLCJzdXJOYW1lIjoiS2Fzc3Vsa2UiLCJpYXQiOjE2MDk3OTI3OTJ9.a2vjTGLdr0ghjaHLEPRsnPYnvarjwOl8GrEvMNA5NxI";
 
@@ -15,21 +16,21 @@ const axiosClassMicroservice = axios.create({
 });
 
 axiosAuthMicroservice.interceptors.request.use((config : any)=>{
-    config.headers.Authorization = `Bearer ${TOKEN_TEST}`
+    config.headers.Authorization = `Bearer ${getLocalStorageItemValue("user_info")["token"]}`
     return config;
 },(error)=>{
     return Promise.reject(error);
 });
 
 axiosPracticeMicroservice.interceptors.request.use((config : any)=>{
-    config.headers.Authorization = `Bearer ${localStorage.getItem('user_info')}`
+    config.headers.Authorization = `Bearer ${getLocalStorageItemValue("user_info")["token"]}`
     return config;
 },(error)=>{
     return Promise.reject(error);
 });
 
 axiosClassMicroservice.interceptors.request.use((config : any)=>{
-    config.headers.Authorization = `Bearer ${localStorage.getItem('user_info')}`
+    config.headers.Authorization = `Bearer ${getLocalStorageItemValue("user_info")["token"]}`
     return config;
 },(error)=>{
     return Promise.reject(error);

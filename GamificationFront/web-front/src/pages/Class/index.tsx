@@ -4,9 +4,9 @@ import Video from "../../components/Video";
 import { ClassContainer, HeaderClass } from "./class.styled";
 import { useLocation } from "react-router-dom";
 
-import Label from "storybook-gamification8/atomic/atoms/Label";
-import Button from "storybook-gamification8/atomic/atoms/Button";
-import Card from "storybook-gamification8/molecules/CardMain";
+import Label from "storybook-gamification11/atomic/atoms/Label";
+import Button from "storybook-gamification11/atomic/atoms/Button";
+import Card from "storybook-gamification11/molecules/CardMain";
 
 import {
   EShadowType,
@@ -14,7 +14,7 @@ import {
   EWithType,
   EHeightType,
   EBorderType,
-} from "storybook-gamification8/core/domain/enums";
+} from "storybook-gamification11/core/domain/enums";
 
 export interface IClassPageProps {}
 

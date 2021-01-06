@@ -170,6 +170,7 @@ export class UserController implements interfaces.Controller {
           );
           this.createStudentClassroomByCourse.createStudentClassByCourse(studentCreated._studentId,userSignUpRequest.coursesId);
           let userResponseStudent: SignUpUserResponse = {
+            email: userSignUpRequest.email,
             identifier: studentCreated._studentCode._value,
             userPosition: EUserPosition.STUDENT
           };

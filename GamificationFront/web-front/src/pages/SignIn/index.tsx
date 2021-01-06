@@ -1,12 +1,16 @@
 import React from 'react';
-import FormSignIn from 'storybook-gamification8/molecules/FormSmall';
+import FormSignIn from 'storybook-gamification11/molecules/FormSmall';
 import { useHistory } from 'react-router-dom';
+import { axiosAuthMicroservice } from '../../config/axios';
 
 const SignIn = () => {
   const history = useHistory();
 
-  const handlerGetData = (data): void => {
-    console.log(data);
+  const handlerGetData = async (data): Promise<any> => {
+    let response = await axiosAuthMicroservice.post('/users/sign-in', data);
+    if(response.data) {
+      localStorage.setItem("user_info",JSON.stringify(response.data));
+    }
     history.push('/exercise');
   };
 

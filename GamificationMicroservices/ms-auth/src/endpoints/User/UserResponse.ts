@@ -1,6 +1,7 @@
 import { EUserPosition } from "./UserPositionEnum";
 
 export interface SignUpUserResponse {
+    email?: string;
     identifier?: string;
     userPosition: EUserPosition;
 }
