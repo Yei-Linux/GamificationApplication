@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "gamification-library",
   "version": "1.0.0",
   "description": "Library of custom components",
   "main": "index.js",
@@ -48,5 +48,12 @@
     "tailwindcss": "^2.0.1",
     "twin.macro": "^1.12.1",
     "typescript": "^4.1.2"
+  },
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.23"
+    },
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }

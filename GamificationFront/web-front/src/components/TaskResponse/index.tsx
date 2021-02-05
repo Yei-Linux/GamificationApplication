@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { TaskResponseContainer } from "./taskresponse.styled";
+import Button from "gamification-library/atomic/atoms/Button"
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EHeightType,
-} from "storybook-gamification11/core/domain/enums";
-import Button from "storybook-gamification11/atomic/atoms/Button";
+} from "gamification-library/core/domain/enums";
+
 import Editor from "../Editor";
 
 export interface ITaskResponseProps {

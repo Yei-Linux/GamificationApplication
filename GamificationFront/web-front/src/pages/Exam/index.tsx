@@ -9,15 +9,14 @@ import {
   ExamContainer,
   ExerciseContainer,
 } from "./exam.styled";
-import Button from "storybook-gamification11/atomic/atoms/Button";
+import Button from "gamification-library/atomic/atoms/Button"
 
 import {
   EShadowType,
-  EFontWeight,
   EWithType,
-  EHeightType,
   EBorderType,
-} from "storybook-gamification11/core/domain/enums";
+  EHeightType,
+} from "gamification-library/core/domain/enums";
 import { useHistory } from "react-router-dom";
 import { getLocalStorageItemValue } from "../../helpers/managment-data.helper";
 import { insertRoadMapStudent } from "../../services/roadmap.service";

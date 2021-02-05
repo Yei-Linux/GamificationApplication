@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "storybook-gamification11/molecules/CardMain";
-import Label from "storybook-gamification11/atomic/atoms/Label";
+import Card from "gamification-library/atomic/molecules/CardMain"
+import Label from "gamification-library/atomic/atoms/Label"
 import {
   EShadowType,
   EWithType,
   EBorderType,
   EFontWeight,
-} from "storybook-gamification11/core/domain/enums";
+} from "gamification-library/core/domain/enums";
 import { ProfileContainer } from "./profile.styled";
 import { getLocalStorageItemValue } from "../../helpers/managment-data.helper";
 

@@ -1,8 +1,8 @@
 // import React from 'react';
 // import Form from '../../molecules/Form';
 import React from 'react';
-import FormMedium from '../../molecules/FormMedium';
-import FormSmall from '../../molecules/FormSmall';
+import FormMedium from '../../atomic/molecules/FormMedium';
+import FormSmall from '../../atomic/molecules/FormSmall';
 // import {} from '.'
 export default {
   title: 'Molecules/Form',

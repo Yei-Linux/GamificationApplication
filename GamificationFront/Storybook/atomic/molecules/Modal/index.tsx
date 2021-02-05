@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Label from "../../atomic/atoms/Label";
-import { EFontWeight } from "../../core/domain/enums";
+import Label from "../../atoms/Label";
+import { EFontWeight } from "../../../core/domain/enums";
 import {
   BoxContent,
   BoxDialog,

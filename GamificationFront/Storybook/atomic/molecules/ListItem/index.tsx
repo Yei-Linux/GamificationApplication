@@ -1,13 +1,13 @@
 import React from "react";
-import Icon from "../../atomic/atoms/Icon";
-import Label from "../../atomic/atoms/Label";
+import Icon from "../../atoms/Icon";
+import Label from "../../atoms/Label";
 import {
   EBorderType,
   EFontWeight,
   EHeightType,
   EShadowType,
   EWithType,
-} from "../../core/domain/enums";
+} from "../../../core/domain/enums";
 import {
   ListItemContainer,
   ChildContainer,

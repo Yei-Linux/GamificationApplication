@@ -1,19 +1,12 @@
 import React from "react";
 import Editor from "../../components/Editor";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { GetExamResponse } from "../../models/exams";
-import { getQuestionsExam } from "../../services/exams.service";
 import { CardWrapper, EditorWrapper, ExerciseContainer } from "./exercise.styled";
 
-import Card from "storybook-gamification11/molecules/CardMain";
-
+import Card from "gamification-library/atomic/molecules/CardMain"
 import {
   EShadowType,
-  EWithType,
   EBorderType,
-  EFontWeight,
-  EHeightType,
-} from "storybook-gamification11/core/domain/enums";
+} from "gamification-library/core/domain/enums";
 import { Paragrah } from "../DailyTask/dailytask.styled";
 
 const Exercise = ({ id, question , handleSetAnswerQuestion }): JSX.Element => {

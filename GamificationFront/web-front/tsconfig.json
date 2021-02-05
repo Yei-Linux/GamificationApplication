@@ -29,6 +29,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
-  ]
+    "src", "declarations.d.ts"  ]
 }

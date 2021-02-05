@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Card from "storybook-gamification11/molecules/CardMain";
-import Label from "storybook-gamification11/atomic/atoms/Label";
-import Modal from "storybook-gamification11/molecules/Modal";
+
+import Label from "gamification-library/atomic/atoms/Label"
+import Button from "gamification-library/atomic/atoms/Button"
+import Card from "gamification-library/atomic/molecules/CardMain"
+import Modal from "gamification-library/atomic/molecules/Modal"
 
 import {
   EShadowType,
@@ -9,14 +11,13 @@ import {
   EBorderType,
   EFontWeight,
   EHeightType,
-} from "storybook-gamification11/core/domain/enums";
+} from "gamification-library/core/domain/enums";
 import {
   ButtonContainer,
   DailyTaskContainer,
   Paragrah,
 } from "./dailytask.styled";
 
-import Button from "storybook-gamification11/atomic/atoms/Button";
 import TaskResponse from "../TaskResponse";
 import { GetExamResponse, PostStudentAnswersOfExamRequest, QuestionResponse } from "../../models/exams";
 import { getQuestionsExam, insertAnswerStudentOfExam } from "../../services/exams.service";

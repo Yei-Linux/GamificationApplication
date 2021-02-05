@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../atomic/atoms/Button";
 import { EWithType, EHeightType, EShadowType, EBorderType } from "../../core/domain/enums";
-import ListItem from "../../molecules/ListItem";
-import Modal from "../../molecules/Modal";
+import Modal from "../../atomic/molecules/Modal";
 
 export default {
   title: "Molecules/Modal",
@@ -23,7 +22,7 @@ export const ModalBasic = (args: any) => {
     return (
         <div>
            <Button
-            handleClick={handleToggle}
+            onClick={handleToggle}
             children={"Trigger Modal"}
             textColor={"#7f9cf5"}
             borderColor={"white"}

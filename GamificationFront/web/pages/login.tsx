@@ -1,19 +1,25 @@
 import React from "react";
-import Button from '../../Storybook/atomic/atoms/Button/index'
 
-export const SmallButton = (args : any) => <Button {...args} />
+import Button from "gamification-library/atomic/atoms/Button";
 
-SmallButton.args = {
-  children: 'Small Button',
-  borderColor: '#a7f4ff',
-  backgroundColor: '#a7f4ff',
-  widthType: 'SMALL',
-  heigthType: 'SMALL',
-  shadowType: 'XLARGE',
-  borderType: 'PILLSHAPE'
-}
+import {
+  EShadowType,
+  EWithType,
+  EBorderType,
+  EHeightType,
+} from "gamification-library/core/domain/enums";
 
 const Login = (): any => {
-  return <SmallButton></SmallButton>
+  return         <Button
+  onClick={()=>{}}
+  children={"Añadir Solución"}
+  textColor={"white"}
+  borderColor={"#7f9cf5"}
+  backgroundColor={"#7f9cf5"}
+  widthType={EWithType.SMALL}
+  heigthType={EHeightType.SMALL}
+  shadowType={EShadowType.XLARGE}
+  borderType={EBorderType.PILLSHAPE}
+/>
 }
 export default Login

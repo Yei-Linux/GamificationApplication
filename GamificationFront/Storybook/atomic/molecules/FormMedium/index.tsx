@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Label from '../../atomic/atoms/Label';
-import Button from '../../atomic/atoms/Button';
-import Input from '../../atomic/atoms/Input';
+import Label from '../../atoms/Label';
+import Button from '../../atoms/Button';
+import Input from '../../atoms/Input';
 import {
   CustomForm,
   FormBody,
@@ -20,7 +20,7 @@ import {
   ETextAlign,
   ETextFieldType,
   EWithType,
-} from '../../core/domain/enums';
+} from '../../../core/domain/enums';
 
 interface MyProps {
   handlerGetData(data): any;

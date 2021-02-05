@@ -4,17 +4,17 @@ import Video from "../../components/Video";
 import { ClassContainer, HeaderClass } from "./class.styled";
 import { useLocation } from "react-router-dom";
 
-import Label from "storybook-gamification11/atomic/atoms/Label";
-import Button from "storybook-gamification11/atomic/atoms/Button";
-import Card from "storybook-gamification11/molecules/CardMain";
+import Label from "gamification-library/atomic/atoms/Label"
+import Button from "gamification-library/atomic/atoms/Button"
+import Card from "gamification-library/atomic/molecules/CardMain"
 
 import {
   EShadowType,
-  EFontWeight,
   EWithType,
-  EHeightType,
   EBorderType,
-} from "storybook-gamification11/core/domain/enums";
+  EFontWeight,
+  EHeightType,
+} from "gamification-library/core/domain/enums";
 
 export interface IClassPageProps {}
 

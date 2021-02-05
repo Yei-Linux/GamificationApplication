@@ -10,7 +10,7 @@ import {
   RoadMapContainer,
 } from './roadmap.styled';
 
-import FlatItem from "storybook-gamification11/atomic/atoms/FlatItem"
+import FlatItem from "gamification-library/atomic/atoms/FlatItem"
 import { getLocalStorageItemValue, isParNumber } from '../../helpers/managment-data.helper';
 
 export interface IRoadMapProps {

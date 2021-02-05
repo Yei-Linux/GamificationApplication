@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { theme } from '../../main';
+import { theme } from '../../../styles/theme';
 
-export const CustomBox = styled.form<{}>`
+export const CustomBox = styled.div<{}>`
 display:flex;
 justify-content:center;
 align-items:center;
@@ -18,7 +18,6 @@ padding: 25px 40px;
 width: 500px;
 border-radius: 25px;
 box-sizing:border-box;
-
 `
 
 export const FormWrapper = styled.div<{}>`
@@ -44,7 +43,6 @@ margin-bottom:8px;
 `
 export const BoxLabel = styled.div<{}>`
 padding: 0.75rem 0.75rem 0.75rem 0;
-
 `
 export const BoxInput = styled.div<{}>`
 div {
@@ -52,8 +50,10 @@ div {
 };
 input {
     width:20rem;
+};
+select {
+    width:20rem;
 }
-
 `
 export const BoxButton = styled.div<{}>`
 margin-top:14px;

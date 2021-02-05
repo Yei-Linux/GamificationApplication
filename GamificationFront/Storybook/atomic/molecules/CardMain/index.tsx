@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { EShadowType, EBorderType, EWithType, EHeightType } from '../../core/domain/enums';
+import { EShadowType, EBorderType, EWithType, EHeightType } from '../../../core/domain/enums';
 import { ActionsContainer, CardContainer, ImageCoverContainer, InfoButton, InfoContainer, SubtitleContainer, TextContainer, TitleContainer } from './card.styled';
 
 export interface ICard {

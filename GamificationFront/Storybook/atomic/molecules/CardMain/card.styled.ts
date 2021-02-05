@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import tw from "twin.macro"
-import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps } from "../../core/utils/twin.util"
+import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, generateHeightTypeProps } from "../../../core/utils/twin.util"
 
 export const CardContainer = styled.div<{
     backgroundColor?: string;

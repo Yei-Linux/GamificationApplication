@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import FormSignUp from 'storybook-gamification11/molecules/FormMedium';
+import FormSignUp from "gamification-library/atomic/molecules/FormMedium"
 import { axiosAuthMicroservice } from '../../config/axios';
 
 const SignUp = () => {

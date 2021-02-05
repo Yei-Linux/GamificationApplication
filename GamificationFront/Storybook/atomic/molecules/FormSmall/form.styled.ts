@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { theme } from '../../main';
-
-export const CustomBox = styled.div<{}>`
+import { theme } from '../../../styles/theme';
+export const CustomBox = styled.form<{}>`
 display:flex;
 justify-content:center;
 align-items:center;
@@ -44,6 +43,7 @@ margin-bottom:8px;
 `
 export const BoxLabel = styled.div<{}>`
 padding: 0.75rem 0.75rem 0.75rem 0;
+
 `
 export const BoxInput = styled.div<{}>`
 div {
@@ -51,10 +51,8 @@ div {
 };
 input {
     width:20rem;
-};
-select {
-    width:20rem;
 }
+
 `
 export const BoxButton = styled.div<{}>`
 margin-top:14px;
