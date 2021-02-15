@@ -1,7 +1,3 @@
-
-
-
-
 import re
 PATH_GVECTORS = './helpers/GoogleNews-vectors-negative300.bin.gz'
 from tensorflow.python.keras import backend as K
