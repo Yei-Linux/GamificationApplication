@@ -2,7 +2,6 @@ from flask_restful import Resource, reqparse
 from webargs.flaskparser import use_args
 from webargs import fields
 import sys
-sys.path.insert(0, "..")
 from services.testService import TestService
 from webargs.flaskparser import use_args
 from webargs import fields
@@ -21,7 +20,7 @@ class TestController(Resource):
     @use_args(classRequest)
     def post(self, request):
         print(request['topic'])
-        getAnswer= testHelper().getAnswer(request['topic'])
+        prediction= testHelper().getAnswer(request['topic'])
         
 
         for i in range(0, len(prediction)):

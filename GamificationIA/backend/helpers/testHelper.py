@@ -1,19 +1,9 @@
-import wikipedia
-import re
-from bs4 import BeautifulSoup
-from bs4.element import Comment
-import requests
-import urllib.request, json
-from urllib.request import Request, urlopen
-from unidecode import unidecode
-import html2text
-from requests.exceptions import HTTPError
-import collections
+
 import sys
-from datetime import datetime, tzinfo, timedelta
+    
 import pandas as pd
 import tensorflow as tf
-print(sys.path)
+
 from helpers.util import make_w2v_embeddings
 from helpers.util import split_and_zero_padding
 from helpers.util import ManDist
@@ -23,7 +13,7 @@ class testHelper:
     def getAnswer(self,data):
 
         test_df = pd.DataFrame.from_dict(data)
-        answer=["hola como?","adam hola?","como estas","pan con queso","jamon"]
+        answer=["answer1","answer2","answer3","answer4","answer5"]
         test_df["question2"] = answer
         for q in ['question1', 'question2']:
             test_df[q + '_n'] = test_df[q]
@@ -40,15 +30,17 @@ class testHelper:
         assert X_test['left'].shape == X_test['right'].shape
 
         # --
-
         model = tf.keras.models.load_model('./helpers/SiameseLSTM.h5', custom_objects={'ManDist': ManDist})
         model.summary()
 
         prediction = model.predict([X_test['left'], X_test['right']])
         
-        return prediction
-        
-    
+        test_df["prediction"]=prediction
+        theme_prediction = test_df.groupby(["theme"])["prediction"].mean()
+        prediction = theme_prediction.to_dict()
+
+        return prediction 
+         
 
 
 
