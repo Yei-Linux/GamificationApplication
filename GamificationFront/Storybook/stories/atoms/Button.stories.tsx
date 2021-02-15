@@ -26,8 +26,8 @@ export const SmallButton = (args : any) => (
 
 SmallButton.args = {
   children: 'Small Button',
-  borderColor: '#a7f4ff',
-  backgroundColor: "#a7f4ff",
+  borderColor: '#822659',
+  backgroundColor: "#822659",
   widthType: EWithType.SMALL,
   heigthType: EHeightType.SMALL,
   shadowType: EShadowType.XLARGE,
