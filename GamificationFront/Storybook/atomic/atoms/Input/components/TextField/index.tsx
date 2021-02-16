@@ -25,6 +25,7 @@ export interface ITextField {
   textFieldType?: ETextFieldType;
   onChange?: any;
   name?: string;
+  value?: any
 }
 
 const TextField = ({
@@ -40,6 +41,7 @@ const TextField = ({
   textFieldType,
   onChange,
   name,
+  value
 }: ITextField) => {
   return (
     <InputGroup>
@@ -57,6 +59,7 @@ const TextField = ({
         widthType={widthType}
         onChange={onChange}
         name={name}
+        value={value}
       />
     </InputGroup>
   );

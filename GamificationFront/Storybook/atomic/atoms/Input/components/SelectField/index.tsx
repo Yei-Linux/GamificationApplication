@@ -54,8 +54,7 @@ const SelectField = ({
           itemsOf.map((item: ItemSelect, index: number) => (
             <CustomOption
               key={item['key']}
-              id={item['key']}
-              value={item['value']}
+              value={item['key']}
             >
               {item['value']}
             </CustomOption>

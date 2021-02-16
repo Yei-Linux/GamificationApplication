@@ -107,6 +107,7 @@ const Input = ({
           widthType={widthType}
           heigthType={heigthType}
           onChange={onChange}
+          value={value}
           name={name}
         >
           {iconDiv}

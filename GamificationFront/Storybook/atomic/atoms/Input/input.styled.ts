@@ -5,8 +5,6 @@ import { generateShadowProps, generateBorderTypeProps, generateWidthTypeProps, g
 export const InputGroup = styled.div<{}>`
     display: block;
     position: relative;
-    margin-bottom: 150px;
-
     &:disabled {
         cursor: not-allowed;
         background:$disabled;
