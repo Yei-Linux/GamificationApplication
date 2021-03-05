@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "..")
-from models.eatFood import test
+from models.Test import test
 import json
 
 class TestService():

@@ -20,11 +20,12 @@ class TestController(Resource):
     @use_args(classRequest)
     def post(self, request):
         print(request['topic'])
-        prediction= testHelper().getAnswer(request['topic'])
         
+        prediction= testHelper().getAnswer(request['topic'])
+        #prediction={'theme1': '0.29397693276405334', 'theme2': '0.08840982615947723', 'user': '111@gmail.com'}
+        print(prediction)
 
-        for i in range(0, len(prediction)):
-            TestService.insertTest(prediction[i][0])
+        TestService.insertTest(prediction)
         return {"message":"food inserted correctly"}
 
     

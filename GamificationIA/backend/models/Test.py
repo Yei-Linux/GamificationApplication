@@ -1,5 +1,5 @@
 from pymongo import MongoClient, IndexModel
-from pymongoext import Model, DictField, StringField, IntField, DateTimeField,ListField
+from pymongoext import Model, DictField, StringField, IntField, DateTimeField,ListField, FloatField
 
 class test(Model):
     @classmethod
@@ -9,11 +9,10 @@ class test(Model):
     __schema__ = DictField(dict(
         id=StringField(required=False),
         #id_user=IntField(required=False),
-        q1=IntField(required=False),
-        q2=IntField(required=False),
-        q3=IntField(required=False),
-        q4=IntField(required=False),
-        q5=IntField(required=False)
+        theme1=StringField(required=False),
+        theme2=StringField(required=False),
+        user=StringField(required=False)
+        
     ))
 #statements.createIndex(Indexes.ascending("text"), indexOptions);
     #__indexes__ = [IndexModel("text", unique=False)]
