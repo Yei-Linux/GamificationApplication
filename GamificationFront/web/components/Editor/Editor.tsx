@@ -1,29 +1,25 @@
-import React, { useState } from 'react'
-// import 'codemirror/lib/codemirror.css'
-// import 'codemirror/theme/material.css'
-// import 'codemirror/mode/xml/xml'
-// import 'codemirror/mode/javascript/javascript'
-// import 'codemirror/mode/css/css'
-import { Controlled as ControlledEditor } from 'react-codemirror2'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
-let CodeMirror : any= null
+import React, { useState } from 'react';
+import { UnControlled  as ControlledEditor } from 'react-codemirror2';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
+let CodeMirror : any= null;
+
 if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
-  CodeMirror = require('react-codemirror2')
-  require('codemirror/lib/codemirror.css')
-  require('codemirror/theme/material.css')
-  require('codemirror/mode/xml/xml')
-  require('codemirror/mode/javascript/javascript')
-  require('codemirror/mode/css/css')
+  CodeMirror = require('react-codemirror2');
+  require('codemirror/lib/codemirror.css');
+  require('codemirror/theme/material.css');
+  require('codemirror/mode/xml/xml');
+  require('codemirror/mode/javascript/javascript');
+  require('codemirror/mode/css/css');
 }
 
-const Editor = (props : any) => {
-  const { language, displayName, value, onChange } = props
-  const [open, setOpen] = useState(true)
+const Editor = (props: any) => {
+  const { language, displayName, value, onChange } = props;
+  const [open, setOpen] = useState(true);
 
-  const handleChange = (): void => {
-    onChange(value)
-  }
+  const handleChange = (valueProp: any) => {
+    onChange(valueProp);
+  };
 
   return (
     <div className={`editor-container ${open ? '' : 'collapsed'}`}>
@@ -39,9 +35,11 @@ const Editor = (props : any) => {
       </div>
       {CodeMirror && (
         <ControlledEditor
-          onBeforeChange={handleChange}
+          onChange={(_editor, _data, value)=>{handleChange(value)}}
+          editorDidMount={(editor) => {
+            editor.refresh();
+          }}
           value={value}
-          className="code-mirror-wrapper"
           options={{
             lineWrapping: true,
             lint: true,
@@ -52,6 +50,6 @@ const Editor = (props : any) => {
         />
       )}
     </div>
-  )
-}
-export default Editor
+  );
+};
+export default Editor;

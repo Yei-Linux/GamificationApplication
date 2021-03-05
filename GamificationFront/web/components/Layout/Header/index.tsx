@@ -1,10 +1,57 @@
-import React from "react";
-import styles from './header.module.css'
-const NavegacionComponent = (): JSX.Element => {
+import React from 'react'
+
+import {
+  HeaderContainer,
+  LogoContainer,
+  HeaderItems,
+  HeaderItem,
+  HeaderItemText,
+  BreakPoint,
+  ImageContainer
+} from './header.styled'
+
+interface IHeaderProps {
+  isCustom?: boolean
+  headerChildren?: React.ReactNode[]
+  isHeaderFixed?: boolean
+}
+
+const Header = ({ isCustom, headerChildren = [], isHeaderFixed = true }: IHeaderProps) => {
   return (
-    <div className={styles.navegacion}>
-      <img src={'/images/logoIcon.svg'} />
-    </div>
+    <HeaderContainer isHeaderFixed={isHeaderFixed}>
+      <LogoContainer>
+        <ImageContainer
+          src={
+            'https://res.cloudinary.com/teepublic/image/private/s--Y5DOrT6I--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1540143169/production/designs/3360948_0.jpg'
+          }
+        ></ImageContainer>
+      </LogoContainer>
+
+      {isCustom ? (
+        headerChildren
+      ) : (
+        <HeaderItems>
+          <HeaderItem>
+            <HeaderItemText className="courses" onClick={() => {}}>
+              Courses
+            </HeaderItemText>
+          </HeaderItem>
+          <BreakPoint>
+            <HeaderItem>
+              <HeaderItemText className="dailytask" onClick={() => {}}>
+                Tareas
+              </HeaderItemText>
+            </HeaderItem>
+          </BreakPoint>
+          <HeaderItem>
+            <HeaderItemText className="profile" onClick={() => {}}>
+              Perfil
+            </HeaderItemText>
+          </HeaderItem>
+        </HeaderItems>
+      )}
+    </HeaderContainer>
   )
 }
-export default NavegacionComponent
+
+export default Header
