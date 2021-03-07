@@ -1,4 +1,4 @@
-import { Injectable, Inject, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import LevelId from '../../../Level/Domain/LevelId';
 import ThemeId from '../../../Theme/Domain/ThemeId';
 import { Exam } from '../../Domain/Exam';
@@ -16,7 +16,7 @@ export class GetExamService implements IGetExamService {
     constructor(private readonly examRepository: PostgressExamRepository) {}
 
   async handle(themeId: ThemeId, examTypeId: ExamTypeId, levelId: LevelId): Promise<GetExamResponse> {
-    let examFound : Exam = await this.examRepository.getExamByTheme(themeId,examTypeId,levelId);
+    const examFound : Exam = await this.examRepository.getExamByTheme(themeId,examTypeId,levelId);
     return ExamMapper.convertExamToGetExamResponse(examFound);
   }
 }

@@ -1,25 +1,23 @@
-import {
-  Module,
-  NestModule,
-  MiddlewareConsumer,
-  RequestMethod,
-} from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { DatabaseModule } from '../../core/database/database.module';
 import { ExamController } from '../../endpoints/Exams/ExamController';
 import { LoggerMiddleware } from '../../middlewares/logger.middleware';
 import { SharedModule } from '../../shared/shared.module';
-import { InsertStudentAnswerByExam } from '../StudentExam/Application/InsertStudentAnswersByExam';
-import { PostgressStudentExamRepository } from '../StudentExam/Infraestructure/PostgressStudentExamRepository';
 import { StudentExamModule } from '../StudentExam/studentExam.module';
 import { GetExamService } from './Application/GetExam';
+import { GetResultCompilerService } from './Application/GetResultCompiler';
 import { PostgressExamRepository } from './Infraestructure/Persistence/PostgressExamRepository';
 import { ExamProvider } from './Infraestructure/Persistence/provider/exam.provider';
-import { ExamModel } from './Infraestructure/Persistence/sequelize/ExamModel';
 
 @Module({
-  imports: [DatabaseModule,SharedModule,StudentExamModule],
+  imports: [DatabaseModule, SharedModule, StudentExamModule],
   controllers: [ExamController],
-  providers: [GetExamService,PostgressExamRepository,...ExamProvider],
+  providers: [
+    GetExamService,
+    GetResultCompilerService,
+    PostgressExamRepository,
+    ...ExamProvider,
+  ],
   exports: [...ExamProvider],
 })
 export class ExamModule implements NestModule {
