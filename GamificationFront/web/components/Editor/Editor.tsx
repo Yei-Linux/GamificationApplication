@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { UnControlled  as ControlledEditor } from 'react-codemirror2';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
-let CodeMirror : any= null;
+import React, { useState } from 'react'
+import { UnControlled as ControlledEditor } from 'react-codemirror2'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
+let CodeMirror: any = null
 
 if (typeof window !== 'undefined' && typeof window.navigator !== 'undefined') {
-  CodeMirror = require('react-codemirror2');
-  require('codemirror/lib/codemirror.css');
-  require('codemirror/theme/material.css');
-  require('codemirror/mode/xml/xml');
-  require('codemirror/mode/javascript/javascript');
-  require('codemirror/mode/css/css');
+  CodeMirror = require('react-codemirror2')
+  require('codemirror/lib/codemirror.css')
+  require('codemirror/theme/material.css')
+  require('codemirror/mode/xml/xml')
+  require('codemirror/mode/javascript/javascript')
+  require('codemirror/mode/css/css')
 }
 
 const Editor = (props: any) => {
-  const { language, displayName, value, onChange } = props;
-  const [open, setOpen] = useState(true);
+  const { language, displayName, value, onChange } = props
+  const [open, setOpen] = useState(true)
 
   const handleChange = (valueProp: any) => {
-    onChange(valueProp);
-  };
+    onChange(valueProp)
+  }
 
   return (
     <div className={`editor-container ${open ? '' : 'collapsed'}`}>
@@ -35,9 +35,11 @@ const Editor = (props: any) => {
       </div>
       {CodeMirror && (
         <ControlledEditor
-          onChange={(_editor, _data, value)=>{handleChange(value)}}
+          onChange={(_editor, _data, value) => {
+            handleChange(value)
+          }}
           editorDidMount={(editor) => {
-            editor.refresh();
+            editor.refresh()
           }}
           value={value}
           options={{
@@ -45,11 +47,13 @@ const Editor = (props: any) => {
             lint: true,
             mode: language,
             theme: 'material',
-            lineNumbers: true
+            lineNumbers: true,
+            autocorrect: true,
+            firstLineNumber: 1
           }}
         />
       )}
     </div>
-  );
-};
-export default Editor;
+  )
+}
+export default Editor

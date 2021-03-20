@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import * as React from 'react'
-import Editor from '../components/Editor/Editor'
 import Question from '../components/Question'
 import WithWrapper from '../hocs/WithWrapper'
 import tw from 'twin.macro'
 import { Questions } from '../mocks/exam'
 import QuestionControl from '../components/QuestionControl'
 import Countdown from '../components/Countdown'
+import EditorLayout from '../components/EditorLayout'
 
 export interface ExamProps {}
 
@@ -46,14 +46,7 @@ const Exam = () => {
       {Questions.map((item: any, index: number) => (
         <QuestionWrapper id={`question-${index}`}>
           <Question question={item.question} numberQuestion={index + 1} />
-          <Editor
-            language="javascript"
-            displayName="JS"
-            value={''}
-            onChange={(value: any) => {
-              console.log(value)
-            }}
-          />
+          <EditorLayout />
         </QuestionWrapper>
       ))}
 

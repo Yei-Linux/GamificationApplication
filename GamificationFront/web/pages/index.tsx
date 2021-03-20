@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import NavegacionComponent from '../components/Layout/Header'
-import RegisterComponent from '../components/CardRegister'
 
 export default function Register() {
   return (
@@ -13,9 +12,7 @@ export default function Register() {
       <NavegacionComponent />
       <div
         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}
-      >
-        <RegisterComponent />
-      </div>
+      ></div>
     </Fragment>
   )
 }
