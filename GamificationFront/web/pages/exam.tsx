@@ -44,7 +44,7 @@ const Exam = () => {
   return (
     <ExamWrapper>
       {Questions.map((item: any, index: number) => (
-        <QuestionWrapper id={`question-${index}`}>
+        <QuestionWrapper id={`question-${index}`} key={`question-${index}`}>
           <Question question={item.question} numberQuestion={index + 1} />
           <EditorLayout />
         </QuestionWrapper>
@@ -61,7 +61,7 @@ export default WithWrapper({
   isHeaderCustom: true,
   isHeaderFixed: false,
   headerChildren: [
-    <ControlButtons>
+    <ControlButtons key="control-buttons">
       <Countdown isVisible dateEndCountdown="2021-05-06 19:09:30" />
       <WelcomeExamImage src="https://giphy.com/static/img/zoomies-small.gif" alt="" />
     </ControlButtons>

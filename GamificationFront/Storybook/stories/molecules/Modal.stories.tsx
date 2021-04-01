@@ -13,10 +13,10 @@ export default {
 };
 
 export const ModalBasic = (args: any) => {
-    const [fadeTypeInput,setFadeTypeInput] = useState(false);
+    const [isVisible,setIsVisible] = useState(false);
 
     const handleToggle = () => {
-        setFadeTypeInput(!fadeTypeInput);
+      setIsVisible(!isVisible);
     }
 
     return (
@@ -32,7 +32,7 @@ export const ModalBasic = (args: any) => {
             shadowType={EShadowType.XLARGE}
             borderType={EBorderType.PILLSHAPE}
           />
-          <Modal {...args} fadeTypeInput={fadeTypeInput} onClose={handleToggle}>
+          <Modal {...args} isVisible={isVisible} onClose={handleToggle}>
             <p>Hola como estas</p>
           </Modal>
         </div>
@@ -40,7 +40,7 @@ export const ModalBasic = (args: any) => {
 }
 
 ModalBasic.args = {
-  textHeader: "Envíanos tu solucion 😄"
+  title: "Envíanos tu solucion 😄"
 };
 
 ModalBasic.storyName = "Modal Basic";

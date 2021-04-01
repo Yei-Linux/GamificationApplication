@@ -16,17 +16,28 @@ const fadeIn = keyframes`
 const fadeOut = keyframes`
   from {
     transform: scale(1);
-    opacity: 0;
+    opacity: 1;
   }
 
   to {
     transform: scale(.25);
-    opacity: 1;
+    opacity: 0;
   }
 `;
 
+export const ModalWrapper = styled.div<{ isVisible: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
 
-export const ModalContainer = styled.div<{ isOpen: boolean }>`
+  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+  transition: visibility 0.2s linear;
+`;
+
+export const ModalContainer = styled.div<{ isVisible: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -38,8 +49,8 @@ export const ModalContainer = styled.div<{ isOpen: boolean }>`
   z-index: 2000;
   width: 500px;
   margin: 40px auto;
-  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
-  animation: ${props => props.isOpen? fadeIn : fadeOut} 0.2s linear;
+  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+  animation: ${(props) => (props.isVisible ? fadeIn : fadeOut)} 0.2s linear;
   transition: visibility 0.2s linear;
 `;
 

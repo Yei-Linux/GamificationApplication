@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Label from "../../atoms/Label";
 import { EFontWeight } from "../../../core/domain/enums";
 import {
@@ -7,67 +7,54 @@ import {
   BoxHeader,
   CloseButton,
   ModalContainer,
+  ModalWrapper,
 } from "./modal.styled";
 
 interface IModal {
   /**
    * Text Header of modal
    */
-  textHeader: string;
-  /**
-   * Is custom Modal content
-   */
-  isCustom: boolean;
+  title: string;
   /**
    * Content Modal to show
    */
   children: React.ReactNode;
   /**
-   * Content Modal to show
+   * Close Modal Event
    */
-  onClose(): any;
+  onClose(): () => void;
   /**
-   * Fade transition
+   * Visible Modal
    */
-  fadeTypeInput: boolean;
+  isVisible: boolean;
 }
 
-const Modal = ({ isCustom, children, textHeader, onClose, fadeTypeInput }: IModal) => {
-  const [isOpen, setIsOpen] = useState(fadeTypeInput);
-
-  useEffect(()=>{
-    setIsOpen(fadeTypeInput);
-  },[fadeTypeInput])
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-    onClose();
-  }
-
+const Modal = ({ children, title, onClose, isVisible }: IModal) => {
   return (
-    <ModalContainer isOpen={isOpen}>
-      <BoxDialog>
-        <BoxHeader>
-          <Label
-            fontWeight={EFontWeight.BOLD}
-            textColor={"black"}
-            children={textHeader}
-            borderColor={"transparent"}
-            backgroundColor={"transparent"}
-            hasPadding={true}
-            isLink={false}
-          />
-          <CloseButton onClick={handleToggle}>&times;</CloseButton>
-        </BoxHeader>
-        <BoxContent>{isCustom && children}</BoxContent>
-      </BoxDialog>
-    </ModalContainer>
+    <ModalWrapper isVisible={isVisible}>
+      <ModalContainer isVisible={isVisible}>
+        <BoxDialog>
+          <BoxHeader>
+            <Label
+              fontWeight={EFontWeight.BOLD}
+              textColor={"black"}
+              children={title}
+              borderColor={"transparent"}
+              backgroundColor={"transparent"}
+              hasPadding={true}
+              isLink={false}
+            />
+            <CloseButton onClick={onClose}>&times;</CloseButton>
+          </BoxHeader>
+          <BoxContent>{children}</BoxContent>
+        </BoxDialog>
+      </ModalContainer>
+    </ModalWrapper>
   );
 };
 
 Modal.defaultProps = {
-  isCustom: true,
-  fadeTypeInput: false
+  isVisible: false,
 };
 
 export default Modal;
