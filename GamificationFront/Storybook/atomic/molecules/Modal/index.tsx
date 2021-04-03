@@ -27,12 +27,22 @@ interface IModal {
    * Visible Modal
    */
   isVisible: boolean;
+  /**
+   * Animation Type Modal
+   */
+  animationType: "top" | "center";
 }
 
-const Modal = ({ children, title, onClose, isVisible }: IModal) => {
+const Modal = ({
+  children,
+  title,
+  onClose,
+  isVisible,
+  animationType,
+}: IModal) => {
   return (
     <ModalWrapper isVisible={isVisible}>
-      <ModalContainer isVisible={isVisible}>
+      <ModalContainer animationType={animationType} isVisible={isVisible}>
         <BoxDialog>
           <BoxHeader>
             <Label
@@ -55,6 +65,7 @@ const Modal = ({ children, title, onClose, isVisible }: IModal) => {
 
 Modal.defaultProps = {
   isVisible: false,
+  animationType: "top",
 };
 
 export default Modal;

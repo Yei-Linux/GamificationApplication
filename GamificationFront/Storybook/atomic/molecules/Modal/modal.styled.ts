@@ -1,29 +1,5 @@
-import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-
-const fadeIn = keyframes`
-  from {
-    transform: scale(.25);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(.25);
-    opacity: 0;
-  }
-`;
+import { getAnimationModal } from "../../../core/utils/emotionanimation.util";
 
 export const ModalWrapper = styled.div<{ isVisible: boolean }>`
   position: absolute;
@@ -37,7 +13,10 @@ export const ModalWrapper = styled.div<{ isVisible: boolean }>`
   transition: visibility 0.2s linear;
 `;
 
-export const ModalContainer = styled.div<{ isVisible: boolean }>`
+export const ModalContainer = styled.div<{
+  isVisible: boolean;
+  animationType: "top" | "center";
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -50,7 +29,9 @@ export const ModalContainer = styled.div<{ isVisible: boolean }>`
   width: 500px;
   margin: 40px auto;
   visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
-  animation: ${(props) => (props.isVisible ? fadeIn : fadeOut)} 0.2s linear;
+  animation: ${(props) =>
+      getAnimationModal(props.animationType, props.isVisible)}
+    0.2s linear;
   transition: visibility 0.2s linear;
 `;
 
