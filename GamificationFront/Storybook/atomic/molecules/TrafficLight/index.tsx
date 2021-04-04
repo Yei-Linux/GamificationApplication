@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 import React, { Fragment, useEffect, useState } from "react";
 import { TrafficLightColors } from "../../../core/domain/const/components";
 import {
@@ -16,13 +17,13 @@ const TrafficLight = () => {
   const [isBrightOrange, setIsBrightOrange] = useState(false);
   const [isBrightGreen, setIsBrightGreen] = useState(false);
 
-  const timeout = (t): Promise<any> => {
-    return new Promise((resolve, reject) => {
+  const timeout = (t: number): Promise<any> => {
+    return new Promise((resolve, _reject) => {
       setTimeout(resolve, t);
     });
   };
 
-  const startingCountdownLight = async () => {
+  const startingCountdownLight = async () : Promise<any>=> {
     await timeout(3000);
     setIsBrightRed(false);
     setIsBrightOrange(true);
@@ -33,7 +34,7 @@ const TrafficLight = () => {
     setIsBrightGreen(false);
   };
 
-  const startingCountdownTimer = async () => {
+  const startingCountdownTimer = async () : Promise<any>=> {
     const array = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
     for (let item of array) {
       await timeout(1000);

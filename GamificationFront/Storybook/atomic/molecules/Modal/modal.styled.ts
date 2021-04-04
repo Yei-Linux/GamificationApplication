@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { getAnimationModal } from "../../../core/utils/emotionanimation.util";
 
 export const ModalWrapper = styled.div<{ isVisible: boolean }>`
+  z-index: 100000;
   position: absolute;
   top: 0;
   left: 0;

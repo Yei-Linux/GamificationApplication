@@ -7,6 +7,7 @@ import { Questions } from '../mocks/exam'
 import QuestionControl from '../components/QuestionControl'
 import Countdown from '../components/Countdown'
 import EditorLayout from '../components/EditorLayout'
+import WelcomeExam from '../components/WelcomeExam'
 
 export interface ExamProps {}
 
@@ -42,16 +43,19 @@ const WelcomeExamImage = styled.img`
 
 const Exam = () => {
   return (
-    <ExamWrapper>
-      {Questions.map((item: any, index: number) => (
-        <QuestionWrapper id={`question-${index}`} key={`question-${index}`}>
-          <Question question={item.question} numberQuestion={index + 1} />
-          <EditorLayout />
-        </QuestionWrapper>
-      ))}
+    <React.Fragment>
+      <WelcomeExam />
+      <ExamWrapper>
+        {Questions.map((item: any, index: number) => (
+          <QuestionWrapper id={`question-${index}`} key={`question-${index}`}>
+            <Question question={item.question} numberQuestion={index + 1} />
+            <EditorLayout />
+          </QuestionWrapper>
+        ))}
 
-      <QuestionControl questions={Questions} />
-    </ExamWrapper>
+        <QuestionControl questions={Questions} />
+      </ExamWrapper>
+    </React.Fragment>
   )
 }
 
