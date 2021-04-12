@@ -1,7 +1,5 @@
 import React from 'react';
 import Form from '../../atomic/molecules/Form';
-import FormMedium from '../../atomic/molecules/FormMedium';
-import FormSmall from '../../atomic/molecules/FormSmall';
 import { EInputType, ETextFieldType } from '../../core/domain/enums';
 export default {
   title: 'Molecules/Form',
@@ -56,28 +54,3 @@ DynamicForm.args = {
   }
 };
 DynamicForm.storyName = "Dynamic Basic Form"
-
-export const SmallForm = (args: any) => (
-  <div>
-    <FormSmall {...args} />
-  </div>
-);
-SmallForm.args = {
-  handlerGetData: (data) => {
-    console.log(data);
-  },
-};
-SmallForm.storyName = 'Small Form';
-
-export const MediumForm = (args: any) => (
-  <div>
-    <FormMedium {...args} />
-  </div>
-);
-MediumForm.args = {
-  handlerGetData: (data) => {
-    console.log(data);
-  },
-};
-
-MediumForm.storyName = 'Medium Form';

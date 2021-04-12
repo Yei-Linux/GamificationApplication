@@ -14,5 +14,5 @@
       "preserveConstEnums": true,
       "plugins": [{ "transform": "typescript-transform-macros" }]
     },
-    "include": ["./src/**/*","decs.d.ts"]
+    "include": ["./src/**/*","./typings/*.d.ts"]
 }

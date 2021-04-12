@@ -9,7 +9,7 @@ import {
   EBorderType,
 } from "../../core/domain/enums";
 import { mapEnum } from "../../core/helpers/data-managment.helper";
-import Card from "../../atomic/molecules/CardMain";
+import Card from "../../atomic/molecules/Card";
 
 export default {
   title: "Molecules/Card",

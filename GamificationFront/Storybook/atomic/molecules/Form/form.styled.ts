@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import { theme } from '../../../styles/theme';
 
 export const FormWrapper = styled.div<{}>`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: ${theme.palette.white};
+    background: "white";
     width: 450px;
     padding: 25px;
     border-radius: 25px;
