@@ -1,4 +1,6 @@
 import React from "react";
+import '../../../styles/iconpack.svg';
+
 import { EWithType } from "../../../core/domain/enums";
 import Svg from "./components/Svg";
 import Use from "./components/Use";

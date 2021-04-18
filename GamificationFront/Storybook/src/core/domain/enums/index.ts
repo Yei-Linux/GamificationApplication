@@ -1,3 +1,12 @@
+export enum EWithType {
+    MINSMALL = 'MINSMALL',
+    SMALL = 'SMALL',
+    NORMAL = 'NORMAL',
+    MEDIUM = 'MEDIUM',
+    LARGE = 'LARGE',
+    FULL = 'FULL'
+}
+
 export enum EBorderType {
     CIRCLE = 'CIRCLE',
     PILLSHAPE = 'PILLSHAPE',
@@ -22,15 +31,6 @@ export enum EFontWeight {
     MEDIUM = 'MEDIUM',
     SEMIBOLD = 'SEMIBOLD',
     BOLD = 'BOLD'
-}
-
-export enum EWithType {
-    MINSMALL = 'MINSMALL',
-    SMALL = 'SMALL',
-    NORMAL = 'NORMAL',
-    MEDIUM = 'MEDIUM',
-    LARGE = 'LARGE',
-    FULL = 'FULL'
 }
 
 export enum EHeightType {
