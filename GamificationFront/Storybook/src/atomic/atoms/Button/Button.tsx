@@ -23,7 +23,7 @@ const Button = ({ children, type, ...args }: IButton) => {
 };
 
 Button.defaultProps = {
-  type: "default",
+  type: "primary",
 };
 
 export default Button;

@@ -33,6 +33,58 @@ export const colorDark = {
     oceanStrong: "#7868e6",
     gray: "#E5E5E5",
   },
+  button: {
+    primary: {
+      bg: "#7f9cf5",
+      color: "white",
+      border: "none",
+    },
+    secondary: {
+      bg: "#ffffff",
+      color: "#7f9cf5",
+      border: "2px solid #7f9cf5",
+    },
+    tertiary: {
+      bg: "#374a54",
+      color: "white",
+      border: "none",
+    },
+    cuaternary: {
+      bg: "#ffffff",
+      color: "#374a54",
+      border: "2px solid #374a54",
+    },
+    text: {
+      bg: "transparent",
+      color: "#454545",
+      border: "none",
+    },
+    link: {
+      bg: "transparent",
+      color: "#454545",
+      border: "none",
+    },
+    success: {
+      bg: "#ffffff",
+      color: "#16c79a",
+      border: "2px solid #16c79a",
+    },
+    warning: {
+      bg: "#ffffff",
+      color: "#ffd66b",
+      border: "2px solid #ffd66b",
+    },
+    danger: {
+      bg: "#ffffff",
+      color: "#ff4646",
+      border: "2px solid #ff4646",
+    },
+    info: {
+      bg: "#ffffff",
+      color: "#a7c5eb",
+      border: "2px solid #a7c5eb",
+    },
+  },
 };
 
 export const colorLight = {
@@ -69,6 +121,58 @@ export const colorLight = {
     ocean: "#b8b5ff",
     oceanStrong: "#7868e6",
     gray: "#E5E5E5",
+  },
+  button: {
+    primary: {
+      bg: "#7f9cf5",
+      color: "white",
+      border: "none",
+    },
+    secondary: {
+      bg: "#ffffff",
+      color: "#7f9cf5",
+      border: "2px solid #7f9cf5",
+    },
+    tertiary: {
+      bg: "#374a54",
+      color: "white",
+      border: "none",
+    },
+    cuaternary: {
+      bg: "#ffffff",
+      color: "#374a54",
+      border: "2px solid #374a54",
+    },
+    text: {
+      bg: "transparent",
+      color: "#454545",
+      border: "none",
+    },
+    link: {
+      bg: "transparent",
+      color: "#454545",
+      border: "none",
+    },
+    success: {
+      bg: "#ffffff",
+      color: "#16c79a",
+      border: "2px solid #16c79a",
+    },
+    warning: {
+      bg: "#ffffff",
+      color: "#ffd66b",
+      border: "2px solid #ffd66b",
+    },
+    danger: {
+      bg: "#ffffff",
+      color: "#ff4646",
+      border: "2px solid #ff4646",
+    },
+    info: {
+      bg: "#ffffff",
+      color: "#a7c5eb",
+      border: "2px solid #a7c5eb",
+    },
   },
 };
 

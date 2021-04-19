@@ -1,4 +1,5 @@
 import React from "react";
+import TableStories from "../../styles/utilities/TableStories";
 import { options as optionsStyle } from "../utils/constants";
 
 export const getTemplate = (Component: React.ComponentType<any>): any => (
@@ -9,13 +10,17 @@ export const getTemplate = (Component: React.ComponentType<any>): any => (
 
 export const getListTemplate = (Component: React.ComponentType<any>): any => ({
   items,
+  field,
   ...args
 }: {
   items: any[];
+  field: any;
 }) =>
-  items.map((item, index) => {
-    return <Component key={index} {...args} {...item} />;
-  });
+  items.map((item, index) => (
+    <TableStories key={index} item={item} field={field}>
+        <Component {...args} {...item} />
+    </TableStories>
+  ));
 
 export const stylesControl = {
   style: { control: "object" },
@@ -23,8 +28,8 @@ export const stylesControl = {
   fontWeight: {
     control: { type: "select", options: optionsStyle.fontWeight },
   },
-  widthType: { control: { type: "select", options: optionsStyle.width } },
-  shadowType: { control: { type: "select", options: optionsStyle.shadow } },
-  borderType: { control: { type: "select", options: optionsStyle.border } },
-  heigthType: { control: { type: "select", options: optionsStyle.height } },
+  width: { control: { type: "select", options: optionsStyle.width } },
+  shadow: { control: { type: "select", options: optionsStyle.shadow } },
+  border: { control: { type: "select", options: optionsStyle.border } },
+  heigth: { control: { type: "select", options: optionsStyle.height } },
 };

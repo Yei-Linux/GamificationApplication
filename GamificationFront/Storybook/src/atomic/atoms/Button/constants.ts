@@ -1,3 +1,14 @@
 export const options = {
-  type: ['primary', 'secondary', 'text', 'link' , 'ghost', 'default'] as const
+  type: [
+    "primary",
+    "secondary",
+    "tertiary",
+    "cuaternary",
+    "text",
+    "link",
+    "success",
+    "warning",
+    "danger",
+    "info",
+  ] as const,
 };
