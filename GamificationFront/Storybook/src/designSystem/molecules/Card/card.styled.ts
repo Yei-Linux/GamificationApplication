@@ -26,7 +26,6 @@ export const TitleContainer = tw.h4`
   font-bold
   m-0
   p-4
-  text-mainvariant
 `
 
 export const SubtitleContainer = tw.p`

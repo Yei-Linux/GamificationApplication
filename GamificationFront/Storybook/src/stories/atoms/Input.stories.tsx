@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from '../../atomic/atoms/Input';
+import Input from '../../designSystem/atoms/Input';
 import {
   EBorderType,
   EHeightType,

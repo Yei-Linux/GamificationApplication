@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Label from '../../atomic/atoms/Label';
+import Label from '../../designSystem/atoms/Label';
 import {
   EBorderType,
   EHeightType,

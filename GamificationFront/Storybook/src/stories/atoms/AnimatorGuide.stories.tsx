@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import AnimatorGuide from "../../atomic/atoms/AnimatorGuide";
+import AnimatorGuide from "../../designSystem/atoms/AnimatorGuide";
 
 export default {
   title: "Atoms/AnimatorGuide",

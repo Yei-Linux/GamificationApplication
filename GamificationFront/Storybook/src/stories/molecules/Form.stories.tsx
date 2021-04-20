@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../../atomic/molecules/Form';
+import Form from '../../designSystem/molecules/Form';
 import { EInputType, ETextFieldType } from '../../core/domain/enums';
 export default {
   title: 'Molecules/Form',

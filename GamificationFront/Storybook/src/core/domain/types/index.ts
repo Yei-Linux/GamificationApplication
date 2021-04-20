@@ -1,4 +1,5 @@
-import { options as optionsButton } from "../../../atomic/atoms/Button/constants"
+import { options as optionsButton } from "../../../designSystem/atoms/Button/constants"
+import { options as optionsIcon} from "../../../designSystem/atoms/Icon";
 import { options as optionsStyle} from "../../utils/constants";
 
 export type WidthType = typeof optionsStyle.width[number];
@@ -9,6 +10,8 @@ export type TextAlignType = typeof optionsStyle.textAlign[number];
 export type FontWeightType = typeof optionsStyle.fontWeight[number];
 
 export type ButtonType = typeof optionsButton.type[number];
+
+export type IconNames = typeof optionsIcon.names[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'

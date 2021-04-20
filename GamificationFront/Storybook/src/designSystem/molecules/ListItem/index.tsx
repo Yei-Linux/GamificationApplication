@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../atoms/Icon";
+import Icon from "../../atoms/Icon/Icon";
 import Label from "../../atoms/Label";
 import {
   EBorderType,

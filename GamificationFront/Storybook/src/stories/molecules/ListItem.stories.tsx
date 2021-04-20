@@ -1,6 +1,6 @@
 import React from 'react';
 import IceCreamLogo from "../assets/iceCreamIcon.svg";
-import ListItem from "../../atomic/molecules/ListItem";
+import ListItem from "../../designSystem/molecules/ListItem";
 
 export default {
   title: "Molecules/ListItem",

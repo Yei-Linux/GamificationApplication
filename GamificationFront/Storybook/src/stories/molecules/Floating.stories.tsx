@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import Floating from "../../atomic/molecules/Floating";
-import GuideMessage from "../../atomic/molecules/GuideMessage";
+import Floating from "../../designSystem/molecules/Floating";
+import GuideMessage from "../../designSystem/molecules/GuideMessage";
 
 export default {
   title: "Molecules/Floating",

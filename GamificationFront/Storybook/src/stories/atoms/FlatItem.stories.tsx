@@ -1,5 +1,5 @@
 import React from "react";
-import FlatItem from "../../atomic/atoms/FlatItem";
+import FlatItem from "../../designSystem/atoms/FlatItem";
 
 import FoodLogo from '../assets/foodIcon.svg';
 

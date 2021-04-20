@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import TrafficLight from "../../atomic/molecules/TrafficLight";
+import TrafficLight from "../../designSystem/molecules/TrafficLight";
 
 export default {
   title: "Molecules/TrafficLight",

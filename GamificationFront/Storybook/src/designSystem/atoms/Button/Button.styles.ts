@@ -22,8 +22,8 @@ export const ButtonWrapper = styled.button<{
   border: none;
   outline: none;
   cursor: pointer;
-  box-sizing: border-box;
   appearance: none;
+  padding: 10px;
 
   ${(props: any) => twinStyles(props)};
   ${(props: any) => ButtonTypes(props.typeStyle)};

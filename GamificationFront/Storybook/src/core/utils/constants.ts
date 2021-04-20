@@ -1,10 +1,15 @@
 export const options = {
-  width: ["MINSMALL", "SMALL", "NORMAL", "MEDIUM", "LARGE", "FULL"] as const,
+  width: ["NONE", "SMALL", "NORMAL", "MEDIUM", "LARGE", "FULL"] as const,
   height: ["SMALL", "NORMAL", "MEDIUM", "LARGE"] as const,
-  border: ["CIRCLE", "PILLSHAPE", "ROUNDED", "MEDIUM", "NORMAL"] as const,
-  shadow: ["MEDIUM", "LARGE", "XLARGE"] as const,
+  border: ["NONE", "SMALL", "MEDIUM", "ROUNDED", "FULL"] as const,
+  shadow: ["NONE", "SMALL", "MEDIUM", "LARGE", "XLARGE"] as const,
   textAlign: ["LEFT", "CENTER", "RIGHT", "JUSTIFY"] as const,
-  fontWeight: ["NORMAL", "MEDIUM", "SEMIBOLD", "BOLD"] as const,
+  fontWeight: [
+    "EXTRALIGHT",
+    "LIGHT",
+    "NORMAL",
+    "MEDIUM",
+    "SEMIBOLD",
+    "BOLD",
+  ] as const,
 };
-
-

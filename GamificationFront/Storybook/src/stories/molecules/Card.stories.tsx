@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import Label from "../../atomic/atoms/Label";
+import Label from "../../designSystem/atoms/Label";
 import {
   EFontWeight,
   EShadowType,
@@ -9,7 +9,7 @@ import {
   EBorderType,
 } from "../../core/domain/enums";
 import { mapEnum } from "../../core/helpers/data-managment.helper";
-import Card from "../../atomic/molecules/Card";
+import Card from "../../designSystem/molecules/Card";
 
 export default {
   title: "Molecules/Card",

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Button from "../../atomic/atoms/Button";
+import Button from "../../designSystem/atoms/Button";
 import {
   EWithType,
   EHeightType,
   EShadowType,
   EBorderType,
 } from "../../core/domain/enums";
-import Modal from "../../atomic/molecules/Modal";
+import Modal from "../../designSystem/molecules/Modal";
 
 export default {
   title: "Molecules/Modal",

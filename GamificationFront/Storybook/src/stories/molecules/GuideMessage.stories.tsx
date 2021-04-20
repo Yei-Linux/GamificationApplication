@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import GuideMessage from "../../atomic/molecules/GuideMessage";
+import GuideMessage from "../../designSystem/molecules/GuideMessage";
 
 export default {
   title: "Molecules/GuideMessage",

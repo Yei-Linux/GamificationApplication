@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import Message from "../../atomic/atoms/Message";
+import Message from "../../designSystem/atoms/Message";
 
 export default {
   title: "Atoms/Message",

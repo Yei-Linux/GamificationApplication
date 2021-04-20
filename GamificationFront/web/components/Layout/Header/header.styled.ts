@@ -49,7 +49,6 @@ export const HeaderItemText = tw.a`
     py-1
     px-3
     border-b-4
-    text-mainvariant
     font-semibold
     hover:cursor-pointer
 `
