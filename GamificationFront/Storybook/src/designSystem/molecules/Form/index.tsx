@@ -9,7 +9,7 @@ import {
 import { FormSchema, SubmitSchema } from "../../../core/domain/interfaces";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
-import Label from "../../atoms/Label";
+import Label from "../../atoms/RichText/RichText";
 
 import {
   BoxField,
@@ -29,7 +29,8 @@ const Form = ({ formSchema, submitSchema }: FormProps) => {
   const buildingInitialState = (): any => {
     let initialState = {};
     formSchema.map((field: FormSchema) => {
-      initialState[field.name] = field.defaultValue != undefined ? field.defaultValue : '';
+      initialState[field.name] =
+        field.defaultValue != undefined ? field.defaultValue : "";
     });
     return initialState;
   };

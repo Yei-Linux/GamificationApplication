@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../../atoms/Icon/Icon";
-import Label from "../../atoms/Label";
+import Label from "../../atoms/RichText/RichText";
 import {
   EBorderType,
   EFontWeight,

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import Label from "../../designSystem/atoms/Label";
+import Label from "../../designSystem/atoms/RichText/RichText";
 import {
   EFontWeight,
   EShadowType,

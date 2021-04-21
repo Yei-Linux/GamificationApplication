@@ -1,5 +1,5 @@
 import React from "react";
-import Label from "../../atoms/Label";
+import Label from "../../atoms/RichText/RichText";
 import { EFontWeight } from "../../../core/domain/enums";
 import {
   BoxContent,
