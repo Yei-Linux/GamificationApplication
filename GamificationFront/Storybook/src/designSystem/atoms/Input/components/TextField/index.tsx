@@ -10,7 +10,7 @@ import {
   InputGroup,
   CustomInput,
   InputIconContainer,
-} from '../../input.styled';
+} from '../../Input.styles';
 
 export interface ITextField {
   placeholder?: string;

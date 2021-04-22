@@ -8,7 +8,7 @@ import {
 } from "../../../core/domain/enums";
 import { FormSchema, SubmitSchema } from "../../../core/domain/interfaces";
 import Button from "../../atoms/Button";
-import Input from "../../atoms/Input";
+import Input from "../../atoms/Input/Input";
 import Label from "../../atoms/RichText/RichText";
 
 import {

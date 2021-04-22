@@ -6,7 +6,7 @@ import {
   EWithType,
 } from '../../../../../core/domain/enums';
 import { ItemSelect } from '../../../../../core/domain/interfaces';
-import { InputGroup, CustomSelect, CustomOption } from '../../input.styled';
+import { InputGroup, CustomSelect, CustomOption } from '../../Input.styles';
 
 export interface ISelectField {
   placeholder?: string;
