@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
-import { InputContainer } from "./Input.styles";
+import Icon from "../Icon";
+import { InputContainer, InputWrapper } from "./Input.styles";
 
 export interface IInput extends IGeneralProps {
   /**
@@ -18,11 +19,32 @@ export interface IInput extends IGeneralProps {
   /**
    * Prefix Content Input
    */
-  prefix?: React.ReactNode;
+  prefix?: any;
 }
 
 const Input = ({ placeholder, name, value, prefix, ...args }: IInput) => {
-  return <InputContainer placeholder={placeholder} name={name} value={value} {...args} />;
+  const renderInput = () => (
+    <InputContainer
+      placeholder={placeholder}
+      name={name}
+      value={value}
+      hasIcon={!!prefix}
+      {...args}
+    />
+  );
+
+  return (
+    <Fragment>
+      {!prefix && renderInput()}
+
+      {prefix && (
+        <InputWrapper {...args}>
+          {prefix}
+          {renderInput()}
+        </InputWrapper>
+      )}
+    </Fragment>
+  );
 };
 
 Input.defaultProps = {

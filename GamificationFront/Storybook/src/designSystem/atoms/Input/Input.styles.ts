@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { colorLight } from "../../../styles/theme";
+import { inputStyle } from "../../../styles/utilities/input";
 import { twinStyles } from "../../../styles/utilities/twinStyles";
 
-export const InputContainer = styled.input<{
+export const InputWrapper = styled.div<{
   border?: string;
   shadow?: string;
   width?: string;
@@ -10,7 +11,27 @@ export const InputContainer = styled.input<{
   textAlign?: string;
   fontWeight?: string;
 }>`
-  border: 1px solid ${colorLight.neutral.five};
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+
+  input {
+    border: none;
+  }
+
+  ${inputStyle()};
+  ${(props: any) => twinStyles(props)};
+`;
+
+export const InputContainer = styled.input<{
+  hasIcon?: boolean;
+  border?: string;
+  shadow?: string;
+  width?: string;
+  heigth?: string;
+  textAlign?: string;
+  fontWeight?: string;
+}>`
   outline: none;
   appearance: none;
   padding-left: 1rem;
@@ -19,17 +40,6 @@ export const InputContainer = styled.input<{
     color: ${colorLight.neutral.four};
   }
 
-  transition: all .3s;
-
-  &:focus {
-    border: 2px solid ${colorLight.primary.one};
-    box-shadow: 0 0 0 2px ${colorLight.primary.oneLight};
-  }
-
-  &:hover {
-    border: 2px solid ${colorLight.primary.one};
-    box-shadow: 0 0 0 2px ${colorLight.primary.oneLight};
-  }
-
-  ${(props: any) => twinStyles(props)};
+  ${(props: any) => !props.hasIcon && inputStyle()};
+  ${(props: any) => !props.hasIcon && twinStyles(props)};
 `;
