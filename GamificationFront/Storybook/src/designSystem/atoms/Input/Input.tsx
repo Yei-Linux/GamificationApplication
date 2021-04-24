@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
-import Icon from "../Icon";
 import { InputContainer, InputWrapper } from "./Input.styles";
 
 export interface IInput extends IGeneralProps {
@@ -20,36 +19,33 @@ export interface IInput extends IGeneralProps {
    * Prefix Content Input
    */
   prefix?: any;
+  /**
+   * Prefix Position
+   */
+  positionPrefix?: "left" | "right";
 }
 
-const Input = ({ placeholder, name, value, prefix, ...args }: IInput) => {
-  const renderInput = () => (
-    <InputContainer
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      hasIcon={!!prefix}
-      {...args}
-    />
-  );
+const Text = ({ ...args }) => (
+  <InputContainer hasIcon={!!args.prefix} {...args} />
+);
 
-  return (
-    <Fragment>
-      {!prefix && renderInput()}
-
-      {prefix && (
-        <InputWrapper {...args}>
-          {prefix}
-          {renderInput()}
-        </InputWrapper>
-      )}
-    </Fragment>
+const Input = ({ ...args }: IInput) => {
+  return !args.prefix ? (
+    <Text {...args} />
+  ) : (
+    <InputWrapper {...args}>
+      {args.prefix}
+      {<Text {...args} />}
+    </InputWrapper>
   );
 };
 
 Input.defaultProps = {
+  name: "gamification",
+  value: "",
   placeholder: "",
   prefix: null,
+  positionPrefix: "left",
 };
 
 export default Input;

@@ -1,8 +1,5 @@
 import { Meta } from "@storybook/react";
-import {
-    getTemplate,
-  stylesControl,
-} from "../../../core/helpers/storybook";
+import { getTemplate, stylesControl } from "../../../core/helpers/storybook";
 
 import Icon from ".";
 import { options as optionsIcon } from "./constants";
@@ -21,7 +18,7 @@ export default {
 
 export const BasicIcon = Template.bind({});
 BasicIcon.args = {
-    fill: "red",
-    size: "25px",
-    name: "facebook"
+  fill: "red",
+  size: "25px",
+  name: "facebook",
 };

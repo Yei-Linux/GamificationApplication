@@ -2,15 +2,15 @@ import React from "react";
 import { Meta } from "@storybook/react";
 import { getTemplate, stylesControl } from "../../../core/helpers/storybook";
 
-import Input from ".";
+import Password from ".";
 import Icon from "../Icon";
 
-const Template = getTemplate(Input);
+const Template = getTemplate(Password);
 
 export default {
-  title: "Atoms/Input",
-  component: Input,
-  args: { ...Input.defaultProps },
+  title: "Atoms/Password",
+  component: Password,
+  args: { ...Password.defaultProps },
   argTypes: {
     positionPrefix: {
       control: "select",
@@ -35,22 +35,11 @@ export default {
   },
 } as Meta;
 
-export const BasicInput = Template.bind({});
-BasicInput.args = {
-  placeholder: "Type your name",
+export const BasicPassword = Template.bind({});
+BasicPassword.args = {
+  placeholder: "Type your password",
   width: "NORMAL",
   heigth: "SMALL",
   shadow: "",
-  border: "MEDIUM",
-  prefix: null,
-};
-
-export const IconInput = Template.bind({});
-IconInput.args = {
-  placeholder: "Type your name",
-  width: "NORMAL",
-  heigth: "SMALL",
-  shadow: "",
-  border: "MEDIUM",
-  prefix: <Icon fill="#374a54" />,
+  border: "MEDIUM"
 };
