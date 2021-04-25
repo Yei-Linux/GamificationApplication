@@ -23,6 +23,10 @@ export interface IInput extends IGeneralProps {
    * Prefix Position
    */
   positionPrefix?: "left" | "right";
+  /**
+   * Prefix Position
+   */
+  type?: "password" | "input";
 }
 
 const Text = ({ ...args }) => (
@@ -42,10 +46,10 @@ const Input = ({ ...args }: IInput) => {
 
 Input.defaultProps = {
   name: "gamification",
-  value: "",
   placeholder: "",
   prefix: null,
   positionPrefix: "left",
+  type: "input",
 };
 
 export default Input;

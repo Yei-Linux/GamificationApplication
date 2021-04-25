@@ -11,19 +11,21 @@ const Password = ({ iconHide, iconVisible, ...args }: IPassword) => {
 
   const handleToggle = () => setIsVisible(!isVisible);
 
+  const toggleType = () => (isVisible ? "input" : "password");
+
   const renderIconPass = () => (
     <div onClick={() => handleToggle()}>
-      {isVisible ? iconHide : iconVisible}
+      {isVisible ? iconVisible : iconHide}
     </div>
   );
 
-  return <Input prefix={renderIconPass()} {...args} />;
+  return <Input type={toggleType()} prefix={renderIconPass()} {...args} />;
 };
 
 export default Password;
 
 Password.defaultProps = {
   positionPrefix: "right",
-  iconVisible: <Icon fill="red" />,
-  iconHide: <Icon fill="blue" />,
+  iconVisible: <Icon fill="red" size="30px" name="openeye" />,
+  iconHide: <Icon fill="blue" size="30px" name="closeeye" />,
 };

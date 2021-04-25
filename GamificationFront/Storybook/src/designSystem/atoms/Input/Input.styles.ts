@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
-import { colorLight } from "../../../styles/theme";
-import { inputStyle } from "../../../styles/utilities/input";
+import {
+  inputBasicStyle,
+  inputGeneralStyle,
+} from "../../../styles/utilities/input";
 import { twinStyles } from "../../../styles/utilities/twinStyles";
 
 export const InputWrapper = styled.div<{
@@ -22,7 +24,7 @@ export const InputWrapper = styled.div<{
     border: none;
   }
 
-  ${inputStyle()};
+  ${inputGeneralStyle()};
   ${(props: any) => twinStyles(props)};
 `;
 
@@ -35,14 +37,7 @@ export const InputContainer = styled.input<{
   textAlign?: string;
   fontWeight?: string;
 }>`
-  outline: none;
-  appearance: none;
-  padding-left: 1rem;
-
-  &::placeholder {
-    color: ${colorLight.neutral.four};
-  }
-
-  ${(props: any) => !props.hasIcon && inputStyle()};
+  ${inputBasicStyle()};
+  ${(props: any) => !props.hasIcon && inputGeneralStyle()};
   ${(props: any) => !props.hasIcon && twinStyles(props)};
 `;
