@@ -27,6 +27,10 @@ export interface IInput extends IGeneralProps {
    * Prefix Position
    */
   type?: "password" | "input";
+  /**
+   * Autocomplete action
+   */
+  autoComplete?: "off" | "on";
 }
 
 const Text = ({ ...args }) => (
@@ -50,6 +54,7 @@ Input.defaultProps = {
   prefix: null,
   positionPrefix: "left",
   type: "input",
+  autoComplete: "off",
 };
 
 export default Input;
