@@ -1,6 +1,6 @@
 import React from "react";
-import AnimatorGuide from "../../atoms/AnimatorGuide";
-import Message from "../../atoms/Message";
+import AnimatorGuide from "../../atoms/AnimatorGuide/AnimatorGuide";
+import Message from "../../atoms/Message/Message";
 import { GuideMessageWrapper } from "./styled";
 
 export interface GuideMessageProps {
