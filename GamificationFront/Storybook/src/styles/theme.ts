@@ -2,6 +2,7 @@ export const colorDark = {
   primary: {
     one: "#7f9cf5",
     two: "#ffffff",
+    oneLight: "rgb(24 144 255 / 20%)",
   },
   secondary: {
     one: "#ffc75f",
@@ -13,10 +14,11 @@ export const colorDark = {
     two: "#454545",
     three: "#686868",
     four: "#A4A4A4",
-    five: "#EAEAEA",
-    six: "#F2F2F2",
-    seven: "#F8F8F8",
-    eight: "#FFFFFF",
+    five: "#D9D9D9",
+    six: "#EAEAEA",
+    seven: "#F2F2F2",
+    eight: "#F8F8F8",
+    nine: "#FFFFFF",
   },
   semantic: {
     success: "#16c79a",

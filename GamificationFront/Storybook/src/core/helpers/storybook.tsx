@@ -18,7 +18,7 @@ export const getListTemplate = (Component: React.ComponentType<any>): any => ({
 }) =>
   items.map((item, index) => (
     <TableStories key={index} item={item} field={field}>
-        <Component {...args} {...item} />
+      <Component {...args} {...item} />
     </TableStories>
   ));
 
