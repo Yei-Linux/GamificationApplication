@@ -17,7 +17,6 @@ export const MessageWrapper = styled.div<{
   position: relative;
   padding: 10px;
   text-align: left;
-  font-weight: bold;
   border-radius: 10px;
   color: white;
   max-width: 200px;

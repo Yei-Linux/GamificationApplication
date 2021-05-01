@@ -203,7 +203,7 @@ export const spacing = {
 
 export const typography = {
   type: {
-    primary: "Atlanta Corner Demo",
+    primary: "Patrick Hand, cursive",
     secondary: "Avotte",
     terciary: "Rude1",
   },

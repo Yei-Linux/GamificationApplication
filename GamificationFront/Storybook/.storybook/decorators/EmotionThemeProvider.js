@@ -1,10 +1,10 @@
 import React from "react";
-import { ThemeProvider } from "@emotion/react";
+import ThemeGamification from "../../src/providers/ThemeGamification"
 
 const EmotionThemeProvider = (storyFn) => (
-  <ThemeProvider theme={{}}>
+  <ThemeGamification>
     {storyFn()}
-  </ThemeProvider>
+  </ThemeGamification>
 );
 
 export default EmotionThemeProvider;
