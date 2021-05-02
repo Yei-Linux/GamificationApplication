@@ -1,15 +1,20 @@
 import { Meta } from "@storybook/react";
+import { stylesControl } from "../../../core/helpers/storybook";
+
+import Floating from ".";
 import React from "react";
-import Floating from "../../designSystem/molecules/Floating";
-import GuideMessage from "../../designSystem/molecules/GuideMessage";
+import GuideMessage from "../GuideMessage";
 
 export default {
   title: "Molecules/Floating",
   component: Floating,
-  argTypes: {},
+  args: { ...Floating.defaultProps },
+  argTypes: {
+    ...stylesControl,
+  },
 } as Meta;
 
-export const FloatingRightBasic = (args: any) => (
+export const Right = (args: any) => (
   <Floating {...args}>
     <GuideMessage
       guideType="chill"
@@ -20,13 +25,11 @@ export const FloatingRightBasic = (args: any) => (
   </Floating>
 );
 
-FloatingRightBasic.args = {
+Right.args = {
   direction: "right",
 };
 
-FloatingRightBasic.storyName = "Basic Floating Right";
-
-export const FloatingLeftBasic = (args: any) => (
+export const Left = (args: any) => (
   <Floating {...args}>
     <GuideMessage
       guideType="chill"
@@ -37,13 +40,11 @@ export const FloatingLeftBasic = (args: any) => (
   </Floating>
 );
 
-FloatingLeftBasic.args = {
+Left.args = {
   direction: "left",
 };
 
-FloatingLeftBasic.storyName = "Basic Floating Left";
-
-export const FloatingTopBasic = (args: any) => (
+export const Top = (args: any) => (
   <Floating {...args}>
     <GuideMessage
       guideType="chill"
@@ -54,13 +55,11 @@ export const FloatingTopBasic = (args: any) => (
   </Floating>
 );
 
-FloatingTopBasic.args = {
+Top.args = {
   direction: "top",
 };
 
-FloatingTopBasic.storyName = "Basic Floating Top";
-
-export const FloatingBottomBasic = (args: any) => (
+export const Bottom = (args: any) => (
   <Floating {...args}>
     <GuideMessage
       guideType="chill"
@@ -71,8 +70,6 @@ export const FloatingBottomBasic = (args: any) => (
   </Floating>
 );
 
-FloatingBottomBasic.args = {
+Bottom.args = {
   direction: "bottom",
 };
-
-FloatingBottomBasic.storyName = "Basic Floating Bottom";

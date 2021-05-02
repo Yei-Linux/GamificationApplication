@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
 import { IconNames } from "../../../core/domain/types";
-import "../../../styles/iconpack.svg";
 import { IconsPack } from "./constants";
 import { IconWrapper } from "./Icon.styles";
 
