@@ -1,12 +1,11 @@
 import React from "react";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
+import { SubtitleContainer, TitleContainer } from "../../../styles/utilities/text";
 import {
   CardContent,
   CardCover,
   CardFooter,
   CardWrapper,
-  SubtitleContainer,
-  TitleContainer,
 } from "./Card.styles";
 
 export interface ICard extends IGeneralProps {

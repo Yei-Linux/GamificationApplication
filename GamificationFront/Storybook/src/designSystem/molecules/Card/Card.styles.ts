@@ -36,11 +36,3 @@ export const CardFooter = styled.div`
   margin: 0px;
   border: 1px solid ${colorLight.neutral.seven};
 `;
-
-export const TitleContainer = styled.div`
-  color: ${colorLight.neutral.one};
-`;
-
-export const SubtitleContainer = styled.div`
-  color: ${colorLight.neutral.four};
-`;
