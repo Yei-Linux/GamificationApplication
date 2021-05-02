@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import tw from "twin.macro";
+import { twinStyles } from "../../../styles/utilities/twinStyles";
 
 export const TrafficLightWrapper = styled.div<{
   border?: string;
@@ -10,6 +11,8 @@ export const TrafficLightWrapper = styled.div<{
   ${tw`flex flex-col justify-center items-center w-fit rounded-md`}
   padding: 10px 0px;
   background-color: #3a3a3a;
+
+  ${(props: any) => twinStyles(props)};
 `;
 
 export const TrafficLightContainer = tw.div`flex flex-col justify-center items-center w-full h-full`;
