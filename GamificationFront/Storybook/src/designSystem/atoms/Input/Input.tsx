@@ -10,11 +10,11 @@ export interface IInput extends IGeneralProps {
   /**
    * Identifier Input
    */
-  name: string;
+  name?: string;
   /**
    * Value Input
    */
-  value: any;
+  value?: any;
   /**
    * Prefix Content Input
    */

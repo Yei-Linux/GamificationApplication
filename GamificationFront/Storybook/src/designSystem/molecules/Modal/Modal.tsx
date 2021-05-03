@@ -14,6 +14,7 @@ import {
 } from "./Modal.styles";
 
 import { gsap } from "gsap";
+import usePortal from "../../../hooks/usePortal";
 
 interface IModal extends IGeneralProps {
   /**
@@ -70,6 +71,7 @@ const Modal = ({
   let refDialog: any = null;
   let refContent: any = null;
 
+  const {} = usePortal({ destinyElement: document.body });
   const [modalTween] = useState(gsap.timeline({ paused: true }));
 
   useEffect(() => {
