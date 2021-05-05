@@ -4,12 +4,19 @@ import { SwitchBall, SwitchWrapper } from "./Switch.styles";
 
 export interface ISwitch extends IGeneralProps {
   defaultChecked: boolean;
+  /**
+   * Function to detect changes
+   */
+  onChangeFormItem?: any;
 }
 
-const Switch = ({ defaultChecked, ...args }: ISwitch) => {
+const Switch = ({ onChangeFormItem, defaultChecked, ...args }: ISwitch) => {
   const [isChecked, setIsChecked] = useState(defaultChecked);
 
-  const toggle = () => setIsChecked(!isChecked);
+  const toggle = () => {
+    onChangeFormItem(!isChecked);
+    setIsChecked(!isChecked);
+  };
 
   return (
     <SwitchWrapper isChecked={isChecked} {...args} onClick={() => toggle()}>

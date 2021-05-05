@@ -6,14 +6,14 @@ const REGEX__NUMBER = /^[0-9]+$/;
 
 export interface INumber extends IInput {}
 
-const Number = ({ onChange, ...args }: INumber) => {
-  const handleTypying = (e: any) => {
-    if (REGEX__NUMBER.test(e.target.value)) {
+const Number = ({ onChangeFormItem, ...args }: INumber) => {
+  const handleTypying = (value: any) => {
+    if (REGEX__NUMBER.test(value)) {
+      onChangeFormItem(value);
     }
-    e.preventDefault();
   };
 
-  return <Input onChange={handleTypying} {...args} />;
+  return <Input onChangeFormItem={handleTypying} {...args} />;
 };
 
 Number.defaultProps = {};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
 import useCloneElement from "../../../hooks/useCloneElements";
 import Input from "../../atoms/Input";
@@ -28,6 +28,12 @@ Form.Item = ({
   name: string;
   children: React.ReactNode;
 }) => {
+  const [value, setValue] = useState("");
+
+  const handleChangeValue = (value: any): void => {
+    setValue(value);
+  };
+
   const { validatorChildrenLength, childrenWithProps } = useCloneElement({
     children,
     propsElement: {
@@ -35,6 +41,8 @@ Form.Item = ({
       width: "NORMAL",
       heigth: "SMALL",
       border: "MEDIUM",
+      value,
+      onChangeFormItem: handleChangeValue,
     },
     maxChildrenNumber: 1,
     childrenTypes: [Input, Password, TextArea, Select, Radio, Number, Switch],

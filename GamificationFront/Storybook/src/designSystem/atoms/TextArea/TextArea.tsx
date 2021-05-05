@@ -15,27 +15,39 @@ export interface ITextArea extends IGeneralProps {
   /**
    * Identifier TextArea
    */
-  name: string;
+  name?: string;
   /**
    * Value TextArea
    */
-  value: any;
+  value?: any;
   /**
    * Cols TextArea
    */
-  cols: number;
+  cols?: number;
   /**
    * Rows TextArea
    */
-  rows: number;
+  rows?: number;
   /**
    * Autosize TextArea
    */
   autoSize?: AutoSize;
+  /**
+   * Function to detect changes
+   */
+  onChangeFormItem?: any;
 }
 
-const TextArea = ({ autoSize, ...args }: ITextArea) => {
-  return <TextAreaWrapper {...args} />;
+const TextArea = ({ autoSize, onChangeFormItem, ...args }: ITextArea) => {
+  return (
+    <TextAreaWrapper
+      {...args}
+      onChange={(e: any) => {
+        onChangeFormItem(e.target.value);
+        e.preventDefault();
+      }}
+    />
+  );
 };
 
 TextArea.defaultProps = {

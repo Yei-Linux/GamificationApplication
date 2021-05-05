@@ -31,19 +31,30 @@ export interface IInput extends IGeneralProps {
    * Autocomplete action
    */
   autoComplete?: "off" | "on";
+  /**
+   * Function to detect changes
+   */
+  onChangeFormItem?: any;
 }
 
-const Text = ({ ...args }) => (
-  <InputContainer hasIcon={!!args.prefix} {...args} />
+const Text = ({ onChangeFormItem, ...args }: any) => (
+  <InputContainer
+    hasIcon={!!args.prefix}
+    {...args}
+    onChange={(e: any) => {
+      onChangeFormItem(e.target.value);
+      e.preventDefault();
+    }}
+  />
 );
 
-const Input = ({ ...args }: IInput) => {
+const Input = ({ onChangeFormItem, ...args }: IInput) => {
   return !args.prefix ? (
-    <Text {...args} />
+    <Text onChangeFormItem={onChangeFormItem} {...args} />
   ) : (
     <InputWrapper {...args}>
       {args.prefix}
-      {<Text {...args} />}
+      {<Text onChangeFormItem={onChangeFormItem} {...args} />}
     </InputWrapper>
   );
 };
