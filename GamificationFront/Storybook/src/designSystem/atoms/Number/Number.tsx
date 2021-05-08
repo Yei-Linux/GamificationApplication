@@ -16,6 +16,10 @@ const Number = ({ onChangeFormItem, ...args }: INumber) => {
   return <Input onChangeFormItem={handleTypying} {...args} />;
 };
 
-Number.defaultProps = {};
+Number.defaultProps = {
+  width: "NORMAL",
+  heigth: "SMALL",
+  border: "MEDIUM",
+};
 
 export default Number;

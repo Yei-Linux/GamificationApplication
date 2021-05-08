@@ -16,6 +16,8 @@ export const FormItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
 `;
 
 export const FormLabel = styled(RichText)`

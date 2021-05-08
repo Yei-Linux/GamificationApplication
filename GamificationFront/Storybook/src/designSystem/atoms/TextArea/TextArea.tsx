@@ -55,6 +55,9 @@ TextArea.defaultProps = {
   placeholder: "",
   cols: 5,
   rows: 5,
+  width: "NORMAL",
+  heigth: "SMALL",
+  border: "MEDIUM",
 };
 
 export default TextArea;

@@ -24,6 +24,9 @@ const Button = ({ children, type, ...args }: IButton) => {
 
 Button.defaultProps = {
   type: "primary",
+  border: "MEDIUM",
+  heigth: "SMALL",
+  width: "SMALL",
 };
 
 export default Button;

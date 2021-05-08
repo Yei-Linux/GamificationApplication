@@ -10,7 +10,7 @@ interface ISetOptionSelected {
 
 const SelectProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
-    optionSelected: null,
+    optionSelected: { value: "", text: "" },
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

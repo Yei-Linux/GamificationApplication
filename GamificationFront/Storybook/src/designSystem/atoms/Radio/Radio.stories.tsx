@@ -16,9 +16,11 @@ export default {
 export const Basic = (args: any) => {
   return (
     <Radio {...args}>
-      <Radio.Item isChecked>A</Radio.Item>
-      <Radio.Item>B</Radio.Item>
-      <Radio.Item>C</Radio.Item>
+      <Radio.Item isChecked value="one">
+        A
+      </Radio.Item>
+      <Radio.Item value="two">B</Radio.Item>
+      <Radio.Item value="three">C</Radio.Item>
     </Radio>
   );
 };

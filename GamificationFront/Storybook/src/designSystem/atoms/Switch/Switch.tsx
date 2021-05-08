@@ -28,6 +28,7 @@ const Switch = ({ onChangeFormItem, defaultChecked, ...args }: ISwitch) => {
 Switch.defaultProps = {
   defaultChecked: true,
   border: "ROUNDED",
+  width: "NORMAL",
 };
 
 export default Switch;

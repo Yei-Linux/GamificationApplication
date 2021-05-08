@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import FormProvider from "../../../context/FormProvider";
+import context from "../../../context/FormProvider/context";
 import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
 import useCloneElement from "../../../hooks/useCloneElements";
+import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 import Number from "../../atoms/Number";
 import Password from "../../atoms/Password";
@@ -12,40 +15,63 @@ import TextArea from "../../atoms/TextArea";
 import { FormItemWrapper, FormLabel, FormWrapper } from "./Form.styles";
 
 export interface FormProps extends IGeneralProps {
+  onSubmitForm?: () => any;
   children: React.ReactNode;
 }
 
-const Form = ({ children, ...args }: FormProps) => {
+const FormContent = ({ children, onSubmitForm, ...args }: FormProps) => {
+  const {} = useContext(context);
   return <FormWrapper {...args}>{children}</FormWrapper>;
 };
 
+const Form = ({ children, ...args }: FormProps) => {
+  return (
+    <FormProvider>
+      <FormContent {...args}>{children}</FormContent>
+    </FormProvider>
+  );
+};
+
 Form.Item = ({
-  label,
+  label = "",
   name,
   children,
 }: {
-  label: string;
+  label?: string;
   name: string;
   children: React.ReactNode;
 }) => {
-  const [value, setValue] = useState("");
+  const { formValue, setFormValues, onClickSubmit } = useContext(context);
 
   const handleChangeValue = (value: any): void => {
-    setValue(value);
+    setFormValues({ name, value });
   };
+
+  const submitValues = () => onClickSubmit(formValue);
 
   const { validatorChildrenLength, childrenWithProps } = useCloneElement({
     children,
     propsElement: {
-      name: name,
-      width: "NORMAL",
-      heigth: "SMALL",
-      border: "MEDIUM",
-      value,
+      name,
+      value: formValue?.name?.value,
       onChangeFormItem: handleChangeValue,
     },
     maxChildrenNumber: 1,
-    childrenTypes: [Input, Password, TextArea, Select, Radio, Number, Switch],
+    advancedOptions: {
+      propsOfElement: [
+        { props: { onClick: submitValues }, childrenConditionTypes: [Button] },
+      ],
+    },
+    childrenTypes: [
+      Input,
+      Password,
+      TextArea,
+      Select,
+      Radio,
+      Number,
+      Switch,
+      Button,
+    ],
   });
 
   if (validatorChildrenLength()) {
@@ -54,7 +80,9 @@ Form.Item = ({
 
   return (
     <FormItemWrapper>
-      <FormLabel text={label} width="NONE" heigth="NORMAL" border="NONE" />
+      {label != "" && (
+        <FormLabel text={label} width="NONE" heigth="NORMAL" border="NONE" />
+      )}
       {childrenWithProps}
     </FormItemWrapper>
   );
