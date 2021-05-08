@@ -17,9 +17,9 @@ export default {
 export const BasicSelect = (args: any) => {
   return (
     <Select {...args}>
-      <Select.Option>Option1</Select.Option>
-      <Select.Option>Option2</Select.Option>
-      <Select.Option>Option3</Select.Option>
+      <Select.Option value="one" >Option1</Select.Option>
+      <Select.Option value="two">Option2</Select.Option>
+      <Select.Option value="three">Option3</Select.Option>
     </Select>
   );
 };

@@ -10,7 +10,7 @@ import {
 } from "./Radio.styles";
 
 interface IRadioItem {
-  children: React.ReactNode;
+  children: string;
   value?: string;
   isChecked?: boolean;
 }

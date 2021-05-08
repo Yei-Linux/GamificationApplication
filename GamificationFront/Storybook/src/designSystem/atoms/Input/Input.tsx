@@ -35,6 +35,10 @@ export interface IInput extends IGeneralProps {
    * Function to detect changes
    */
   onChangeFormItem?: any;
+  /**
+   * Is Readonly input
+   */
+   readOnly?: any;
 }
 
 const Text = ({ onChangeFormItem, ...args }: any) => (
@@ -66,6 +70,7 @@ Input.defaultProps = {
   positionPrefix: "left",
   type: "input",
   autoComplete: "off",
+  readOnly: false,
 };
 
 export default Input;
