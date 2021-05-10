@@ -1,1 +1,0 @@
-export const SET_RADIO_SELECTED = 'SET_RADIO_SELECTED'
